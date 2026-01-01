@@ -25,7 +25,7 @@ Whether you are running a small gaming community or a large enterprise server, T
 </div>
 
 <figure markdown>
-  ![TicketForge Dashboard](assets/images/dashboard/main-overview.png){ loading=lazy }
+  ![TicketForge Dashboard](assets/images/dashboard/edit_panel.webp){ loading=lazy }
   <figcaption>Manage your tickets, panels, and settings from a beautiful web dashboard.</figcaption>
 </figure>
 
