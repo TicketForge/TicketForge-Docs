@@ -14,7 +14,7 @@ After logging in via Discord, you will see the **Server List**.
 - **Available Servers:** Servers where you have administrative rights but the bot is missing. Click **Invite** to add it.
 
 <figure markdown>
-  ![Server List](../assets/images/server-list-preview.png){ loading=lazy }
+  ![Server List](../assets/images/select_server.webp){ loading=lazy }
   <figcaption>The server selection screen showing active and available servers.</figcaption>
 </figure>
 
@@ -23,7 +23,7 @@ After logging in via Discord, you will see the **Server List**.
 Once you select a server, the sidebar provides access to specific tools:
 
 <figure markdown>
-  ![Dashboard Overview](../assets/images/dashboard/main-overview.png){ loading=lazy }
+  ![Dashboard Overview](../assets/images/dashboard/edit_panel.webp){ loading=lazy }
   <figcaption>The main dashboard interface with sidebar navigation.</figcaption>
 </figure>
 

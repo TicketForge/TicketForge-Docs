@@ -24,7 +24,7 @@ You can also navigate to this page by clicking on your profile and then "Servers
 2. Select **Servers** from the dropdown menu.
 
 <figure markdown>
-  ![Server List](../assets/images/server-list-preview.png){ width="500" }
+  ![Server List](../assets/images/select_server.webp){ width="500" }
   <figcaption>Your available servers list.</figcaption>
 </figure>
 
