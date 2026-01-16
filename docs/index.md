@@ -1,49 +1,50 @@
 # Welcome to TicketForge
 
-**TicketForge** is the ultimate Discord ticketing bot designed to streamline support requests, automate workflows, and organize your community interactions.
+**TicketForge** is the command center for your Discord support team. Tame the chaos with intuitive panels, smart automation, and pixel-perfect customization.
 
-Whether you are running a small gaming community or a large enterprise server, TicketForge allows you to manage support requests through an intuitive web dashboard.
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); margin-bottom: 2rem;">
+    <iframe 
+        src="https://www.youtube.com/embed/Im3quAqKLSI" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch: **Getting Started**<br>
-  Learn how to invite the bot and set up your first support panel in minutes.<br>
-  [:octicons-arrow-right-24: Installation](getting-started/installation.md)
+- :material-rocket-launch: **Quick Start**<br>
+  Invite the bot and set up your first panel in minutes.<br>
+  [Start Setup](panels/create.md)
 
-- :material-view-dashboard-edit: **Panel Configuration**<br>
-  Customize embeds, buttons, dropdowns, and intake forms to fit your brand.<br>
-  [:octicons-arrow-right-24: Create Panels](panels/create.md)
+- :material-view-dashboard-edit: **Panel Editor**<br>
+  Deep dive into our powerful web dashboard configuration.<br>
+  [View Editor Docs](panels/editor.md)
 
 - :material-robot: **Automation**<br>
-  Set up auto-replies, auto-closing, and transcript logging to save your staff time.<br>
-  [:octicons-arrow-right-24: Automation](features/automation.md)
+  Auto-close tickets, transcript logging, and more.<br>
+  [See Features](features/automation.md)
 
 - :material-crown: **Premium**<br>
-  Unlock advanced limits, statistics, and white-label features.<br>
-  [:octicons-arrow-right-24: Premium Plans](premium/plans.md)
+  Unlock unlimited panels, statistics, and white-labeling.<br>
+  [View Plans](premium.md)
 
 </div>
-
-<figure markdown>
-  ![TicketForge Dashboard](assets/images/dashboard/edit_panel.webp){ loading=lazy }
-  <figcaption>Manage your tickets, panels, and settings from a beautiful web dashboard.</figcaption>
-</figure>
 
 ## Key Features
 
 | Feature | Description |
 | :--- | :--- |
-| :material-cursor-default-click: **Intuitive Creation** | Allow users to open tickets via customizable **Buttons** or **Select Menus**. |
-| :material-form-select: **Custom Forms** | Collect essential data before a ticket opens using interactive **Modal Forms**. |
-| :material-robot-confused: **Smart Automation** | Automate **Auto-Closing**, **User Leave Handling**, and custom **Auto-DMs**. |
-| :material-account-check: **Claiming System** | Assign specific staff to tickets to prevent collisions and track performance. |
-| :material-star-outline: **Rating System (CSAT)** | Gather user feedback with **1-5 star ratings** and a public **Review Feed**. |
-| :material-file-document-outline: **Archiving & Logging** | Generate permanent **HTML Transcripts** and real-time **Audit Logs** of all events. |
-| :material-calendar-clock: **Schedules** | Set **Operational Hours** and timezones to control when your team is available. |
-| :material-palette: **Complete Customization** | Full control over **Embed Colors**, **Author Icons**, and **Message Variables**. |
+| **Forms** | Collect data before a ticket opens using specific questions. |
+| **Claiming** | Prevent staff collisions by allowing mods to "Claim" a ticket. |
+| **Threads** | Keep your channel list clean by using private Threads for tickets. |
+| **Ratings** | Gather CSAT scores (1-5 Stars) after every interaction. |
 
-## Need Help?
+---
 
-If you can't find what you are looking for, join our support server.
+## Installation
 
-[Join Support Server](https://discord.gg/ya3Rv9VmpR){ .md-button .md-button--primary }
+1.  **[Invite the Bot](https://ticketforge.xyz/invite)** to your server.
+2.  Ensure the bot has `Manage Channels` and `Manage Roles` permissions.
+3.  Log in to the **[Dashboard](https://ticketforge.xyz/dashboard)** to start building.

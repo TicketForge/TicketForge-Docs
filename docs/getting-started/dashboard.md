@@ -1,53 +1,58 @@
 # Dashboard Overview
 
-The TicketForge Dashboard is a **powerful, fully responsive management system** designed to be the heart of your ticketing system. It provides a comprehensive visual interface to build automation, design professional embeds, and manage your staff—accessible from both desktop and mobile devices.
+The **TicketForge Dashboard** is the command center for your support system. TicketForge provides a modern, responsive web interface to visualize and configure everything.
 
-While TicketForge supports intuitive Discord slash commands for quick actions, the dashboard allows you to handle advanced configurations without the limitations of a chat interface.
 
-[Access Dashboard](https://ticketforge.xyz){ .md-button .md-button--primary }
+## 2. The Dashboard
 
-## 1. Server Selection
-
-After logging in via Discord, you will see the **Server List**.
-
-- **Active Servers:** Servers where TicketForge is already present. Click **Manage** to enter the configuration area.
-- **Available Servers:** Servers where you have administrative rights but the bot is missing. Click **Invite** to add it.
+Once you select a server, the **Sidebar** becomes your main navigation tool. It is divided into logical sections to help you manage different aspects of the bot.
 
 <figure markdown>
-  ![Server List](../assets/images/select_server.webp){ loading=lazy }
-  <figcaption>The server selection screen showing active and available servers.</figcaption>
+  ![Panel Editor](../assets/images/panels/paneleditor.png){ loading=lazy }
+  <figcaption>The Panel Editor view with the sidebar navigation on the left.</figcaption>
 </figure>
 
-## 2. Navigation Sidebar
+| Section | Description |
+| :--- | :--- |
+| :material-view-dashboard-edit: **Panel Editor** | **The Core Feature.** Create reaction panels, edit embed messages, configure forms, and set up ticket logic. Most of your time will be spent here. |
+| :material-console: **Commands** | A permission manager for slash commands. Disable specific commands (`/close`) or restrict them to certain roles/channels. |
+| :material-cog: **Server Config** | Global settings that apply to the whole bot, such as **Bot Language**, **Dashboard Access Roles**, and **Interaction Blacklists**. |
+| :material-history: **History** | An audit log of all changes made via the dashboard. Useful for seeing which admin changed a setting. |
+| :material-chart-bar: **Statistics** | Visual charts showing ticket volume, claim times, and staff activity. (7 days history for Free, Unlimited for Premium). |
+| :material-crown: **Premium** | Manage your subscription, view invoices, or activate a license key. |
 
-Once you select a server, the sidebar provides access to specific tools:
+## 3. Navigation & Workflow
 
-<figure markdown>
-  ![Dashboard Overview](../assets/images/dashboard/edit_panel.webp){ loading=lazy }
-  <figcaption>The main dashboard interface with sidebar navigation.</figcaption>
-</figure>
+The dashboard is designed for speed.
 
-| Section                                         | Description                                                                                          |
-| :---------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
-| :material-view-dashboard-edit: **Panel Editor** | The core builder. Create reaction panels, configure buttons, and set up ticket logic.                |
-| :material-console: **Commands**                 | Enable/Disable specific slash commands (`/close`, `/claim`, etc.) and set role/channel restrictions. |
-| :material-cog: **Server Config**                | Global settings like the **Dashboard Access Roles**, **Language**, and **Ticket Limits**.            |
-| :material-history: **History**                  | An audit log of all changes made to your bot configuration via the dashboard.                        |
-| :material-chart-bar: **Statistics**             | View charts regarding ticket volume, claim times, and staff activity.                                |
-| :material-crown: **Premium**                    | Manage your subscription, view invoices, or activate a license key.                                  |
+### Breadcrumbs
+Located at the top left (e.g., `My Server > Support Panel > Messages`).
+*   Click **My Server** to go back to the server settings.
+*   Click **Support Panel** to switch back to the main settings grid for that panel.
 
-## 3. Navigation
+### Quick Switcher
+In the top-left of the sidebar, clicking the **Server Name** opens a dropdown. This allows you to jump to a different server without going back to the main menu.
 
-The dashboard is designed to keep everything within reach so you don't have to keep clicking "Back."
+### Mobile Support
+The dashboard is **fully responsive**. You can configure panels, edit messages, and manage subscriptions directly from your phone's browser. The sidebar collapses into a "Hamburger Menu" on smaller screens.
 
-- **Global Links:** At the very top, you’ll find quick links to **Invite** the bot, join our **Support** server, manage **Premium**, or jump back into these **Docs**.
-- **Breadcrumbs:** Right below the top bar, the breadcrumbs show exactly where you are (e.g., `Server Name > Panel Name`). You can click the server name to go back to the main server settings.
-- **User Profile:** Your Discord avatar is in the top right. Click it if you need to log out, select a server or check the status of TicketForge.
-- **Quick Switch:** In the top-left sidebar widget, the **Switch** button lets you jump between different panels in the same server without leaving the editor.
+## 4. Saving Your Work
 
-## 4. Saving Changes
+The dashboard uses a **Draft System**. Changes are not applied to the live bot until you explicitly save them.
 
-!!! note "Unsaved Changes"
-    The dashboard includes a **Safe Save** system. If you make changes (e.g., edit a message or toggle a setting), a bar will appear at the bottom of the screen prompting you to **Save Changes** or **Discard**.
+!!! note "Safe Save System"
+    When you modify a setting, a **Save Bar** appears at the bottom of the screen.
+    
+    *   **Save Changes:** Pushes the update to the database and the live bot.
+    *   **Discard:** Reverts all changes made since the last save.
+    
+    If you try to close the tab with unsaved changes, the browser will block you with a confirmation warning.
 
-    If you try to leave the page with unsaved changes, a confirmation modal will prevent you from losing your work.
+## Troubleshooting
+
+**"403 Forbidden" Error?**
+This usually means you lost administrative access to the server, or your login session expired.
+-> **Log Out** and **Log In** again to refresh your permissions.
+
+**Dashboard not loading?**
+Check our [Status Page](https://ticketforge.statuspage.io/) to see if the API is experiencing issues.

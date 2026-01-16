@@ -1,44 +1,24 @@
 # Limits & Schedules
 
-Control the flow of tickets to prevent spam and ensure your team only receives requests when they are available.
+Control the flow of tickets to prevent spam and burnout.
+
+<figure markdown>
+  ![Automation Settings](../assets/images/features/limits.png){ loading=lazy }
+  <figcaption>Limit and Schedule settings.</figcaption>
+</figure>
 
 ## Ticket Limits
+Prevent users from spamming your support team.
 
-You can cap the number of tickets to prevent abuse.
-
-<figure markdown>
-  ![Limits Configuration](../assets/images/features/limits-config.png){ loading=lazy }
-  <figcaption>Setting user and server-wide ticket caps.</figcaption>
-</figure>
-
-| Limit Type             | Description                                                                                            |
-| :--------------------- | :----------------------------------------------------------------------------------------------------- |
-| **Per User Limit**     | Max active tickets a single user can have open simultaneously (Default: 1).                            |
-| **Server Total Limit** | Max active tickets allowed for the entire server (e.g., 50).                                           |
-| **History Limit**      | How many _closed_ tickets are kept in the database for history lookup before old ones are rotated out. |
-
-### Bypass Roles
-
-Assign specific roles (e.g., "VIP", "Server Booster") that can ignore these limits and open tickets regardless of the cap.
-
----
+*   **Per User Limit:** Max active tickets a single user can have (Default: 1).
+*   **Server Total Limit:** Hard cap on open tickets for the whole server (e.g., 50).
+*   **Bypass Roles:** Select roles (like VIPs or Boosters) that ignore these limits.
 
 ## Operational Schedule
+Define your support hours. Users cannot open tickets outside these times.
 
-Define your support hours to manage user expectations.
-
-<figure markdown>
-  ![Schedule Grid](../assets/images/features/schedule-grid.png){ loading=lazy }
-  <figcaption>The interactive weekly grid. Purple indicates open hours.</figcaption>
-</figure>
-
-1.  **Timezone:** Set your server's local timezone.
-2.  **Weekly Grid:** Click on hour blocks to toggle them **Open** (Purple) or **Closed** (Grey).
-3.  **Bypass Roles:** Select roles that can open tickets even when support is closed (e.g., "Emergency").
-
-### Closure Behavior
-
-When a user tries to open a ticket outside of operating hours:
-
-- **Disable Button (Default):** The user receives a hidden error message saying support is closed. The ticket is not created.
-- **Replace Message:** The ticket **IS** created, but instead of the standard "Welcome Message", a specific "Support Closed Message" is sent. This is useful if you want to allow users to leave a message for the morning shift.
+1.  **Timezone:** Select your team's timezone (e.g., `America/New_York` or `UTC`).
+2.  **Weekly Grid:** Click blocks to toggle hours Open/Closed.
+3.  **Action:**
+    *   *Disable Creation:* The button stops working.
+    *   *Notification:* The button works, but sends a custom "We are closed" message instead of the standard welcome.

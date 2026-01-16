@@ -2,6 +2,16 @@
 
 Getting TicketForge running on your server takes just a few clicks.
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); margin-bottom: 2rem;">
+    <iframe 
+        src="https://www.youtube.com/embed/Im3quAqKLSI" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
+
 ## 1. Invite the Bot
 
 To start using TicketForge, you need to invite the bot to your Discord server and authorize it with the necessary permissions.
@@ -14,11 +24,6 @@ To start using TicketForge, you need to invite the bot to your Discord server an
 
 </div>
 
-<figure markdown>
-  ![Invite Screen](../assets/images/getting-started/invite-screen.png){ loading=lazy width="450" }
-  <figcaption>The Discord authorization screen when inviting the bot.</figcaption>
-</figure>
-
 ## 2. Required Permissions
 
 TicketForge requires specific permissions to function correctly. When inviting the bot, ensure the following permissions are granted:
@@ -27,11 +32,13 @@ TicketForge requires specific permissions to function correctly. When inviting t
 | :--- | :--- |
 | **Manage Roles** | To assign support roles, manage ticket permissions, and automate roles during claiming. |
 | **Manage Channels** | To create ticket channels, rename them, and manage categories. |
+| **Change Nickname** | To allow the bot to change its own nickname if configured. |
 | **View Channels** | Essential for the bot to see and interact with your server's channels. |
 | **Send Messages** | To post panels, welcome messages, and response triggers inside tickets. |
-| **Send Messages in Threads** | Required if you use the "Tickets as Threads" Premium feature. |
-| **Create Private Threads** | Allows the bot to create private ticket threads for a cleaner sidebar (Premium). |
+| **Send Messages in Threads** | Required if you use the "Tickets as Threads" feature. |
+| **Create Private Threads** | Allows the bot to create private ticket threads for a cleaner sidebar. |
 | **Manage Messages** | To pin messages and delete bot triggers/commands to keep channels clean. |
+| **Manage Threads** | To archive/lock threads when a ticket is closed. |
 | **Embed Links** | Necessary to send rich visual panels, buttons, and formatted logs. |
 | **Attach Files** | Used to generate and upload HTML transcripts and audit logs. |
 | **Read Message History** | Required to generate transcripts and view context of existing tickets. |

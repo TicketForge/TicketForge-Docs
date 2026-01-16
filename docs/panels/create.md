@@ -21,7 +21,7 @@ Once logged in, you will automatically navigate to the server selection page, he
 You can also navigate to this page by clicking on your profile and then "Servers".
 
 1. Click on your **Profile Picture** in the top right corner to open the menu.
-2. Select **Servers** from the dropdown menu.
+2. Select **Dashboard** from the dropdown menu.
 
 <figure markdown>
   ![Server List](../assets/images/select_server.webp){ width="500" }
@@ -31,6 +31,9 @@ You can also navigate to this page by clicking on your profile and then "Servers
 3. You will see a list of your Discord servers:
     *   **Manage:** The bot is already in this server. Click to enter the dashboard.
     *   **Invite:** The bot is not in this server. Click to invite it, then refresh the page.
+
+!!! question "Can't see your server?"
+    If a server is missing from this list, ensure you have the **Manage Server** permission on that Discord server. If you just got permissions, try logging out and logging back in to refresh your token.
 
 ## 3. Creating the Panel
 
@@ -78,7 +81,7 @@ For complex templates (like a "Hub" system with multiple departments):
 2.  Select **Sub-Panels** to configure specific categories (e.g., "Billing").
 3.  *Tip:* Use **Copy from Main** to quickly apply settings across all sub-panels.
 
-### Step C: Creation
+### Step C: Creation / Launching
 
 Click **Create Panel**. You will be redirected to the **Setup Wizard** to finalize your settings (Forms, Branding, Automation) and send the panel to Discord.
 
@@ -86,5 +89,3 @@ Click **Create Panel**. You will be redirected to the **Setup Wizard** to finali
   ![Setup Wizard](../assets/images/panels/preparetosend.png){ width="600" }
   <figcaption>The setup wizard allows you to configure essential settings before launching.</figcaption>
 </figure>
-
-You can also use this **Setup Wizard** to dive deeper into customizations by clicking on **Intermediate** and to really make an advanced panel go to **Advanced**.

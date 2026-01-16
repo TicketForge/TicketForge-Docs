@@ -7,7 +7,7 @@ TicketForge offers granular control over Slash Commands. You can disable specifi
 Navigate to the **Commands** tab in the sidebar. You will see a list of all available bot commands.
 
 <figure markdown>
-  ![Commands List](../assets/images/settings/commands-list.png){ loading=lazy }
+  ![Commands List](../assets/images/settings/commands.png){ loading=lazy }
   <figcaption>The command management interface allowing you to enable or disable specific commands.</figcaption>
 </figure>
 
@@ -40,8 +40,8 @@ You can fine-tune where commands work:
 | `/remove <user/role>` | Removes a specific user or role from the current ticket. |
 | `/rename <name>` | Renames the current ticket channel to the specified name. |
 | `/re-open` | Re-opens a previously closed ticket for further communication. |
-| `/claim ticket` | Assigns the ticket to the staff member running the command. |
-| `/unclaim ticket` | Releases the ticket back to the general pool by removing the assigned staff member. |
+| `/claim` | Assigns the ticket to the staff member running the command. |
+| `/unclaim` | Releases the ticket back to the general pool by removing the assigned staff member. |
 | `/priority` | Sets the priority level of the ticket (Low, Medium, High, Urgent). |
 | `/thread` | Creates a private, staff-only thread within the ticket for internal discussion. |
 | **Configuration** | |

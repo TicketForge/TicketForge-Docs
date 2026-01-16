@@ -1,39 +1,33 @@
 site_name: TicketForge
-site_description: Documentation for TicketForge - The ultimate Discord ticketing bot.
+site_description: The ultimate Discord ticketing bot.
 site_url: https://docs.ticketforge.xyz/
 
 theme:
   name: material
   font:
-    text: Jost
-    code: Roboto Mono
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: slate
+      primary: black
+      accent: indigo
 
-  # 2. BRANDING ASSETS
+  # 1. UPDATED LOGO & FAVICON
   logo: assets/images/logo.png
   favicon: assets/images/favicon.ico
 
-  palette:
-    - scheme: slate
-      primary: custom
-      accent: custom
-
   features:
-    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
     - navigation.sections
     - navigation.expand
+    - navigation.top
+    - navigation.footer
     - content.code.copy
-    - navigation.top # Adds "Back to Top" button
+    - toc.follow
 
 extra_css:
   - stylesheets/extra.css
-
-# 3. FOOTER SOCIAL LINKS
-extra:
-  copyright: Copyright &copy; 2025 Evolvex
-  social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/ya3Rv9VmpR
-      name: Join Support Server
 
 markdown_extensions:
   - admonition
@@ -49,38 +43,33 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Installation & Invite: getting-started/installation.md
-      - Dashboard Overview: getting-started/dashboard.md
-      - Create First Panel: panels/create.md
-  - Panel Configuration:
-      - Creating Panels: panels/create.md
-      - Interaction Styles: panels/interaction-styles.md
-      - Message & Embeds: panels/messages.md
-      - Ticket Forms: panels/forms.md
-      - Ticket Management: panels/management.md
-  - Advanced Features:
-      - Automation: features/automation.md
-      - Transcripts & Logging: features/transcripts.md
-      - Claiming System: features/claiming.md
-      - Rating System: features/ratings.md
-      - Limits & Schedules: features/limits.md
-      - Ticket as Thread: features/ticketasthread.md
-  - Server Settings:
-      - Roles & Permissions: settings/roles.md
-      - Commands: settings/commands.md
-  - Premium:
-      - Subscription Plans: premium/plans.md
-      - Managing Billing: premium/billing.md
-  - Legal:
-      - Terms and policy: legal/termsandpolicy.md
+  
+  - GETTING STARTED:
+    - Installation: getting-started/installation.md
+    - Dashboard Overview: getting-started/dashboard.md
+    - Premium Plans: premium.md
 
-plugins:
-  - search
-  - glightbox
-  - social:
-      cards_layout: default/variant  # Tries a modern sidebar layout
-      cards_layout_options:
-        font_family: Jost
-        background_color: "#020617"
-        color: "#f8fafc"
+  - PANEL CONFIGURATION:
+    - Creating Panels: panels/create.md
+    - The Panel Editor: panels/editor.md
+    - Messages & Embeds: panels/messages.md
+    - Interaction Styles: guides/button-styles.md
+    - Custom Forms: features/forms.md
+    - Ticket Settings: panels/management.md
+
+  - ADVANCED AUTOMATION:
+    - Claiming System: features/claiming.md
+    - Automation Triggers: features/automation.md
+    - Rating System: features/ratings.md
+    - Tickets as Threads: features/threads.md
+    - Limits & Schedules: features/limits.md
+    - Transcripts: features/transcripts.md
+
+  - TEMPLATES:
+    - Using Templates: panels/templates.md
+  
+  - REFERENCE:
+    - Variable Placeholders: guides/placeholders.md
+    - Command List: settings/commands.md
+    - Server Settings: settings/server-config.md
+    - Troubleshooting: guides/troubleshooting.md

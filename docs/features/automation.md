@@ -3,8 +3,8 @@
 TicketForge can perform automated actions to help maintain your server's hygiene and keep users informed.
 
 <figure markdown>
-  ![Automation Settings](../assets/images/features/automation-settings.png){ loading=lazy }
-  <figcaption>Configuring auto-close rules and leave handling.</figcaption>
+  ![Automation Settings](../assets/images/features/automation.png){ loading=lazy }
+  <figcaption>Automation settings.</figcaption>
 </figure>
 
 ## User Leave Handling

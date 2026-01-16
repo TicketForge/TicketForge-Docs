@@ -1,328 +1,408 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  --md-primary-fg-color: #7c3aed;
-  --md-primary-fg-color--light: #8b5cf6;
-  --md-primary-fg-color--dark: #6d28d9;
-  --md-accent-fg-color: #7c3aed;
+  /* --- 1. CORE PALETTE --- */
+  --tf-bg-deep: #050505;
+  --tf-primary: #7c3aed; /* Brand Purple */
+  --tf-primary-light: #a78bfa; /* Lighter Purple */
 
-  --md-default-bg-color: #020617;
-  --md-bg-color--alt: #0f172a;
+  /* Borders */
+  --tf-border: rgba(255, 255, 255, 0.08);
 
-  --md-default-fg-color: #f8fafc;
-  --md-default-fg-color--light: #94a3b8;
-  --md-default-fg-color--lighter: #64748b;
+  /* MkDocs Theme Overrides */
+  --md-default-bg-color: var(--tf-bg-deep);
+  --md-default-fg-color: #cbd5e1; /* Slate 300 */
+  --md-primary-fg-color: var(--tf-primary);
 
-  --md-code-bg-color: #1e293b;
-  --md-admonition-bg-color: #1e293b;
+  --md-code-bg-color: rgba(20, 20, 20, 0.5);
+  --md-code-font: "JetBrains Mono", monospace;
+  --md-text-font: "Inter", sans-serif;
 }
 
-body,
-.md-typeset,
+/* --- 2. GLOBAL RESET & BACKGROUND --- */
+body {
+  background-color: var(--tf-bg-deep);
+
+  /* DARK HEATMAP BACKGROUND (Low Opacity) */
+  background-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(239, 68, 68, 0.08) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(220, 38, 38, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(219, 39, 119, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(124, 58, 237, 0.08) 0%,
+      transparent 50%
+    );
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Strip default shadows/borders */
+.md-header,
+.md-tabs,
+.md-sidebar,
+.md-footer,
 .md-nav {
-  font-family: "Jost", sans-serif !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-.md-typeset .admonition,
-.md-typeset pre,
-.md-typeset code,
-.md-search__input {
-  border-radius: 0.75rem;
-}
-
-.md-typeset .md-button--primary {
-  background-color: var(--md-primary-fg-color);
-  color: white !important;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.md-typeset .md-button--primary:hover {
-  background-color: var(--md-primary-fg-color--light);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
-}
-
-.md-header {
-  background-color: rgba(2, 6, 23, 0.9) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.md-tabs {
-  background-color: rgba(2, 6, 23, 0.9) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.md-tabs__link {
-  color: #94a3b8 !important;
-  font-weight: 500;
-  opacity: 1 !important;
-  transition: all 0.2s ease;
-}
-
-.md-tabs__link:hover {
-  color: #ffffff !important;
-  transform: translateY(-1px);
-}
-
-.md-tabs__item--active .md-tabs__link {
-  color: var(--md-primary-fg-color) !important;
-  text-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
-  font-weight: 700;
-}
-
-/* ---------------------------------------------------------
-   6. CARD GRID STYLING (Fixed)
---------------------------------------------------------- */
-.md-typeset .grid.cards ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.md-typeset .grid.cards ul li {
-  background-color: rgba(30, 41, 59, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  padding: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  transition: all 0.3s ease-in-out;
-  margin: 0;
-}
-
-.md-typeset .grid.cards ul li:hover {
-  border-color: var(--md-primary-fg-color);
-  background-color: rgba(30, 41, 59, 0.8);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
-}
-
-.md-typeset .grid.cards ul li p > strong:first-of-type {
-  display: inline-block;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--md-primary-fg-color--light);
-  font-weight: 700;
-}
-
-.md-typeset .grid.cards ul li a {
-  margin-top: auto;
-  padding-top: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-weight: 600;
-  color: var(--md-primary-fg-color--light);
-  text-decoration: none;
-}
-
-.md-typeset .grid.cards ul li .md-button {
-  width: auto;
-  margin-top: 1rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-}
-
-.md-typeset .grid.cards ul li a:hover {
-  color: #fff;
-}
-
-/* ---------------------------------------------------------
-   7. SIDEBAR NAVIGATION (UX Polish - Mobile Fix)
---------------------------------------------------------- */
-/* 
-   REMOVED: display: flex, align-items: center, margin-left: -12px, 
-   and z-index. These break the Material mobile drawer overlap logic.
-*/
-.md-nav__item .md-nav__link {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-  padding: 8px 12px;
-  border-radius: 0.5rem;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s;
-  border: 1px solid transparent;
-}
-
-/* Hover state for non-active links */
-.md-nav__item .md-nav__link:not(.md-nav__link--active):hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff !important;
-  cursor: pointer;
-}
-
-/* Active state styling */
-.md-nav__item .md-nav__link--active {
-  background-color: rgba(124, 58, 237, 0.15);
-  border-color: var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color--light) !important;
-  font-weight: 700;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
-}
-
-/* Ensure icons/arrows inside links stay aligned without flex */
-.md-nav__link .md-nav__icon {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1.1rem;
-  width: 1.1rem;
-  margin-right: 0.5rem;
-}
-
-.md-nav__item .md-nav__link:not(.md-nav__link--active):hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff !important;
-  cursor: pointer;
-}
-.md-nav__item .md-nav__link--active {
-  background-color: rgba(124, 58, 237, 0.15);
-  border-color: var(--md-primary-fg-color);
-  color: var(--md-primary-fg-color--light) !important;
-  font-weight: 700;
-  box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
-}
-
-.md-nav__link .md-nav__icon {
-  height: 1.1rem;
-  width: 1.1rem;
-  margin-right: 0.5rem;
-}
-
-/* ---------------------------------------------------------
-   8. GLOBAL SCROLLBAR STYLING
---------------------------------------------------------- */
+/* --- 3. CUSTOM SCROLLBARS --- */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(124, 58, 237, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--md-primary-fg-color);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ---------------------------------------------------------
-   9. GLASS-MORPHISM ADMONITIONS (Info/Warning Boxes)
---------------------------------------------------------- */
-.md-typeset .admonition {
-  background-color: rgba(30, 41, 59, 0.4) !important;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-left-width: 4px !important;
-  box-shadow: none;
+/* --- 4. GLASS HEADER --- */
+.md-header {
+  background-color: rgba(5, 5, 5, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--tf-border) !important;
 }
 
-.md-typeset .admonition-title {
-  background-color: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+/* --- 5. NAVIGATION LAYOUT --- */
+
+/* 5a. SIDEBAR BACKGROUND SEPARATION (New!) */
+.md-sidebar--primary {
+  /* Darken the sidebar slightly to separate from main content */
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  /* Add a subtle border to the right */
+  border-right: 1px solid var(--tf-border) !important;
+  /* Ensure it stretches full height visually */
+  height: 100%;
+}
+
+.md-sidebar--secondary {
+  background: transparent !important;
+}
+
+/* 5b. HIDE Default Sidebar Title on Desktop */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary .md-nav__title {
+    display: none;
+  }
+}
+
+/* 5c. SECTION HEADERS (Group Labels) */
+.md-nav--primary > .md-nav__list > .md-nav__item {
+  margin-top: 24px;
+}
+
+/* Style the Label (Crisp White, Uppercase) */
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700; /* Clean bold */
+  letter-spacing: 0.05em;
+  color: #ffffff !important; /* Solid White */
+  opacity: 1; /* Removed opacity fade for cleanliness */
+  background: transparent !important;
+  padding: 0 12px; /* Align with links */
+  margin-bottom: 8px;
+  pointer-events: none;
+  border-left: none !important;
+}
+
+/* 5d. HOME BUTTON EXCEPTION */
+.md-nav--primary > .md-nav__list > .md-nav__item:first-child {
+  margin-top: 10px !important;
+  margin-bottom: 10px;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item:first-child > .md-nav__link {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  /* Standard Link Styling */
+  color: #8b9bb4 !important;
+  padding: 6px 12px !important;
+  border-left: 3px solid transparent !important;
+  border-radius: 0 4px 4px 0;
+  background: transparent !important;
+}
+
+.md-nav--primary
+  > .md-nav__list
+  > .md-nav__item:first-child
+  > .md-nav__link:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.md-nav--primary
+  > .md-nav__list
+  > .md-nav__item:first-child
+  > .md-nav__link--active {
+  color: var(--tf-primary-light) !important;
+  font-weight: 600 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.12) 0%,
+    transparent 100%
+  ) !important;
+  border-left: 3px solid var(--tf-primary) !important;
+}
+
+/* 5e. STANDARD LINKS */
+.md-nav__link {
+  font-size: 0.8125rem;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+  color: #8b9bb4;
+  margin: 1px 0 !important;
+  background: transparent !important;
+  border-radius: 0 4px 4px 0;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+
+.md-nav__link:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Active State */
+.md-nav__item .md-nav__link--active {
+  color: var(--tf-primary-light) !important;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.12) 0%,
+    transparent 100%
+  ) !important;
+  border-left: 3px solid var(--tf-primary) !important;
+  box-shadow: none !important;
+}
+
+/* Remove default indentation lines */
+.md-nav__list {
+  border-left: none !important;
+}
+
+/* --- 6. RIGHT SIDEBAR (Table of Contents) --- */
+.md-sidebar--secondary .md-nav__title {
+  background: transparent !important;
+  box-shadow: none !important;
   font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
 }
 
-/* ---------------------------------------------------------
-   10. CUSTOM DASHBOARD WARNINGS (Amber Style)
-   Matches: bg-amber-500/10 border-amber-500/20 text-amber-500
---------------------------------------------------------- */
-.md-typeset .admonition.warning {
-  background-color: rgba(245, 158, 11, 0.1) !important;
-  border: 1px solid rgba(245, 158, 11, 0.2) !important;
-  border-left-width: 4px !important;
-  border-left-color: #f59e0b !important;
-  color: #d1d5db;
+/* Subtle track line for TOC */
+.md-nav--secondary > .md-nav__list {
+  border-left: 1px solid var(--tf-border) !important;
 }
 
-.md-typeset .admonition.warning .admonition-title {
-  color: #f59e0b !important;
-  background-color: transparent !important;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+.md-nav--secondary .md-nav__link {
+  font-size: 0.75rem;
 }
 
-.md-typeset .admonition.warning .admonition-title::before {
-  background-color: #f59e0b !important;
+.md-nav--secondary .md-nav__link--active {
+  border-left: 2px solid var(--tf-primary) !important;
+  margin-left: -1px;
 }
 
+/* --- 7. UI ELEMENTS --- */
+
+/* Buttons */
+.md-typeset .md-button--primary {
+  background-color: var(--tf-primary);
+  border-radius: 6px;
+  color: white !important;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+.md-typeset .md-button--primary:hover {
+  background-color: #8b5cf6;
+  box-shadow: 0 0 15px -5px rgba(124, 58, 237, 0.5);
+}
+
+/* Admonitions */
+.md-typeset .admonition {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid var(--tf-border) !important;
+  border-left-width: 3px !important;
+  border-radius: 6px;
+}
+.md-typeset .admonition-title {
+  background: transparent !important;
+  border-bottom: 1px solid var(--tf-border);
+}
+
+/* Search Input */
+.md-search__input {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--tf-border);
+  border-radius: 6px;
+}
+
+/* Code Blocks */
 .md-typeset pre > code {
-  background-color: #0f172a !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0b0b0c !important;
+  border: 1px solid var(--tf-border);
+  border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
-.md-clipboard:hover {
-  color: var(--md-primary-fg-color) !important;
+/* Feature Cards */
+.md-typeset .grid.cards ul li {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--tf-border);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+.md-typeset .grid.cards ul li:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  background-color: rgba(124, 58, 237, 0.05);
 }
 
-/* ---------------------------------------------------------
-   12. MODERN TABLES
---------------------------------------------------------- */
+/* --- 8. MOBILE SPECIFIC FIXES --- */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary,
+  .md-nav--primary .md-nav__list {
+    background: var(--tf-bg-deep) !important;
+  }
+  .md-nav--primary .md-nav__title {
+    background: var(--tf-bg-deep) !important;
+    border-bottom: 1px solid var(--tf-border);
+    color: #fff !important;
+    display: block !important;
+  }
+  .md-nav__title[for] {
+    border-bottom: 1px solid var(--tf-border);
+  }
+
+  /* Reset active state for mobile to match desktop */
+  .md-nav__item .md-nav__link--active {
+    color: var(--tf-primary-light) !important;
+    background: linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 0.15) 0%,
+      transparent 100%
+    ) !important;
+    border-left: 3px solid var(--tf-primary) !important;
+  }
+}
+
+/* --- 9. PREMIUM TYPOGRAPHY --- */
+
+/* H1: Hero Gradient */
+.md-typeset h1 {
+  color: #fff;
+  background: linear-gradient(to right, #ffffff 0%, #e9d5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+/* H2, H3: Bright White */
+.md-typeset h2,
+.md-typeset h3 {
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* H4: Accent Color */
+.md-typeset h4 {
+  color: var(--tf-primary-light) !important;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+.md-typeset p {
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+/* --- 10. MODERN TABLES --- */
 .md-typeset table:not([class]) {
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--tf-border);
+  border-radius: 8px;
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
 }
 
 .md-typeset table:not([class]) th {
-  background-color: rgba(124, 58, 237, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
   color: #fff !important;
   font-weight: 600;
-  border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+  border-bottom: 1px solid var(--tf-border);
+  border-top: none;
+  padding: 16px;
+  text-align: left;
 }
 
-.md-typeset table:not([class]) td,
-.md-typeset table:not([class]) th {
-  padding: 12px 16px;
+.md-typeset table:not([class]) td {
+  padding: 16px;
+  border-bottom: 1px solid var(--tf-border);
+  border-top: none;
+  color: #94a3b8;
+  transition: background-color 0.2s;
 }
 
-/* ---------------------------------------------------------
-   13. CARD-STYLE FOOTER NAVIGATION
---------------------------------------------------------- */
-.md-footer__link {
-  background-color: rgba(30, 41, 59, 0.3);
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 0.5rem;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+.md-typeset table:not([class]) tr:last-child td {
+  border-bottom: none;
 }
 
-.md-footer__link:hover {
-  background-color: rgba(30, 41, 59, 0.8);
-  border-color: var(--md-primary-fg-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.md-typeset table:not([class]) tr:hover td {
+  background-color: rgba(124, 58, 237, 0.05) !important;
+  color: #fff !important;
 }
 
-.md-footer__link:hover .md-footer__title {
-  color: white;
+.md-typeset table:not([class]) td span.twemoji {
+  vertical-align: middle;
+  margin-right: 8px;
+  color: var(--tf-primary);
 }
 
-/* ---------------------------------------------------------
-   14. MOBILE RESPONSIVE IMAGES
---------------------------------------------------------- */
-.md-typeset figure img,
+/* --- 11. ROUNDED IMAGES --- */
 .md-typeset img {
-  max-width: 100%;
-  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--tf-border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-[href="https://ticketforge.xyz"] {
-  color: var(--md-primary-fg-color--light) !important;
-  font-weight: 700;
+/* Exception for inline icons */
+.md-typeset img[src*=".svg"],
+.md-typeset .twemoji img {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
 }

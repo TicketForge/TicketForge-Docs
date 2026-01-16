@@ -1,49 +1,31 @@
 # Transcripts & Logging
 
-TicketForge provides robust record-keeping features to ensure you never lose context of a support interaction, even after the ticket is deleted.
+TicketForge ensures you never lose the context of a conversation. Transcripts are permanent HTML files containing the full chat history.
+
+<figure markdown>
+  ![Automation Settings](../assets/images/features/transcripts.png){ loading=lazy }
+  <figcaption>Transcripts and logging settings.</figcaption>
+</figure>
 
 ## Transcript Archiving
 
-A transcript is a permanent HTML file containing the full chat history, timestamps, and attachments of a ticket.
-
-<figure markdown>
-  ![Transcript Log](../assets/images/features/transcript-example.png){ loading=lazy }
-  <figcaption>The transcript log message containing the downloadable HTML file.</figcaption>
-</figure>
+Navigate to **Panel Editor > Transcripts**.
 
 ### Configuration
-
-Navigate to **Archiving & Logging** in the Panel Editor.
-
-1.  **Storage Channel:** Select a text channel in your server where the bot will post the transcript files.
-2.  **Auto-Save:** automatically generate a transcript when a ticket is closed.
-    - _Trigger:_ Choose whether to save on **Close** (closed state) or **Delete** (permanent removal).
+1.  **Storage Channel:** Select a private text channel where the bot will post transcript files.
+2.  **Auto-Save:** Automatically generate a transcript when a ticket is closed.
+    *   *Trigger:* Choose to save on **Close** (archive state) or **Delete** (permanent removal).
 3.  **DM Transcript:** Send the HTML file directly to the user who opened the ticket.
-    - _Note:_ This will fail if the user has Direct Messages disabled.
+    *   *Note:* This will fail if the user has DMs disabled.
 
 ## Event Audit Log
+Separate from the chat history, the **Audit Log** tracks lifecycle events.
 
-Separate from message history, the Event Log tracks the _lifecycle_ of the ticket.
+### Logged Events
+You can toggle specific events to reduce spam:
+*   **Created / Closed / Reopened**
+*   **Renamed**
+*   **Deleted**
+*   **Archived**
 
-### Setup
-
-1.  **Audit Log Channel:** Select a channel to receive real-time embed updates.
-2.  **Events:** Toggle which specific actions trigger a log message:
-
-| Event        | Trigger                                |
-| :----------- | :------------------------------------- |
-| **Created**  | A user successfully opens a ticket.    |
-| **Closed**   | Staff or user clicks the Close button. |
-| **Reopened** | A closed ticket is re-opened.          |
-| **Renamed**  | The channel name is changed via bot.   |
-| **Deleted**  | The channel is permanently deleted.    |
-| **Transcribed** | A transcript file is generated.        |
-
-### Log Content
-
-The log embed includes:
-
-- Ticket ID and Panel Name.
-- The User (Target) and the Executor (Staff member).
-- Reason (if provided).
-- Timestamp.
+Each log entry includes the **Executor** (who did it), the **Target** (ticket owner), and a timestamp.
