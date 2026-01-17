@@ -3,15 +3,18 @@
 :root {
   /* --- 1. CORE PALETTE --- */
   --tf-bg-deep: #050505;
-  --tf-primary: #7c3aed; /* Brand Purple */
-  --tf-primary-light: #a78bfa; /* Lighter Purple */
+  --tf-primary: #7c3aed;
+  /* Brand Purple */
+  --tf-primary-light: #a78bfa;
+  /* Lighter Purple */
 
   /* Borders */
   --tf-border: rgba(255, 255, 255, 0.08);
 
   /* MkDocs Theme Overrides */
   --md-default-bg-color: var(--tf-bg-deep);
-  --md-default-fg-color: #cbd5e1; /* Slate 300 */
+  --md-default-fg-color: #cbd5e1;
+  /* Slate 300 */
   --md-primary-fg-color: var(--tf-primary);
 
   --md-code-bg-color: rgba(20, 20, 20, 0.5);
@@ -22,29 +25,18 @@
 /* --- 2. GLOBAL RESET & BACKGROUND --- */
 body {
   background-color: var(--tf-bg-deep);
-
-  /* DARK HEATMAP BACKGROUND (Low Opacity) */
-  background-image: radial-gradient(
-      circle at 50% 50%,
+  background-image: radial-gradient(circle at 50% 50%,
       rgba(239, 68, 68, 0.08) 0%,
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 0% 0%,
+      transparent 25%),
+    radial-gradient(circle at 0% 0%,
       rgba(220, 38, 38, 0.08) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 100% 0%,
+      transparent 50%),
+    radial-gradient(circle at 100% 0%,
       rgba(219, 39, 119, 0.08) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 100% 100%,
+      transparent 50%),
+    radial-gradient(circle at 100% 100%,
       rgba(124, 58, 237, 0.08) 0%,
-      transparent 50%
-    );
-
+      transparent 50%);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -65,13 +57,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -85,13 +80,10 @@ body {
 
 /* --- 5. NAVIGATION LAYOUT --- */
 
-/* 5a. SIDEBAR BACKGROUND SEPARATION (New!) */
+/* 5a. SIDEBAR BACKGROUND SEPARATION */
 .md-sidebar--primary {
-  /* Darken the sidebar slightly to separate from main content */
   background-color: rgba(0, 0, 0, 0.3) !important;
-  /* Add a subtle border to the right */
   border-right: 1px solid var(--tf-border) !important;
-  /* Ensure it stretches full height visually */
   height: 100%;
 }
 
@@ -107,40 +99,39 @@ body {
 }
 
 /* 5c. SECTION HEADERS (Group Labels) */
-.md-nav--primary > .md-nav__list > .md-nav__item {
+.md-nav--primary>.md-nav__list>.md-nav__item {
   margin-top: 24px;
 }
 
 /* Style the Label (Crisp White, Uppercase) */
-.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link {
+.md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
   text-transform: uppercase;
   font-size: 0.7rem;
-  font-weight: 700; /* Clean bold */
+  font-weight: 700;
   letter-spacing: 0.05em;
-  color: #ffffff !important; /* Solid White */
-  opacity: 1; /* Removed opacity fade for cleanliness */
+  color: #ffffff !important;
+  opacity: 1;
   background: transparent !important;
-  padding: 0 12px; /* Align with links */
+  padding: 0 12px;
   margin-bottom: 8px;
   pointer-events: none;
+  /* Desktop only */
   border-left: none !important;
 }
 
 /* 5d. HOME BUTTON EXCEPTION */
-.md-nav--primary > .md-nav__list > .md-nav__item:first-child {
+.md-nav--primary>.md-nav__list>.md-nav__item:first-child {
   margin-top: 10px !important;
   margin-bottom: 10px;
 }
 
-.md-nav--primary > .md-nav__list > .md-nav__item:first-child > .md-nav__link {
+.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
   text-transform: none !important;
   letter-spacing: normal !important;
   font-size: 0.8125rem !important;
   font-weight: 500 !important;
   opacity: 1 !important;
   pointer-events: auto !important;
-
-  /* Standard Link Styling */
   color: #8b9bb4 !important;
   padding: 6px 12px !important;
   border-left: 3px solid transparent !important;
@@ -148,25 +139,17 @@ body {
   background: transparent !important;
 }
 
-.md-nav--primary
-  > .md-nav__list
-  > .md-nav__item:first-child
-  > .md-nav__link:hover {
+.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link:hover {
   color: #fff !important;
   background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
-.md-nav--primary
-  > .md-nav__list
-  > .md-nav__item:first-child
-  > .md-nav__link--active {
+.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link--active {
   color: var(--tf-primary-light) !important;
   font-weight: 600 !important;
-  background: linear-gradient(
-    90deg,
-    rgba(124, 58, 237, 0.12) 0%,
-    transparent 100%
-  ) !important;
+  background: linear-gradient(90deg,
+      rgba(124, 58, 237, 0.12) 0%,
+      transparent 100%) !important;
   border-left: 3px solid var(--tf-primary) !important;
 }
 
@@ -192,11 +175,9 @@ body {
 .md-nav__item .md-nav__link--active {
   color: var(--tf-primary-light) !important;
   font-weight: 600;
-  background: linear-gradient(
-    90deg,
-    rgba(124, 58, 237, 0.12) 0%,
-    transparent 100%
-  ) !important;
+  background: linear-gradient(90deg,
+      rgba(124, 58, 237, 0.12) 0%,
+      transparent 100%) !important;
   border-left: 3px solid var(--tf-primary) !important;
   box-shadow: none !important;
 }
@@ -217,8 +198,7 @@ body {
   opacity: 0.5;
 }
 
-/* Subtle track line for TOC */
-.md-nav--secondary > .md-nav__list {
+.md-nav--secondary>.md-nav__list {
   border-left: 1px solid var(--tf-border) !important;
 }
 
@@ -242,6 +222,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.2s;
 }
+
 .md-typeset .md-button--primary:hover {
   background-color: #8b5cf6;
   box-shadow: 0 0 15px -5px rgba(124, 58, 237, 0.5);
@@ -254,6 +235,7 @@ body {
   border-left-width: 3px !important;
   border-radius: 6px;
 }
+
 .md-typeset .admonition-title {
   background: transparent !important;
   border-bottom: 1px solid var(--tf-border);
@@ -267,7 +249,7 @@ body {
 }
 
 /* Code Blocks */
-.md-typeset pre > code {
+.md-typeset pre>code {
   background-color: #0b0b0c !important;
   border: 1px solid var(--tf-border);
   border-radius: 8px;
@@ -281,35 +263,179 @@ body {
   border-radius: 8px;
   transition: border-color 0.2s;
 }
+
 .md-typeset .grid.cards ul li:hover {
   border-color: rgba(124, 58, 237, 0.5);
   background-color: rgba(124, 58, 237, 0.05);
 }
 
-/* --- 8. MOBILE SPECIFIC FIXES --- */
+/* --- 8. MOBILE SPECIFIC FIXES (PREMIUM UX/UI) --- */
 @media screen and (max-width: 76.1875em) {
+
+  /* A. DRAWER LAYOUT */
   .md-nav--primary,
   .md-nav--primary .md-nav__list {
     background: var(--tf-bg-deep) !important;
-  }
-  .md-nav--primary .md-nav__title {
-    background: var(--tf-bg-deep) !important;
-    border-bottom: 1px solid var(--tf-border);
-    color: #fff !important;
-    display: block !important;
-  }
-  .md-nav__title[for] {
-    border-bottom: 1px solid var(--tf-border);
+    padding-bottom: 24px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  /* Reset active state for mobile to match desktop */
-  .md-nav__item .md-nav__link--active {
+  /* B. BRAND HEADER (Logo) */
+  .md-nav--primary>.md-nav__title {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px 12px 16px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    pointer-events: none;
+    color: #fff !important;
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
+  }
+
+  .md-nav--primary>.md-nav__title img {
+    display: block !important;
+    height: 32px !important;
+    width: auto !important;
+  }
+
+  /* C. HIDE DOUBLE HOME */
+  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>label.md-nav__link {
+    display: none !important;
+  }
+
+  /* D. MAIN MENU CARDS */
+  .md-nav--primary>.md-nav__list>.md-nav__item {
+    margin: 0 12px !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
+  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--tf-border) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
+
+  /* Active/Touch State */
+  .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link:active,
+  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:active {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    transform: scale(0.98);
+  }
+
+  /* E. "HOME" BUTTON */
+  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, transparent 100%) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
     color: var(--tf-primary-light) !important;
-    background: linear-gradient(
-      90deg,
-      rgba(124, 58, 237, 0.15) 0%,
-      transparent 100%
-    ) !important;
+    text-transform: none !important;
+    font-size: 1rem !important;
+    margin-top: 4px !important;
+  }
+
+  /* --- F. DETAIL PAGE (SUB-MENU) --- */
+
+  /* 1. HEADER (Back Row) */
+  /* Added backdrop-filter for premium glass look */
+  .md-nav__item .md-nav__title {
+    background: rgba(5, 5, 5, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--tf-border) !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 20 !important;
+    min-height: 56px !important;
+    width: 100% !important;
+  }
+
+  /* Remove duplicate arrow */
+  .md-nav__item .md-nav__title::before {
+    display: none !important;
+  }
+
+  /* Native Icon Styling */
+  .md-nav__item .md-nav__title .md-nav__icon {
+    width: 24px !important;
+    height: 24px !important;
+    color: #fff !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .md-nav__item .md-nav__title .md-nav__icon svg {
+    fill: #fff !important;
+  }
+
+  /* Header Text */
+  .md-nav__item .md-nav__title {
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    /* Slightly smaller for elegance */
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* 2. SUB-MENU LINKS */
+  .md-nav__item .md-nav__item {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* Hide toggle labels inside detail view */
+  .md-nav__item .md-nav__item label.md-nav__link {
+    display: none !important;
+  }
+
+  .md-nav__item .md-nav__item .md-nav__link {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 16px 24px !important;
+
+    color: #cbd5e1 !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    font-size: 0.95rem !important;
+    display: block !important;
+    box-shadow: none !important;
+
+    /* Subtle separator via box-shadow instead of border for smoothness */
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.03) !important;
+  }
+
+  /* Active Link State */
+  .md-nav__item .md-nav__item .md-nav__link--active {
+    color: var(--tf-primary-light) !important;
+    font-weight: 600 !important;
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.08) 0%, transparent 100%) !important;
     border-left: 3px solid var(--tf-primary) !important;
   }
 }
