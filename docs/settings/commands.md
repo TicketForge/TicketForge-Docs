@@ -6,11 +6,6 @@ TicketForge offers granular control over Slash Commands. You can disable specifi
 
 Navigate to the **Commands** tab in the sidebar. You will see a list of all available bot commands.
 
-<figure markdown>
-  ![Commands List](../assets/images/settings/commands.png){ loading=lazy }
-  <figcaption>The command management interface allowing you to enable or disable specific commands.</figcaption>
-</figure>
-
 ### Command Settings
 
 Click on any command to edit its permissions:
@@ -37,6 +32,7 @@ You can fine-tune where commands work:
 | `/archive` | Transcribes the current ticket. |
 | `/close` | Closes the current ticket (triggers the Close logic configured in the panel). |
 | `/delete` | Permanently deletes the current ticket channel. |
+| `/escalate` | Moves the current ticket to a different panel/department (e.g., Support -> Billing). |
 | `/remove <user/role>` | Removes a specific user or role from the current ticket. |
 | `/rename <name>` | Renames the current ticket channel to the specified name. |
 | `/re-open` | Re-opens a previously closed ticket for further communication. |

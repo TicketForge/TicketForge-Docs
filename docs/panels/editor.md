@@ -30,12 +30,12 @@ Settings that affect how the user *starts* the interaction.
 ### 3. Advanced Settings & Automation
 Powerful tools for large communities and professional support teams.
 
-*   **Transcripts** — Configure HTML log saving and audit logging channels.
+*   **Transcripts** — Configure HTML log saving, Google Drive sync, and audit logging channels.
 *   **Limits** — Set per-user ticket caps and operational hours (Schedules).
 *   **Claiming** — Enable the "Claim Ticket" system for staff ownership.
+*   **Escalation** — Configure rules for transferring tickets to other panels.
 *   **Automation** — Auto-close on user leave and automated DM notifications.
 *   **Ratings** — Enable the CSAT (5-star) feedback system.
-*   **Integrations** — Connect with external tools (e.g., Steam - Coming Soon).
 
 ---
 

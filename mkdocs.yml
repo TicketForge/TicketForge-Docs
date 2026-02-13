@@ -58,6 +58,7 @@ nav:
     - Ticket Settings: panels/management.md
 
   - ADVANCED AUTOMATION:
+    - Escalation System: features/escalation.md
     - Claiming System: features/claiming.md
     - Automation Triggers: features/automation.md
     - Rating System: features/ratings.md
