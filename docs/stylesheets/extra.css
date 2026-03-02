@@ -7,8 +7,6 @@
   /* Brand Purple */
   --tf-primary-light: #a78bfa;
   /* Lighter Purple */
-
-  /* Borders */
   --tf-border: rgba(255, 255, 255, 0.08);
 
   /* MkDocs Theme Overrides */
@@ -25,18 +23,11 @@
 /* --- 2. GLOBAL RESET & BACKGROUND --- */
 body {
   background-color: var(--tf-bg-deep);
-  background-image: radial-gradient(circle at 50% 50%,
-      rgba(239, 68, 68, 0.08) 0%,
-      transparent 25%),
-    radial-gradient(circle at 0% 0%,
-      rgba(220, 38, 38, 0.08) 0%,
-      transparent 50%),
-    radial-gradient(circle at 100% 0%,
-      rgba(219, 39, 119, 0.08) 0%,
-      transparent 50%),
-    radial-gradient(circle at 100% 100%,
-      rgba(124, 58, 237, 0.08) 0%,
-      transparent 50%);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 0% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(219, 39, 119, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -78,7 +69,7 @@ body {
   border-bottom: 1px solid var(--tf-border) !important;
 }
 
-/* --- 5. NAVIGATION LAYOUT --- */
+/* --- 5. DESKTOP NAVIGATION LAYOUT --- */
 
 /* 5a. SIDEBAR BACKGROUND SEPARATION */
 .md-sidebar--primary {
@@ -91,7 +82,7 @@ body {
   background: transparent !important;
 }
 
-/* 5b. HIDE Default Sidebar Title on Desktop */
+/* 5b. HIDE Default Sidebar Title on Desktop Only */
 @media screen and (min-width: 76.25em) {
   .md-nav--primary .md-nav__title {
     display: none;
@@ -103,7 +94,7 @@ body {
   margin-top: 24px;
 }
 
-/* Style the Label (Crisp White, Uppercase) */
+/* Style the Label */
 .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
   text-transform: uppercase;
   font-size: 0.7rem;
@@ -115,7 +106,7 @@ body {
   padding: 0 12px;
   margin-bottom: 8px;
   pointer-events: none;
-  /* Desktop only */
+  /* Desktop label is not clickable */
   border-left: none !important;
 }
 
@@ -147,9 +138,7 @@ body {
 .md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link--active {
   color: var(--tf-primary-light) !important;
   font-weight: 600 !important;
-  background: linear-gradient(90deg,
-      rgba(124, 58, 237, 0.12) 0%,
-      transparent 100%) !important;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12) 0%, transparent 100%) !important;
   border-left: 3px solid var(--tf-primary) !important;
 }
 
@@ -175,9 +164,7 @@ body {
 .md-nav__item .md-nav__link--active {
   color: var(--tf-primary-light) !important;
   font-weight: 600;
-  background: linear-gradient(90deg,
-      rgba(124, 58, 237, 0.12) 0%,
-      transparent 100%) !important;
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12) 0%, transparent 100%) !important;
   border-left: 3px solid var(--tf-primary) !important;
   box-shadow: none !important;
 }
@@ -272,38 +259,64 @@ body {
 /* --- 8. MOBILE SPECIFIC FIXES (PREMIUM UX/UI) --- */
 @media screen and (max-width: 76.1875em) {
 
-  /* A. DRAWER LAYOUT */
+  /* A. DRAWER CONTAINER */
+  .md-drawer {
+    border-right: 1px solid var(--tf-border);
+  }
+
   .md-nav--primary,
   .md-nav--primary .md-nav__list {
     background: var(--tf-bg-deep) !important;
-    padding-bottom: 24px !important;
+    background-image: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.03) 0%, transparent 50%) !important;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding-bottom: 40px !important;
+    padding-top: 0 !important;
   }
 
-  /* B. BRAND HEADER (Logo) */
+  /* B. BRAND HEADER (Main Menu Top) */
   .md-nav--primary>.md-nav__title {
-    display: flex !important;
-    align-items: center;
-    gap: 12px;
-    padding: 24px 16px 12px 16px !important;
-    margin: 0 !important;
     background: transparent !important;
-    border: none !important;
-    pointer-events: none;
+    border-bottom: none !important;
+    /* Removes the line */
+    margin: 0 !important;
+    padding: 24px 20px 10px 20px !important;
+
     color: #fff !important;
     font-weight: 800 !important;
     font-size: 1.2rem !important;
+    letter-spacing: -0.02em;
+    line-height: 1.2 !important;
+
+    position: relative !important;
+    z-index: 1;
+
+    /* --- FLEXBOX FIX FOR ALIGNMENT --- */
+    display: flex !important;
+    align-items: center !important;
+    /* Centers Logo & Text Vertically */
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    /* Space between Logo and Text */
   }
 
+  /* Logo Image Alignment */
   .md-nav--primary>.md-nav__title img {
-    display: block !important;
-    height: 32px !important;
+    height: 28px !important;
     width: auto !important;
+    margin: 0 !important;
+    /* Reset margin, use gap instead */
+    display: block !important;
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.3));
   }
 
-  /* C. HIDE DOUBLE HOME */
+  /* Ensure the text doesn't wrap awkwardly */
+  .md-nav--primary>.md-nav__title {
+    white-space: nowrap !important;
+  }
+
+  /* C. HIDE DOUBLE HOME LABEL */
   .md-nav--primary>.md-nav__list>.md-nav__item:first-child>label.md-nav__link {
     display: none !important;
   }
@@ -315,91 +328,113 @@ body {
     border: none !important;
   }
 
+  /* The Card Link */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link {
-    background-color: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid var(--tf-border) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 12px !important;
-    padding: 20px !important;
-    color: #fff !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    font-size: 0.85rem !important;
-    letter-spacing: 0.05em;
+    padding: 16px 20px !important;
+
+    color: #cbd5e1 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    text-transform: none !important;
+
+    white-space: normal !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    min-height: 56px !important;
+
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer !important;
+    transition: background 0.2s;
+
     pointer-events: auto !important;
+    cursor: pointer !important;
   }
 
-  /* Active/Touch State */
+  /* Pressed State */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link:active,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:active {
-    background-color: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(124, 58, 237, 0.1) !important;
+    border-color: rgba(124, 58, 237, 0.3) !important;
     transform: scale(0.98);
   }
 
-  /* E. "HOME" BUTTON */
-  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
-    background: linear-gradient(90deg, rgba(124, 58, 237, 0.15) 0%, transparent 100%) !important;
-    border: 1px solid rgba(124, 58, 237, 0.3) !important;
-    color: var(--tf-primary-light) !important;
-    text-transform: none !important;
-    font-size: 1rem !important;
-    margin-top: 4px !important;
+  /* Custom Arrow */
+  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link::after {
+    content: "→" !important;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    opacity: 0.3;
+    display: block !important;
+    transform: none !important;
+    margin-left: 12px;
+    flex-shrink: 0;
   }
 
-  /* --- F. DETAIL PAGE (SUB-MENU) --- */
+  /* Hide Default Icon */
+  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link .md-nav__icon {
+    display: none !important;
+  }
 
-  /* 1. HEADER (Back Row) */
-  /* Added backdrop-filter for premium glass look */
+  /* E. "HOME" BUTTON HIGHLIGHT */
+  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* --- F. SUB-MENU (DETAIL VIEW) --- */
+
+  /* 1. SUB-MENU HEADER (Back Button + Title) */
   .md-nav__item .md-nav__title {
-    background: rgba(5, 5, 5, 0.8) !important;
-    backdrop-filter: blur(12px) !important;
+    background: rgba(15, 15, 18, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
     border-bottom: 1px solid var(--tf-border) !important;
+
     margin: 0 !important;
     padding: 0 16px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
+    min-height: 64px !important;
 
     position: sticky !important;
     top: 0 !important;
     z-index: 20 !important;
-    min-height: 56px !important;
     width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 12px !important;
   }
 
-  /* Remove duplicate arrow */
   .md-nav__item .md-nav__title::before {
     display: none !important;
   }
 
-  /* Native Icon Styling */
-  .md-nav__item .md-nav__title .md-nav__icon {
-    width: 24px !important;
-    height: 24px !important;
-    color: #fff !important;
+  .md-nav__item .md-nav__title .md-nav__button {
+    color: var(--tf-primary) !important;
     margin: 0 !important;
-    display: flex !important;
+    padding: 8px !important;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .md-nav__item .md-nav__title .md-nav__icon svg {
-    fill: #fff !important;
-  }
-
-  /* Header Text */
   .md-nav__item .md-nav__title {
     color: #fff !important;
     font-weight: 700 !important;
-    font-size: 0.85rem !important;
-    /* Slightly smaller for elegance */
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
+    font-size: 1rem !important;
+    text-transform: none !important;
   }
 
   /* 2. SUB-MENU LINKS */
@@ -409,7 +444,6 @@ body {
     border: none !important;
   }
 
-  /* Hide toggle labels inside detail view */
   .md-nav__item .md-nav__item label.md-nav__link {
     display: none !important;
   }
@@ -417,30 +451,21 @@ body {
   .md-nav__item .md-nav__item .md-nav__link {
     background: transparent !important;
     border: none !important;
-    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
     padding: 16px 24px !important;
-
-    color: #cbd5e1 !important;
-    font-weight: 400 !important;
-    text-transform: none !important;
+    color: #94a3b8 !important;
     font-size: 0.95rem !important;
-    display: block !important;
-    box-shadow: none !important;
-
-    /* Subtle separator via box-shadow instead of border for smoothness */
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.03) !important;
   }
 
-  /* Active Link State */
   .md-nav__item .md-nav__item .md-nav__link--active {
-    color: var(--tf-primary-light) !important;
+    color: #fff !important;
     font-weight: 600 !important;
     background: linear-gradient(90deg, rgba(124, 58, 237, 0.08) 0%, transparent 100%) !important;
     border-left: 3px solid var(--tf-primary) !important;
   }
 }
 
-/* --- 9. PREMIUM TYPOGRAPHY --- */
+/* --- 9. PREMIUM TYPOGRAPHY & ELEMENTS --- */
 
 /* H1: Hero Gradient */
 .md-typeset h1 {
@@ -454,7 +479,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* H2, H3: Bright White */
+/* Headings */
 .md-typeset h2,
 .md-typeset h3 {
   color: #ffffff !important;
@@ -462,19 +487,17 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* H4: Accent Color */
 .md-typeset h4 {
   color: var(--tf-primary-light) !important;
   font-weight: 600;
 }
 
-/* Paragraphs */
 .md-typeset p {
   line-height: 1.7;
   color: #cbd5e1;
 }
 
-/* --- 10. MODERN TABLES --- */
+/* Tables */
 .md-typeset table:not([class]) {
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--tf-border);
@@ -517,7 +540,7 @@ body {
   color: var(--tf-primary);
 }
 
-/* --- 11. ROUNDED IMAGES --- */
+/* Images */
 .md-typeset img {
   border-radius: 12px;
   border: 1px solid var(--tf-border);
