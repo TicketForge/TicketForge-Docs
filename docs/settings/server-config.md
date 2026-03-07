@@ -2,19 +2,10 @@
 
 Manage global settings that apply to the entire bot within your server.
 
-## Google Drive Integration
-*Premium Feature*
-
-Securely backup your transcripts to the cloud. By connecting your Google Drive, TicketForge will automatically upload HTML transcripts to a folder in your personal Drive whenever a ticket is saved.
-
-1.  Go to **Server Config > Integrations**.
-2.  Click **Connect Google Drive**.
-3.  Authorize TicketForge to access your Drive files.
-
-*   **Email:** Displays the connected Google account email.
-*   **Security:** We use an encrypted Refresh Token system. We do not store your password.
-
----
+<figure markdown>
+  ![ServerConfig Settings](../assets/images/settings/serverconfig.png){ loading=lazy }
+  <figcaption>Server Config settings.</figcaption>
+</figure>
 
 ## Custom Bot (Whitelabel)
 *Premium Feature*
@@ -41,12 +32,37 @@ Take branding to the next level by running TicketForge under **your own bot appl
 
 ---
 
+## Google Drive Integration
+*Premium Feature*
+
+Securely backup your transcripts to the cloud. By connecting your Google Drive, TicketForge will automatically upload HTML transcripts to a folder in your personal Drive whenever a ticket is saved.
+
+1.  Go to **Server Config > Integrations**.
+2.  Click **Connect Google Drive**.
+3.  Authorize TicketForge to access your Drive files.
+
+*   **Email:** Displays the connected Google account email.
+*   **Security:** We use an encrypted Refresh Token system. We do not store your password.
+
+---
+
 ## Dashboard Access
 Control who can log in to the web dashboard to manage settings.
 
 *   **Administrator:** Has full access by default.
 *   **Custom Roles:** Select specific roles (e.g., "Head Mod") to grant them editor access.
     *   *Note:* Dashboard users can see all tickets and settings but cannot manage billing.
+
+## Server Ticket Limit
+Cap the total number of open tickets allowed across the entire server simultaneously.
+
+*   **Enable Limit:** Toggles the restriction on or off.
+*   **Max Open Tickets:** Set the numeric maximum (e.g., 50). Once this limit is reached, users attempting to open new tickets will receive an error message until a current ticket is closed.
+
+## Language & Localization
+Set the default language for bot system messages.
+
+*   **Bot Language:** Select your preferred language from the dropdown (e.g., English, Deutsch, Francais, Espanol, Nederlands). This affects error messages, and system prompts sent by the bot.
 
 ## Interaction Blacklist
 Prevent abuse by blocking specific roles from interacting with the bot entirely.

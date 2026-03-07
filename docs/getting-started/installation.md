@@ -20,7 +20,7 @@ To start using TicketForge, you need to invite the bot to your Discord server an
 
 - :fontawesome-brands-discord: **Invite TicketForge**<br>
   Click below to add the bot to your server. You must have **Manage Server** permissions.<br>
-  [:fontawesome-brands-discord: Invite Bot](https://discord.com/oauth2/authorize?client_id=1312832688889008218&permissions=361046076432&integration_type=0&scope=bot){ .md-button .md-button--primary }
+  [:fontawesome-brands-discord: Invite Bot](https://discord.com/oauth2/authorize?client_id=1312832688889008218&permissions=2252160926870544&integration_type=0&scope=bot){ .md-button .md-button--primary }
 
 </div>
 

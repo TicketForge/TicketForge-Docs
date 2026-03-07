@@ -10,8 +10,8 @@ Control the flow of tickets to prevent spam and burnout.
 ## Ticket Limits
 Prevent users from spamming your support team.
 
-*   **Per User Limit:** Max active tickets a single user can have (Default: 1).
-*   **Server Total Limit:** Hard cap on open tickets for the whole server (e.g., 50).
+*   **Per User Limit (open):** Max open tickets a single user can have (Default: 1).
+*   **Per User Limit (closed):** Max closed tickets a single user can have (Default: 500).
 *   **Bypass Roles:** Select roles (like VIPs or Boosters) that ignore these limits.
 
 ## Operational Schedule

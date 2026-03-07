@@ -5,13 +5,13 @@ TicketForge offers three distinct interaction styles for your panels, allowing y
 <figure markdown>
   ![Setup Wizard](../assets/images/features/button.png){ width="600" }
   <figcaption>Button settings.</figcaption>
-
+</figure>
 
 ## 1. Standard Buttons (Single Panel)
 The default style. Best for simple panels with 1-5 options.
 
 <figure markdown>
-  ![Server List](../assets/images/panels/multibutton-example.png){ loading=lazy }
+  ![Standard Buttons](../assets/images/panels/multibutton-example.png){ loading=lazy }
   <figcaption>Panel with multiple buttons.</figcaption>
 </figure>
 
@@ -31,6 +31,8 @@ In **Panel Editor > Buttons**, you can customize the following system buttons:
 
 *   **Customization:** You can change the **Label**, **Emoji**, **Color** (Blurple, Grey, Green, Red), and **Role Requirements** for each button.
 
+---
+
 ## 2. Select Menu (Dropdown)
 Best for panels with many categories (e.g., "Tech Support", "Billing", "Report Player", "Bug Report").
 
@@ -40,9 +42,11 @@ Best for panels with many categories (e.g., "Tech Support", "Billing", "Report P
 *   **Logic:** Each option in the dropdown triggers a *different* panel configuration behind the scenes.
 
 <figure markdown>
-  ![Server List](../assets/images/panels/dropdown-example.png){ loading=lazy }
-  <figcaption>Panel with dropdown.</figcaption>
+  ![Dropdown Menu](../assets/images/panels/dropdown-example.png){ loading=lazy }
+  <figcaption>Panel with dropdown selection.</figcaption>
 </figure>
+
+---
 
 ## 3. Multi-Panel (Premium)
 A powerful layout that combines buttons from **multiple different panels** into a single message.

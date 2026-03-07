@@ -113,12 +113,12 @@ Speak your community's language. Customize the bot's responses and interface lan
 <!-- Footer CTA -->
 <div align="center" style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
     <h3>Ready to upgrade your support?</h3>
-    <p>Join thousands of other servers using TicketForge today.</p>
+    <p>Join TicketForge today for a complete ticketing experience.</p>
     <br>
-    <a class="md-button md-button--primary" href="https://ticketforge.xyz/invite">
+    <a class="md-button md-button--primary" href="https://discord.com/oauth2/authorize?client_id=1312832688889008218&permissions=2252160926870544&integration_type=0&scope=bot">
         Invite Bot
     </a>
-    <a class="md-button" href="https://ticketforge.xyz/dashboard">
+    <a class="md-button" href="https://ticketforge.xyz/">
         Open Dashboard
     </a>
 </div>

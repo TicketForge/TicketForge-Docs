@@ -106,7 +106,6 @@ body {
   padding: 0 12px;
   margin-bottom: 8px;
   pointer-events: none;
-  /* Desktop label is not clickable */
   border-left: none !important;
 }
 
@@ -256,7 +255,7 @@ body {
   background-color: rgba(124, 58, 237, 0.05);
 }
 
-/* --- 8. MOBILE SPECIFIC FIXES (PREMIUM UX/UI) --- */
+/* --- 8. MOBILE SPECIFIC FIXES --- */
 @media screen and (max-width: 76.1875em) {
 
   /* A. DRAWER CONTAINER */
@@ -279,7 +278,6 @@ body {
   .md-nav--primary>.md-nav__title {
     background: transparent !important;
     border-bottom: none !important;
-    /* Removes the line */
     margin: 0 !important;
     padding: 24px 20px 10px 20px !important;
 
@@ -292,31 +290,25 @@ body {
     position: relative !important;
     z-index: 1;
 
-    /* --- FLEXBOX FIX FOR ALIGNMENT --- */
     display: flex !important;
     align-items: center !important;
-    /* Centers Logo & Text Vertically */
     justify-content: flex-start !important;
     gap: 12px !important;
-    /* Space between Logo and Text */
   }
 
-  /* Logo Image Alignment */
   .md-nav--primary>.md-nav__title img {
     height: 28px !important;
     width: auto !important;
     margin: 0 !important;
-    /* Reset margin, use gap instead */
     display: block !important;
     filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.3));
   }
 
-  /* Ensure the text doesn't wrap awkwardly */
   .md-nav--primary>.md-nav__title {
     white-space: nowrap !important;
   }
 
-  /* C. HIDE DOUBLE HOME LABEL */
+  /* C. HIDE DOUBLE HOME LABEL (First Item Only) */
   .md-nav--primary>.md-nav__list>.md-nav__item:first-child>label.md-nav__link {
     display: none !important;
   }
@@ -328,7 +320,6 @@ body {
     border: none !important;
   }
 
-  /* The Card Link */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link {
     background: rgba(255, 255, 255, 0.03) !important;
@@ -355,7 +346,6 @@ body {
     cursor: pointer !important;
   }
 
-  /* Pressed State */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link:active,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:active {
     background: rgba(124, 58, 237, 0.1) !important;
@@ -375,7 +365,6 @@ body {
     flex-shrink: 0;
   }
 
-  /* Hide Default Icon */
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link .md-nav__icon {
     display: none !important;
   }
@@ -392,16 +381,22 @@ body {
 
   /* --- F. SUB-MENU (DETAIL VIEW) --- */
 
-  /* 1. SUB-MENU HEADER (Back Button + Title) */
+  /* 1. Sub-Menu Header (Purple Gradient) */
   .md-nav__item .md-nav__title {
-    background: rgba(15, 15, 18, 0.98) !important;
-    backdrop-filter: blur(10px) !important;
+    /* CHANGE 1: Use the deep background variable instead of purple gradient */
+    background: var(--tf-bg-deep) !important;
+
+    /* CHANGE 2: Use standard border color instead of purple */
     border-bottom: 1px solid var(--tf-border) !important;
 
+    /* CHANGE 3: Remove the purple shadow glow */
+    box-shadow: none !important;
+
+    /* Keep the rest of the layout logic below exactly the same */
+    backdrop-filter: blur(10px) !important;
     margin: 0 !important;
     padding: 0 16px !important;
     min-height: 64px !important;
-
     position: sticky !important;
     top: 0 !important;
     z-index: 20 !important;
@@ -418,23 +413,25 @@ body {
   }
 
   .md-nav__item .md-nav__title .md-nav__button {
-    color: var(--tf-primary) !important;
+    color: #fff !important;
     margin: 0 !important;
     padding: 8px !important;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     width: 32px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .md-nav__item .md-nav__title {
     color: #fff !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     font-size: 1rem !important;
-    text-transform: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em;
   }
 
   /* 2. SUB-MENU LINKS */
@@ -444,10 +441,19 @@ body {
     border: none !important;
   }
 
+  /* FIX: Ensure active labels (which appear when a page is selected) are DISPLAYED */
   .md-nav__item .md-nav__item label.md-nav__link {
-    display: none !important;
+    display: flex !important;
+    /* Changed from 'none' to 'flex' */
+    cursor: pointer;
   }
 
+  /* Hide the toggle icon inside the label if preferred, or style it */
+  .md-nav__item .md-nav__item label.md-nav__link .md-nav__icon {
+    display: none;
+  }
+
+  /* Shared styling for Links and Labels inside submenu */
   .md-nav__item .md-nav__item .md-nav__link {
     background: transparent !important;
     border: none !important;
@@ -455,8 +461,12 @@ body {
     padding: 16px 24px !important;
     color: #94a3b8 !important;
     font-size: 0.95rem !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
   }
 
+  /* Active State (Purple Highlight) */
   .md-nav__item .md-nav__item .md-nav__link--active {
     color: #fff !important;
     font-weight: 600 !important;
@@ -465,9 +475,7 @@ body {
   }
 }
 
-/* --- 9. PREMIUM TYPOGRAPHY & ELEMENTS --- */
-
-/* H1: Hero Gradient */
+/* --- 9. TYPOGRAPHY --- */
 .md-typeset h1 {
   color: #fff;
   background: linear-gradient(to right, #ffffff 0%, #e9d5ff 100%);
@@ -479,7 +487,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Headings */
 .md-typeset h2,
 .md-typeset h3 {
   color: #ffffff !important;
@@ -497,7 +504,6 @@ body {
   color: #cbd5e1;
 }
 
-/* Tables */
 .md-typeset table:not([class]) {
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--tf-border);
@@ -512,7 +518,6 @@ body {
   color: #fff !important;
   font-weight: 600;
   border-bottom: 1px solid var(--tf-border);
-  border-top: none;
   padding: 16px;
   text-align: left;
 }
@@ -520,9 +525,7 @@ body {
 .md-typeset table:not([class]) td {
   padding: 16px;
   border-bottom: 1px solid var(--tf-border);
-  border-top: none;
   color: #94a3b8;
-  transition: background-color 0.2s;
 }
 
 .md-typeset table:not([class]) tr:last-child td {
@@ -534,20 +537,12 @@ body {
   color: #fff !important;
 }
 
-.md-typeset table:not([class]) td span.twemoji {
-  vertical-align: middle;
-  margin-right: 8px;
-  color: var(--tf-primary);
-}
-
-/* Images */
 .md-typeset img {
   border-radius: 12px;
   border: 1px solid var(--tf-border);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Exception for inline icons */
 .md-typeset img[src*=".svg"],
 .md-typeset .twemoji img {
   border: none;
