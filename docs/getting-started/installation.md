@@ -37,7 +37,8 @@ TicketForge requires specific permissions to function correctly. When inviting t
 | **Send Messages** | To post panels, welcome messages, and response triggers inside tickets. |
 | **Send Messages in Threads** | Required if you use the "Tickets as Threads" feature. |
 | **Create Private Threads** | Allows the bot to create private ticket threads for a cleaner sidebar. |
-| **Manage Messages** | To pin messages and delete bot triggers/commands to keep channels clean. |
+| **Manage Messages** | To delete and edit bot triggers/commands to keep channels clean. |
+| ** Pin Messages** | To pin ticket welcome message in the ticket channel. |
 | **Manage Threads** | To archive/lock threads when a ticket is closed. |
 | **Embed Links** | Necessary to send rich visual panels, buttons, and formatted logs. |
 | **Attach Files** | Used to generate and upload HTML transcripts and audit logs. |
