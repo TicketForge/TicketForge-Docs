@@ -42,5 +42,7 @@ Stop doing manual work. Premium automates the boring stuff:
 ### 4. Custom Branding
 Make the bot feel like *your* bot.
 
-*   **Whitelabel (Custom Bot):** Run the bot with your own Name, Avatar, and **Bot Token**.
+*   **Nickname, Avatar & Banner:** Customize the bot's appearance in your server.
+*   **Server Bio:** Set a custom "About Me" visible in the bot's profile.
+*   **Whitelabel (Custom Bot):** Run the bot under your own token with your own name and avatar — exclusive to the **Support Plan**.
 *   **Clean Footers:** Remove "Powered by TicketForge" from embeds.
