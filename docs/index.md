@@ -50,7 +50,7 @@ Tame the chaos with intuitive panels, smart automation, and pixel-perfect custom
 
     Granular control over commands and staff access.
     
-    [:octicons-arrow-right-24: Security](settings/roles.md)
+    [:octicons-arrow-right-24: Security](settings/server-config.md)
 
 </div>
 
