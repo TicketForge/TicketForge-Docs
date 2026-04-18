@@ -3,7 +3,7 @@
 Manage global settings that apply to the entire bot within your server.
 
 <figure markdown>
-  ![ServerConfig Settings](../assets/images/settings/serverconfig.png){ loading=lazy }
+  ![ServerConfig Settings](../assets/images/edit_settings/serverconfig_settings.png){ loading=lazy }
   <figcaption>Server Config settings.</figcaption>
 </figure>
 

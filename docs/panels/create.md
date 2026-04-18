@@ -10,7 +10,7 @@ To begin, visit the [TicketForge Website](https://ticketforge.xyz).
 2. Authorize the TicketForge application to access your account information.
 
 <figure markdown>
-  ![Dashboard Home](../assets/images/panels/landing.png){ width="500" }
+  ![Dashboard Home](../assets/images/creating-panel/login.png){ loading=lazy }
   <figcaption>The main dashboard landing page.</figcaption>
 </figure>
 
@@ -24,7 +24,7 @@ You can also navigate to this page by clicking on your profile and then "Servers
 2. Select **Dashboard** from the dropdown menu.
 
 <figure markdown>
-  ![Server List](../assets/images/select_server.webp){ width="500" }
+  ![Server List](../assets/images/creating-panel/select_server.png){ loading=lazy }
   <figcaption>Your available servers list.</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ You can also navigate to this page by clicking on your profile and then "Servers
 After selecting a server, navigate to the **Panels** tab in the sidebar and click the **Create New Panel** card.
 
 <figure markdown>
-  ![Create Panel Card](../assets/images/panels/createnewpanel.png){ width="400" }
+  ![Create Panel Card](../assets/images/creating-panel/create_panel.png){ loading=lazy }
   <figcaption>Click the card with the plus icon to begin.</figcaption>
 </figure>
 
@@ -53,7 +53,7 @@ You will be presented with three ways to start your configuration:
 3.  **Import from Code (:material-code-json:)**: If you have a share code (format: `XXXX-XXXX-XXXX`), paste it here to clone an exact configuration.
 
 <figure markdown>
-  ![Template Selection](../assets/images/panels/selecttemplate.png){ width="600" }
+  ![Template Selection](../assets/images/creating-panel/select_template.png){ loading=lazy }
   <figcaption>Select a template or import a code to proceed.</figcaption>
 </figure>
 
@@ -61,7 +61,7 @@ You will be presented with three ways to start your configuration:
 Before making a choice, you can hover over any template card and click the **Preview** (:material-eye:) button. This opens a detailed interactive preview showing exactly how the panel, forms, and messages will look in Discord.
 
 <figure markdown>
-  ![Preview Template](../assets/images/panels/previewtemplate.png){ width="600" }
+  ![Preview Template](../assets/images/creating-panel/preview_template.png){ loading=lazy }
   <figcaption>Preview the layout and flow before selecting a template.</figcaption>
 </figure>
 
@@ -75,17 +75,28 @@ For standard templates, you only need to define:
 *   **Support Roles:** The Discord roles (e.g., `@Moderator`) that can view tickets.
 *   **Ticket Category:** The Discord Category where new tickets will be created.
 
+<figure markdown>
+  ![Setup Wizard](../assets/images/creating-panel/select_template_config.png){ loading=lazy }
+  <figcaption>The setup wizard allows you to configure essential settings before launching.</figcaption>
+</figure>
+
 #### Multi-Panel Configuration
 For complex templates (like a "Hub" system with multiple departments):
 1.  Select the **Main (Root)** panel in the sidebar to configure the entry point.
 2.  Select **Sub-Panels** to configure specific categories (e.g., "Billing").
 3.  *Tip:* Use **Copy from Main** to quickly apply settings across all sub-panels.
 
+<figure markdown>
+  ![Setup Wizard](../assets/images/creating-panel/select_template_config_multi.png){ loading=lazy }
+  <figcaption>The setup wizard allows you to configure essential settings before launching.</figcaption>
+</figure>
+
+
 ### Step C: Creation / Launching
 
 Click **Create Panel**. You will be redirected to the **Setup Wizard** to finalize your settings (Forms, Branding, Automation) and send the panel to Discord.
 
 <figure markdown>
-  ![Setup Wizard](../assets/images/panels/preparetosend.png){ width="600" }
+  ![Setup Wizard](../assets/images/creating-panel/preparetosend.png){ loading=lazy }
   <figcaption>The setup wizard allows you to configure essential settings before launching.</figcaption>
 </figure>

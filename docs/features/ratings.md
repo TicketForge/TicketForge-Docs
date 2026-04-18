@@ -3,7 +3,7 @@
 Gather feedback on your support team's performance.
 
 <figure markdown>
-  ![Automation Settings](../assets/images/features/rating.png){ loading=lazy }
+  ![Automation Settings](../assets/images/edit_settings/rating_settings.png){ loading=lazy }
   <figcaption>Rating settings.</figcaption>
 </figure>
 

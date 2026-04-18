@@ -1,21 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  /* --- 1. CORE PALETTE --- */
-  --tf-bg-deep: #050505;
-  --tf-primary: #7c3aed;
-  /* Brand Purple */
-  --tf-primary-light: #a78bfa;
-  /* Lighter Purple */
+  /* --- 1. CORE PALETTE (Aligned to new Dashboard) --- */
+  --tf-bg-deep: #111214;
+  /* Deep slate background */
+  --tf-surface: #151517;
+  /* Elevated card background */
+  --tf-surface-hover: #1c1d21;
+  /* Card hover state */
+
+  --tf-primary: #6366f1;
+  /* Tailwind Indigo-500 */
+  --tf-primary-hover: #4f46e5;
+  /* Tailwind Indigo-600 */
+  --tf-primary-glow: rgba(99, 102, 241, 0.2);
+
   --tf-border: rgba(255, 255, 255, 0.08);
+  --tf-border-hover: rgba(255, 255, 255, 0.15);
+
+  --tf-text-main: #cbd5e1;
+  /* Slate-300 */
+  --tf-text-muted: #94a3b8;
+  /* Slate-400 */
+  --tf-text-heading: #ffffff;
 
   /* MkDocs Theme Overrides */
   --md-default-bg-color: var(--tf-bg-deep);
-  --md-default-fg-color: #cbd5e1;
-  /* Slate 300 */
+  --md-default-fg-color: var(--tf-text-main);
   --md-primary-fg-color: var(--tf-primary);
-
-  --md-code-bg-color: rgba(20, 20, 20, 0.5);
+  --md-code-bg-color: #0b0c0e;
   --md-code-font: "JetBrains Mono", monospace;
   --md-text-font: "Inter", sans-serif;
 }
@@ -23,17 +36,13 @@
 /* --- 2. GLOBAL RESET & BACKGROUND --- */
 body {
   background-color: var(--tf-bg-deep);
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 0% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 100% 0%, rgba(219, 39, 119, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+  /* Replaced harsh multi-colored gradients with a soft, unified volumetric glow */
+  background-image: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/* Strip default shadows/borders */
 .md-header,
 .md-tabs,
 .md-sidebar,
@@ -55,7 +64,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -64,124 +73,130 @@ body {
 
 /* --- 4. GLASS HEADER --- */
 .md-header {
-  background-color: rgba(5, 5, 5, 0.85) !important;
+  background-color: rgba(17, 18, 20, 0.85) !important;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--tf-border) !important;
 }
 
-/* --- 5. DESKTOP NAVIGATION LAYOUT --- */
-
-/* 5a. SIDEBAR BACKGROUND SEPARATION */
-.md-sidebar--primary {
-  background-color: rgba(0, 0, 0, 0.3) !important;
-  border-right: 1px solid var(--tf-border) !important;
-  height: 100%;
-}
-
-.md-sidebar--secondary {
-  background: transparent !important;
-}
-
-/* 5b. HIDE Default Sidebar Title on Desktop Only */
+/* --- 5. DESKTOP NAVIGATION LAYOUT (Sidebar UX) --- */
 @media screen and (min-width: 76.25em) {
-  .md-nav--primary .md-nav__title {
-    display: none;
+
+  /* Sidebar Background Container */
+  .md-sidebar--primary {
+    background-color: var(--tf-bg-deep) !important;
+    border-right: 1px solid var(--tf-border) !important;
+    height: 100%;
+  }
+
+  .md-sidebar--secondary {
+    background: transparent !important;
+  }
+
+  .md-nav--primary>.md-nav__title {
+    display: none !important;
+  }
+
+  /* 1. RESET MKDOCS NESTING */
+  .md-nav--primary .md-nav__list {
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .md-nav--primary>.md-nav__list {
+    padding: 12px 12px 0 12px !important;
+  }
+
+  .md-nav--primary .md-nav__item--nested>.md-nav>.md-nav__list {
+    padding: 0 !important;
+  }
+
+  /* 2. SECTION HEADERS */
+  .md-nav--primary>.md-nav__list>.md-nav__item--nested>label.md-nav__link {
+    color: #64748b !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    background: transparent !important;
+    padding: 0 12px !important;
+    margin: 2rem 0 0.5rem 0 !important;
+    border: none !important;
+    pointer-events: none !important;
+    display: block !important;
+  }
+
+  .md-nav--primary>.md-nav__list>.md-nav__item--nested>label.md-nav__link .md-nav__icon {
+    display: none !important;
+  }
+
+  .md-nav--primary label[for="__toc"] {
+    display: none !important;
+  }
+
+  .md-nav--primary .md-nav__item--nested>.md-nav {
+    display: block !important;
+  }
+
+  /* 3. STANDARD LINKS (The "Pills") */
+  .md-nav--primary a.md-nav__link {
+    color: #cbd5e1 !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    padding: 8px 12px !important;
+    margin: 2px 0 !important;
+    border-radius: 8px !important;
+    display: block !important;
+    line-height: 1.4 !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .md-nav--primary a.md-nav__link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* 4. ACTIVE LINK STATE */
+  .md-nav--primary .md-nav__item--active>a.md-nav__link,
+  .md-nav--primary a.md-nav__link--active {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    background-color: var(--tf-primary) !important;
+    box-shadow: 0 4px 15px -3px var(--tf-primary-glow) !important;
+  }
+
+  /* 5. VISIBILITY ENFORCEMENT & "HOME" FIX */
+  .md-nav--primary>.md-nav__list>.md-nav__item {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap,
+  .md-sidebar--primary .md-sidebar__inner,
+  .md-nav--primary {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .md-nav--primary>.md-nav__list>.md-nav__item:first-child {
+    margin-top: 0 !important;
   }
 }
 
-/* 5c. SECTION HEADERS (Group Labels) */
-.md-nav--primary>.md-nav__list>.md-nav__item {
-  margin-top: 24px;
-}
-
-/* Style the Label */
-.md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #ffffff !important;
-  opacity: 1;
-  background: transparent !important;
-  padding: 0 12px;
-  margin-bottom: 8px;
-  pointer-events: none;
-  border-left: none !important;
-}
-
-/* 5d. HOME BUTTON EXCEPTION */
-.md-nav--primary>.md-nav__list>.md-nav__item:first-child {
-  margin-top: 10px !important;
-  margin-bottom: 10px;
-}
-
-.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
-  text-transform: none !important;
-  letter-spacing: normal !important;
-  font-size: 0.8125rem !important;
-  font-weight: 500 !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  color: #8b9bb4 !important;
-  padding: 6px 12px !important;
-  border-left: 3px solid transparent !important;
-  border-radius: 0 4px 4px 0;
-  background: transparent !important;
-}
-
-.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link:hover {
-  color: #fff !important;
-  background-color: rgba(255, 255, 255, 0.03) !important;
-}
-
-.md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link--active {
-  color: var(--tf-primary-light) !important;
-  font-weight: 600 !important;
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12) 0%, transparent 100%) !important;
-  border-left: 3px solid var(--tf-primary) !important;
-}
-
-/* 5e. STANDARD LINKS */
-.md-nav__link {
-  font-size: 0.8125rem;
-  padding: 6px 12px;
-  transition: all 0.2s ease;
-  color: #8b9bb4;
-  margin: 1px 0 !important;
-  background: transparent !important;
-  border-radius: 0 4px 4px 0;
-  border-left: 3px solid transparent;
-  line-height: 1.4;
-}
-
-.md-nav__link:hover {
-  color: #fff !important;
-  background-color: rgba(255, 255, 255, 0.03) !important;
-}
-
-/* Active State */
-.md-nav__item .md-nav__link--active {
-  color: var(--tf-primary-light) !important;
-  font-weight: 600;
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12) 0%, transparent 100%) !important;
-  border-left: 3px solid var(--tf-primary) !important;
-  box-shadow: none !important;
-}
-
-/* Remove default indentation lines */
-.md-nav__list {
-  border-left: none !important;
-}
 
 /* --- 6. RIGHT SIDEBAR (Table of Contents) --- */
 .md-sidebar--secondary .md-nav__title {
   background: transparent !important;
   box-shadow: none !important;
-  font-weight: 700;
-  font-size: 0.7rem;
+  font-weight: 800;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.5;
+  letter-spacing: 0.1em;
+  color: var(--tf-text-muted);
 }
 
 .md-nav--secondary>.md-nav__list {
@@ -190,109 +205,144 @@ body {
 
 .md-nav--secondary .md-nav__link {
   font-size: 0.75rem;
+  color: var(--tf-text-muted);
 }
 
+.md-nav--secondary .md-nav__link:hover {
+  color: var(--tf-text-main) !important;
+}
+
+/* TOC Active State (Highlight bar on the left, pure white text) */
 .md-nav--secondary .md-nav__link--active {
-  border-left: 2px solid var(--tf-primary) !important;
-  margin-left: -1px;
+  color: #ffffff !important;
+  /* Fixed: Pure white for readability */
+  font-weight: 600 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  position: relative;
 }
 
-/* --- 7. UI ELEMENTS --- */
+/* Custom left highlight line for active TOC item */
+.md-nav--secondary .md-nav__link--active::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 15%;
+  height: 70%;
+  width: 2px;
+  background-color: var(--tf-primary);
+  border-radius: 4px;
+}
 
-/* Buttons */
+/* --- 7. UI ELEMENTS & CONTENT --- */
+
+/* Primary Buttons */
 .md-typeset .md-button--primary {
   background-color: var(--tf-primary);
-  border-radius: 6px;
+  border-radius: 12px;
   color: white !important;
-  font-weight: 600;
+  font-weight: 700;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.2s;
+  padding: 10px 24px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px -3px var(--tf-primary-glow);
 }
 
 .md-typeset .md-button--primary:hover {
-  background-color: #8b5cf6;
-  box-shadow: 0 0 15px -5px rgba(124, 58, 237, 0.5);
+  background-color: var(--tf-primary-hover);
+  transform: translateY(-1px);
 }
 
-/* Admonitions */
+/* Standard Buttons */
+.md-typeset .md-button:not(.md-button--primary) {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  color: var(--tf-text-main) !important;
+  font-weight: 600;
+  border: 1px solid var(--tf-border);
+  transition: all 0.2s ease;
+}
+
+.md-typeset .md-button:not(.md-button--primary):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+}
+
+/* Feature Cards Grid */
+.md-typeset .grid.cards ul li {
+  background-color: var(--tf-surface);
+  border: 1px solid var(--tf-border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.md-typeset .grid.cards ul li:hover {
+  border-color: var(--tf-border-hover);
+  background-color: var(--tf-surface-hover);
+  transform: translateY(-2px);
+}
+
+/* Admonitions (Callouts) */
 .md-typeset .admonition {
-  background-color: rgba(255, 255, 255, 0.02) !important;
+  background-color: var(--tf-surface) !important;
   border: 1px solid var(--tf-border) !important;
-  border-left-width: 3px !important;
-  border-radius: 6px;
+  border-left-width: 4px !important;
+  border-radius: 12px;
 }
 
 .md-typeset .admonition-title {
   background: transparent !important;
   border-bottom: 1px solid var(--tf-border);
+  font-weight: 700;
 }
 
 /* Search Input */
 .md-search__input {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
   border: 1px solid var(--tf-border);
-  border-radius: 6px;
+  border-radius: 10px;
+}
+
+.md-search__input:focus {
+  border-color: var(--tf-primary);
 }
 
 /* Code Blocks */
 .md-typeset pre>code {
-  background-color: #0b0b0c !important;
+  background-color: var(--md-code-bg-color) !important;
   border: 1px solid var(--tf-border);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
-/* Feature Cards */
-.md-typeset .grid.cards ul li {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--tf-border);
-  border-radius: 8px;
-  transition: border-color 0.2s;
-}
 
-.md-typeset .grid.cards ul li:hover {
-  border-color: rgba(124, 58, 237, 0.5);
-  background-color: rgba(124, 58, 237, 0.05);
-}
 
-/* --- 8. MOBILE SPECIFIC FIXES --- */
+/* --- 8. MOBILE SPECIFIC FIXES (Slide-out Drawer) --- */
 @media screen and (max-width: 76.1875em) {
 
-  /* A. DRAWER CONTAINER */
+  /* Drawer Background */
   .md-drawer {
+    background-color: var(--tf-bg-deep) !important;
     border-right: 1px solid var(--tf-border);
   }
 
   .md-nav--primary,
   .md-nav--primary .md-nav__list {
-    background: var(--tf-bg-deep) !important;
-    background-image: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.03) 0%, transparent 50%) !important;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-bottom: 40px !important;
+    background: transparent !important;
     padding-top: 0 !important;
   }
 
-  /* B. BRAND HEADER (Main Menu Top) */
+  /* Main Drawer Header (The Logo Area) */
   .md-nav--primary>.md-nav__title {
-    background: transparent !important;
-    border-bottom: none !important;
+    background: var(--tf-bg-deep) !important;
+    border-bottom: 1px solid var(--tf-border) !important;
+    padding: 24px 20px 16px 20px !important;
     margin: 0 !important;
-    padding: 24px 20px 10px 20px !important;
-
     color: #fff !important;
     font-weight: 800 !important;
     font-size: 1.2rem !important;
-    letter-spacing: -0.02em;
-    line-height: 1.2 !important;
-
-    position: relative !important;
-    z-index: 1;
-
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
     gap: 12px !important;
   }
 
@@ -300,188 +350,69 @@ body {
     height: 28px !important;
     width: auto !important;
     margin: 0 !important;
-    display: block !important;
-    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.3));
   }
 
-  .md-nav--primary>.md-nav__title {
-    white-space: nowrap !important;
+  /* Drill-down Submenu Header (Fixes the overlapping text and arrow) */
+  .md-nav__item .md-nav__title {
+    background: var(--tf-bg-deep) !important;
+    border-bottom: 1px solid var(--tf-border) !important;
+    padding: 16px 20px !important;
+    color: #fff !important;
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    /* Pushes the text safely away from the back arrow */
+    line-height: 1.4 !important;
   }
 
-  /* C. HIDE DOUBLE HOME LABEL (First Item Only) */
-  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>label.md-nav__link {
-    display: none !important;
-  }
-
-  /* D. MAIN MENU CARDS */
-  .md-nav--primary>.md-nav__list>.md-nav__item {
-    margin: 0 12px !important;
-    padding: 0 !important;
-    border: none !important;
-  }
-
+  /* Root Level Categories & Home Button (Big Touch Pills) */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link {
     background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
     border-radius: 12px !important;
     padding: 16px 20px !important;
-
-    color: #cbd5e1 !important;
+    margin: 10px 16px !important;
+    color: var(--tf-text-main) !important;
     font-weight: 600 !important;
     font-size: 0.95rem !important;
-    text-transform: none !important;
-
-    white-space: normal !important;
-    line-height: 1.4 !important;
-    height: auto !important;
-    min-height: 56px !important;
-
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.2s;
-
-    pointer-events: auto !important;
-    cursor: pointer !important;
   }
 
-  .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link:active,
-  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:active {
-    background: rgba(124, 58, 237, 0.1) !important;
-    border-color: rgba(124, 58, 237, 0.3) !important;
-    transform: scale(0.98);
-  }
-
-  /* Custom Arrow */
-  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link::after {
-    content: "→" !important;
-    font-family: "JetBrains Mono", monospace;
-    font-weight: bold;
-    opacity: 0.3;
-    display: block !important;
-    transform: none !important;
-    margin-left: 12px;
-    flex-shrink: 0;
-  }
-
-  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link .md-nav__icon {
-    display: none !important;
-  }
-
-  /* E. "HOME" BUTTON HIGHLIGHT */
-  .md-nav--primary>.md-nav__list>.md-nav__item:first-child>.md-nav__link {
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.05) 100%) !important;
-    border: 1px solid rgba(124, 58, 237, 0.3) !important;
-    color: #fff !important;
-    font-weight: 700 !important;
-    margin-top: 0 !important;
-    margin-bottom: 8px !important;
-  }
-
-  /* --- F. SUB-MENU (DETAIL VIEW) --- */
-
-  /* 1. Sub-Menu Header (Purple Gradient) */
-  .md-nav__item .md-nav__title {
-    /* CHANGE 1: Use the deep background variable instead of purple gradient */
-    background: var(--tf-bg-deep) !important;
-
-    /* CHANGE 2: Use standard border color instead of purple */
-    border-bottom: 1px solid var(--tf-border) !important;
-
-    /* CHANGE 3: Remove the purple shadow glow */
-    box-shadow: none !important;
-
-    /* Keep the rest of the layout logic below exactly the same */
-    backdrop-filter: blur(10px) !important;
-    margin: 0 !important;
-    padding: 0 16px !important;
-    min-height: 64px !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 20 !important;
-    width: 100% !important;
-
-    display: flex !important;
-    align-items: center !important;
-    flex-direction: row !important;
-    gap: 12px !important;
-  }
-
-  .md-nav__item .md-nav__title::before {
-    display: none !important;
-  }
-
-  .md-nav__item .md-nav__title .md-nav__button {
-    color: #fff !important;
-    margin: 0 !important;
-    padding: 8px !important;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .md-nav__item .md-nav__title {
-    color: #fff !important;
-    font-weight: 800 !important;
-    font-size: 1rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em;
-  }
-
-  /* 2. SUB-MENU LINKS */
-  .md-nav__item .md-nav__item {
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-  }
-
-  /* FIX: Ensure active labels (which appear when a page is selected) are DISPLAYED */
-  .md-nav__item .md-nav__item label.md-nav__link {
-    display: flex !important;
-    /* Changed from 'none' to 'flex' */
-    cursor: pointer;
-  }
-
-  /* Hide the toggle icon inside the label if preferred, or style it */
-  .md-nav__item .md-nav__item label.md-nav__link .md-nav__icon {
-    display: none;
-  }
-
-  /* Shared styling for Links and Labels inside submenu */
+  /* Submenu Links (Removes the ugly lines, adds Pill styling) */
   .md-nav__item .md-nav__item .md-nav__link {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02) !important;
-    padding: 16px 24px !important;
-    color: #94a3b8 !important;
-    font-size: 0.95rem !important;
-    width: 100%;
-    display: flex;
-    align-items: center;
+    padding: 12px 16px !important;
+    margin: 4px 16px !important;
+    /* Indents them and detaches them from edges */
+    border-radius: 10px !important;
+    color: var(--tf-text-muted) !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
   }
 
-  /* Active State (Purple Highlight) */
+  /* Active Submenu Link (Matches the sleek Desktop pill) */
   .md-nav__item .md-nav__item .md-nav__link--active {
-    color: #fff !important;
+    color: #ffffff !important;
     font-weight: 600 !important;
-    background: linear-gradient(90deg, rgba(124, 58, 237, 0.08) 0%, transparent 100%) !important;
-    border-left: 3px solid var(--tf-primary) !important;
+    background-color: var(--tf-primary) !important;
+    box-shadow: 0 4px 15px -3px var(--tf-primary-glow) !important;
+    border-left: none !important;
+    /* Removes that weird blue left border */
   }
 }
 
 /* --- 9. TYPOGRAPHY --- */
 .md-typeset h1 {
-  color: #fff;
-  background: linear-gradient(to right, #ffffff 0%, #e9d5ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--tf-text-heading);
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
@@ -489,25 +420,26 @@ body {
 
 .md-typeset h2,
 .md-typeset h3 {
-  color: #ffffff !important;
+  color: var(--tf-text-heading) !important;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .md-typeset h4 {
-  color: var(--tf-primary-light) !important;
+  color: var(--tf-primary) !important;
   font-weight: 600;
 }
 
 .md-typeset p {
   line-height: 1.7;
-  color: #cbd5e1;
+  color: var(--tf-text-main);
 }
 
+/* Table overrides to match Dashboard surface color */
 .md-typeset table:not([class]) {
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--tf-surface);
   border: 1px solid var(--tf-border);
-  border-radius: 8px;
+  border-radius: 12px;
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
@@ -515,7 +447,7 @@ body {
 
 .md-typeset table:not([class]) th {
   background-color: rgba(255, 255, 255, 0.03) !important;
-  color: #fff !important;
+  color: var(--tf-text-heading) !important;
   font-weight: 600;
   border-bottom: 1px solid var(--tf-border);
   padding: 16px;
@@ -525,7 +457,7 @@ body {
 .md-typeset table:not([class]) td {
   padding: 16px;
   border-bottom: 1px solid var(--tf-border);
-  color: #94a3b8;
+  color: var(--tf-text-muted);
 }
 
 .md-typeset table:not([class]) tr:last-child td {
@@ -533,14 +465,15 @@ body {
 }
 
 .md-typeset table:not([class]) tr:hover td {
-  background-color: rgba(124, 58, 237, 0.05) !important;
-  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: var(--tf-text-main) !important;
 }
 
+/* Images & Assets */
 .md-typeset img {
   border-radius: 12px;
   border: 1px solid var(--tf-border);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
 }
 
 .md-typeset img[src*=".svg"],

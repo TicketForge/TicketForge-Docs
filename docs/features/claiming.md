@@ -3,7 +3,7 @@
 The Claiming System allows a staff member to take ownership of a ticket, preventing multiple moderators from responding to the same user simultaneously.
 
 <figure markdown>
-  ![Server List](../assets/images/features/claiming.png){ loading=lazy }
+  ![Server List](../assets/images/edit_settings/claiming_settings.png){ loading=lazy }
   <figcaption>Claim settings.</figcaption>
 </figure>
 

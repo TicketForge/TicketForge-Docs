@@ -3,7 +3,7 @@
 TicketForge can perform automated actions to help maintain your server's hygiene and keep users informed.
 
 <figure markdown>
-  ![Automation Settings](../assets/images/features/automation.png){ loading=lazy }
+  ![Automation Settings](../assets/images/edit_settings/automation_settings.png){ loading=lazy }
   <figcaption>Automation settings.</figcaption>
 </figure>
 

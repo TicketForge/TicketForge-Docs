@@ -3,7 +3,7 @@
 Control the flow of tickets to prevent spam and burnout.
 
 <figure markdown>
-  ![Automation Settings](../assets/images/features/limits.png){ loading=lazy }
+  ![Automation Settings](../assets/images/edit_settings/limit_settings.png){ loading=lazy }
   <figcaption>Limit and Schedule settings.</figcaption>
 </figure>
 

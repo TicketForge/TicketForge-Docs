@@ -3,8 +3,8 @@
 TicketForge allows you to fully customize the messages sent by the bot. You can create rich, professional **Embeds** with images, authors, and footers using the visual builder.
 
 <figure markdown>
-  ![Server List](../assets/images/features/messages.png){ loading=lazy }
-  <figcaption>The panel eidtor screen.</figcaption>
+  ![Server List](../assets/images/edit_settings/message_settings.png){ loading=lazy }
+  <figcaption>The message editor screen.</figcaption>
 </figure>
 
 ## Available Triggers

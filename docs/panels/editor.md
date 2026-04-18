@@ -3,7 +3,7 @@
 The **Panel Editor** is your workspace for building support workflows. It features a real-time health check system, auto-save protection, and granular control over every aspect of your ticket system.
 
 <figure markdown>
-  ![Server List](../assets/images/panels/paneleditor.png){ loading=lazy }
+  ![Server List](../assets/images/dashboard/edit_panel.webp){ loading=lazy }
   <figcaption>The panel eidtor screen.</figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ In the top right, you will see a live **Health Status** badge.
 **Click the badge** to see a detailed checklist and "Fix" shortcuts.
 
 <figure markdown>
-  ![Server List](../assets/images/panels/statusheatlth.png){ loading=lazy }
+  ![Server List](../assets/images/dashboard/status_health.png){ loading=lazy }
   <figcaption>See the health of your panel.</figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ The editor tracks your changes locally. If you modify a setting, a **Save Bar** 
 *   **Save Changes:** Pushes your configuration to the live bot.
 
 <figure markdown>
-  ![Server List](../assets/images/savebar.png){ loading=lazy }
+  ![Server List](../assets/images/dashboard/savebar.png){ loading=lazy }
   <figcaption>The savebar.</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ The editor tracks your changes locally. If you modify a setting, a **Save Bar** 
 Located in the top toolbar (or under the "More" menu on mobile), these tools allow you to manage the panel itself.
 
 <figure markdown>
-  ![Server List](../assets/images/panels/editorbar.png){ loading=lazy }
+  ![Server List](../assets/images/dashboard/unified_searchbar.png){ loading=lazy }
   <figcaption>The actionbar on the paneleditor page.</figcaption>
 </figure>
 

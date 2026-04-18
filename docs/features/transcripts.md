@@ -2,6 +2,11 @@
 
 TicketForge ensures you never lose the context of a conversation. Transcripts are permanent HTML files containing the full chat history.
 
+<figure markdown>
+  ![Automation Settings](../assets/images/edit_settings/transcript_settings.png){ loading=lazy }
+  <figcaption>Limit and Schedule settings.</figcaption>
+</figure>
+
 ## Cloud Backup (Google Drive)
 
 Stop relying on Discord file attachments. You can sync transcripts directly to Google Drive.

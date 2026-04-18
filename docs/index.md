@@ -58,7 +58,7 @@ Tame the chaos with intuitive panels, smart automation, and pixel-perfect custom
 
 ## Powerful Management
 
-TicketForge isn't just a bot; it's a full CRM for Discord.
+TicketForge isn't just a bot, it's a full CRM for Discord.
 
 <div class="grid cards" markdown>
 

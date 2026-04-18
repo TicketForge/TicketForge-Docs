@@ -8,7 +8,7 @@ The **TicketForge Dashboard** is the command center for your support system. Tic
 Once you select a server, the **Sidebar** becomes your main navigation tool. It is divided into logical sections to help you manage different aspects of the bot.
 
 <figure markdown>
-  ![Panel Editor](../assets/images/panels/paneleditor.png){ loading=lazy }
+  ![Panel Editor](../assets/images/dashboard/edit_panel.webp){ loading=lazy }
   <figcaption>The Panel Editor view with the sidebar navigation on the left.</figcaption>
 </figure>
 

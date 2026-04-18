@@ -3,7 +3,7 @@
 Escalation allows you to move an active ticket from one panel to another (e.g., from "General Support" to "Billing" or "High Priority"). This ensures tickets reach the right department without forcing the user to open a new request.
 
 <figure markdown>
-  ![Escalation Settings](../assets/images/features/escalation.png){ loading=lazy }
+  ![Escalation Settings](../assets/images/edit_settings/escalation_settings.png){ loading=lazy }
   <figcaption>Escalation configuration settings.</figcaption>
 </figure>
 

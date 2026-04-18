@@ -20,7 +20,7 @@ You can turn any existing panel into a template.
 When creating a new panel, you can choose **Community Templates** or **Official Templates**.
 
 1.  Click **Create New Panel**.
-2.  Browse the **Community** tab.
+2.  Browse the **Desired (Official/Community)** tab.
 3.  Click **Preview** on a card to see the flow.
 4.  Click **Use Template**.
 5.  The **Setup Wizard** will guide you through mapping the required roles and categories.

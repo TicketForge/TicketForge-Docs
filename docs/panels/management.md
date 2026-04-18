@@ -3,7 +3,7 @@
 Control the fundamental behavior of your tickets: names, permissions, and structure.
 
 <figure markdown>
-  ![Server List](../assets/images/features/permissions.png){ loading=lazy }
+  ![Server List](../assets/images/edit_settings/ticket_settings.png){ loading=lazy }
   <figcaption>Permission settings.</figcaption>
 </figure>
 

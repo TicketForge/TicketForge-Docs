@@ -2,19 +2,19 @@ site_name: TicketForge
 site_description: The ultimate Discord ticketing bot.
 site_url: https://docs.ticketforge.xyz/
 
+# mkdocs.yml (Partial update)
 theme:
   name: material
   font:
-    text: Inter
+    text: Jost # Changed from Inter
     code: JetBrains Mono
   palette:
     - scheme: slate
-      primary: black
+      primary: indigo # Aligning with Tailwind colors.indigo
       accent: indigo
 
-  # 1. UPDATED LOGO & FAVICON
   logo: assets/images/logo.png
-  favicon: assets/images/faviconv3.ico
+  favicon: assets/images/faviconv4.ico
 
   features:
     - navigation.instant
@@ -43,34 +43,34 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  
+
   - GETTING STARTED:
-    - Installation: getting-started/installation.md
-    - Dashboard Overview: getting-started/dashboard.md
-    - Premium Plans: premium.md
+      - Installation: getting-started/installation.md
+      - Dashboard Overview: getting-started/dashboard.md
+      - Premium Plans: premium.md
 
-  - PANEL CONFIGURATION:
-    - Creating Panels: panels/create.md
-    - The Panel Editor: panels/editor.md
-    - Messages & Embeds: panels/messages.md
-    - Interaction Styles: guides/button-styles.md
-    - Custom Forms: features/forms.md
-    - Ticket Settings: panels/management.md
+  - PANEL CONFIG:
+      - Creating Panels: panels/create.md
+      - The Panel Editor: panels/editor.md
+      - Messages & Embeds: panels/messages.md
+      - Interaction Styles: guides/button-styles.md
+      - Custom Forms: features/forms.md
+      - Ticket Settings: panels/management.md
 
-  - ADVANCED AUTOMATION:
-    - Escalation System: features/escalation.md
-    - Claiming System: features/claiming.md
-    - Automation Triggers: features/automation.md
-    - Rating System: features/ratings.md
-    - Tickets as Threads: features/threads.md
-    - Limits & Schedules: features/limits.md
-    - Transcripts: features/transcripts.md
+  - AUTOMATION:
+      - Escalation System: features/escalation.md
+      - Claiming System: features/claiming.md
+      - Automation Triggers: features/automation.md
+      - Rating System: features/ratings.md
+      - Tickets as Threads: features/threads.md
+      - Limits & Schedules: features/limits.md
+      - Transcripts: features/transcripts.md
 
   - TEMPLATES:
-    - Using Templates: panels/templates.md
-  
+      - Using Templates: panels/templates.md
+
   - REFERENCE:
-    - Variable Placeholders: guides/placeholders.md
-    - Command List: settings/commands.md
-    - Server Settings: settings/server-config.md
-    - Troubleshooting: guides/troubleshooting.md
+      - Variable Placeholders: guides/placeholders.md
+      - Command List: settings/commands.md
+      - Server Settings: settings/server-config.md
+      - Troubleshooting: guides/troubleshooting.md

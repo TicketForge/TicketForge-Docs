@@ -3,7 +3,7 @@
 TicketForge offers three distinct interaction styles for your panels, allowing you to optimize for space or visual appeal.
 
 <figure markdown>
-  ![Setup Wizard](../assets/images/features/layout.png){ width="600" }
+  ![Setup Wizard](../assets/images/edit_settings/layout_settings.png){ loading=lazy }
   <figcaption>Layout settings.</figcaption>
 </figure>
 
@@ -31,7 +31,7 @@ Best for panels with many categories (e.g., "Tech Support", "Billing", "Report P
 *   **Logic:** Each option in the dropdown triggers a *different* panel configuration behind the scenes.
 
 <figure markdown>
-  ![Dropdown Menu](../assets/images/panels/dropdown-example.png){ loading=lazy }
+  ![Dropdown Menu](../assets/images/edit_settings/dropdown-example.png){ loading=lazy }
   <figcaption>Panel with dropdown selection.</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ A powerful layout that combines buttons from **multiple different panels** into 
 *   **Benefit:** Allows you to have a "General Support" button and an "Apply for Staff" button in the same message, even though they have completely different logic/roles behind them.
 
 <figure markdown>
-  ![Standard Buttons](../assets/images/panels/multibutton-example.png){ loading=lazy }
+  ![Standard Buttons](../assets/images/edit_settings/multibutton-example.png){ loading=lazy }
   <figcaption>Panel with multiple buttons.</figcaption>
 </figure>
 

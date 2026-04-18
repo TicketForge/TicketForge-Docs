@@ -3,7 +3,7 @@
 By default, TicketForge creates a new **Text Channel** for every ticket. The **Tickets as Threads** feature changes this behavior to create **Private Threads** inside a single parent channel.
 
 <figure markdown>
-  ![Automation Settings](../assets/images/features/threads.png){ loading=lazy }
+  ![Automation Settings](../assets/images/edit_settings/thread_settings.png){ loading=lazy }
   <figcaption>Ticket as thread settings.</figcaption>
 </figure>
 
