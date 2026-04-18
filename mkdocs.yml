@@ -14,7 +14,7 @@ theme:
 
   # 1. UPDATED LOGO & FAVICON
   logo: assets/images/logo.png
-  favicon: assets/images/favicon.ico
+  favicon: assets/images/faviconv3.ico
 
   features:
     - navigation.instant
