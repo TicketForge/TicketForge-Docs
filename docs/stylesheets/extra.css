@@ -369,9 +369,14 @@ body {
     line-height: 1.4 !important;
   }
 
+  .md-nav--primary>.md-nav__list>.md-nav__item>label[for="__toc"] {
+    display: none !important;
+  }
+
   /* Root Level Categories & Home Button (Big Touch Pills) */
+  /* Updated to exclude the __toc label from receiving this styling */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
-  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link {
+  .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:not([for="__toc"]) {
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
     border-radius: 12px !important;
