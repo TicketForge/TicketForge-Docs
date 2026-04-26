@@ -11,7 +11,7 @@ TicketForge offers three distinct interaction styles for your panels, allowing y
 
 Watch our video guide below to learn step-by-step how to set up both multi-panel buttons and select style (dropdown) layouts:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3nqu6CQ8AyQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6YBDP4lsVKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 *(If the embedded video above doesn't load, you can also [watch the tutorial on YouTube](https://www.youtube.com/watch?v=3nqu6CQ8AyQ).)*
 

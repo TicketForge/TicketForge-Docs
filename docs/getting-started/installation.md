@@ -4,7 +4,7 @@ Getting TicketForge running on your server takes just a few clicks.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); margin-bottom: 2rem;">
     <iframe 
-        src="https://www.youtube.com/embed/Im3quAqKLSI" 
+        src="https://www.youtube.com/embed/O-QQjthtYQk" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

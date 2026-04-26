@@ -55,7 +55,7 @@ Take branding to the next level by running TicketForge under **your own bot appl
 <div style="max-width: 900px; margin: 0 auto 4rem auto;">
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);">
         <iframe
-            src="https://www.youtube.com/embed/9WBPmbWLx2Q"
+            src="https://www.youtube.com/embed/OE5uTWO018o"
             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
