@@ -78,6 +78,28 @@ body {
   border-bottom: 1px solid var(--tf-border) !important;
 }
 
+/* --- 4.1 HEADER LOGO & TITLE SIZING --- */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 36px !important;
+  /* Increased from default 24px. Adjust this value to your liking. */
+  width: auto !important;
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Add a subtle hover effect to the logo */
+.md-header__button.md-logo:hover img {
+  transform: scale(1.05);
+}
+
+/* Optional: Make the "TicketForge" text slightly larger to match the new logo size */
+.md-header__title .md-header__topic {
+  font-size: 1.2rem !important;
+  /* Increased from default */
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
 /* --- 5. DESKTOP NAVIGATION LAYOUT (Sidebar UX) --- */
 @media screen and (min-width: 76.25em) {
 
@@ -341,15 +363,21 @@ body {
     color: #fff !important;
     font-weight: 800 !important;
     font-size: 1.2rem !important;
+
+    /* Force logo and text to be side-by-side */
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     gap: 12px !important;
   }
 
-  .md-nav--primary>.md-nav__title img {
-    height: 28px !important;
+  .md-nav--primary>.md-nav__title img,
+  .md-nav--primary>.md-nav__title svg {
+    height: 36px !important;
+    /* Kept slightly smaller than desktop so it fits mobile nicely */
     width: auto !important;
     margin: 0 !important;
+    display: block !important;
   }
 
   /* Drill-down Submenu Header (Fixes the overlapping text and arrow) */

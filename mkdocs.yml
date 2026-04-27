@@ -14,7 +14,7 @@ theme:
       accent: indigo
 
   logo: assets/images/logo.png
-  favicon: assets/images/faviconv4.ico
+  favicon: assets/images/favicon.png
 
   features:
     - navigation.instant
