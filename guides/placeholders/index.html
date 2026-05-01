@@ -1,0 +1,2310 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The ultimate Discord ticketing bot.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.ticketforge.xyz/guides/placeholders/">
+      
+      
+        <link rel="prev" href="../../panels/templates/">
+      
+      
+        <link rel="next" href="../../settings/commands/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Variable Placeholders - TicketForge</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Jost";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#variables-placeholders" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TicketForge" class="md-header__button md-logo" aria-label="TicketForge" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TicketForge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Variable Placeholders
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TicketForge" class="md-nav__button md-logo" aria-label="TicketForge" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    TicketForge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GETTING STARTED
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GETTING STARTED
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../premium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premium Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PANEL CONFIG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PANEL CONFIG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panels/create/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Panels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panels/editor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Panel Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panels/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Messages & Embeds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../button-styles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interaction Styles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Forms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panels/management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ticket Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AUTOMATION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AUTOMATION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escalation System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/claiming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claiming System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation Triggers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/ratings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/threads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tickets as Threads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/limits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limits & Schedules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/transcripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transcripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEMPLATES
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEMPLATES
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../panels/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REFERENCE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REFERENCE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Placeholders
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable Placeholders
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-user-staff-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. User &amp; Staff Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. User &amp; Staff Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ticket-owner-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket Owner (The User)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-action-author-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Action Author (The Trigger)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ticket-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ticket Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ticket Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-ticket-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Ticket Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-owner-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket Owner Specifics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claim-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claim Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escalation-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escalation Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-server-channel-panel-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Server, Channel &amp; Panel Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Server, Channel &amp; Panel Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-forms-special-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Forms &amp; Special Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Forms &amp; Special Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-channel-naming-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Channel Naming Specifics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-time-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Time &amp; Dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-advanced-logic-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Advanced Logic (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-image-placeholders-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Image Placeholders Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/server-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-user-staff-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. User &amp; Staff Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. User &amp; Staff Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ticket-owner-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket Owner (The User)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-action-author-the-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Action Author (The Trigger)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ticket-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ticket Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Ticket Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-ticket-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Ticket Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-owner-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket Owner Specifics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claim-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claim Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escalation-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Escalation Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-server-channel-panel-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Server, Channel &amp; Panel Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Server, Channel &amp; Panel Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-forms-special-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Forms &amp; Special Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Forms &amp; Special Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-channel-naming-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Channel Naming Specifics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-time-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Time &amp; Dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-advanced-logic-modifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Advanced Logic (Modifiers)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-image-placeholders-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Image Placeholders Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="variables-placeholders">Variables &amp; Placeholders</h1>
+<p>You can use these dynamic variables in your <strong>Messages</strong>, <strong>Embeds</strong>, and <strong>Channel Names</strong>. The bot will automatically replace them with real data when the message is sent or the channel is created.</p>
+<hr />
+<h2 id="1-user-staff-variables">1. User &amp; Staff Variables</h2>
+<h3 id="ticket-owner-the-user">Ticket Owner (The User)</h3>
+<p>Variables related to the person who triggered the ticket creation.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{user_mention}</code></td>
+<td style="text-align: left;">Mentions the user (e.g. @Username).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_name}</code></td>
+<td style="text-align: left;">The user's username.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_nickname}</code></td>
+<td style="text-align: left;">The user's server nickname.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_id}</code></td>
+<td style="text-align: left;">The user's unique Discord ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_avatar}</code></td>
+<td style="text-align: left;">Direct URL to the user's avatar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_tag}</code></td>
+<td style="text-align: left;">The user's 4-digit discriminator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{user_full}</code></td>
+<td style="text-align: left;">The user's username and discriminator combined.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-action-author-the-trigger">The Action Author (The Trigger)</h3>
+<p>Variables related to <strong>whoever clicked the button or ran the command</strong>. 
+<em>Note: In a Welcome Message, this is usually the ticket owner. In a "Ticket Claimed" message, this is the staff member.</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{author}</code></td>
+<td style="text-align: left;">Mentions the user who triggered the action.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.name}</code></td>
+<td style="text-align: left;">The author's username.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.nickname}</code></td>
+<td style="text-align: left;">The author's server nickname.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.id}</code></td>
+<td style="text-align: left;">The author's unique Discord ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.icon}</code></td>
+<td style="text-align: left;">URL of the author's profile picture.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.tag}</code></td>
+<td style="text-align: left;">The author's 4-digit discriminator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{author.full}</code></td>
+<td style="text-align: left;">The author's username and discriminator combined.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-ticket-context">2. Ticket Context</h2>
+<h3 id="general-ticket-info">General Ticket Info</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{ticket}</code></td>
+<td style="text-align: left;">Mentions the ticket channel (clickable link).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.name}</code></td>
+<td style="text-align: left;">The name of the ticket channel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.id}</code></td>
+<td style="text-align: left;">The unique channel ID of the ticket.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket_opener}</code></td>
+<td style="text-align: left;">Mentions the user who opened the ticket.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket_closer}</code></td>
+<td style="text-align: left;">Mentions the user who closed the ticket.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{transcript.users}</code> / <code>{transcript_users}</code></td>
+<td style="text-align: left;">List of users involved in the ticket transcript.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ticket-owner-specifics">Ticket Owner Specifics</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{ticket.user}</code> / <code>{ticket.owner}</code></td>
+<td style="text-align: left;">Mentions the ticket owner/creator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.name}</code></td>
+<td style="text-align: left;">The ticket owner's username.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.nickname}</code></td>
+<td style="text-align: left;">The ticket owner's server nickname.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.id}</code></td>
+<td style="text-align: left;">The ticket owner's unique Discord ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.icon}</code></td>
+<td style="text-align: left;">URL of the ticket owner's profile picture.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.tag}</code></td>
+<td style="text-align: left;">The ticket owner's 4-digit discriminator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{ticket.user.full}</code></td>
+<td style="text-align: left;">The ticket owner's username and discriminator.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="claim-status">Claim Status</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{claim.user}</code></td>
+<td style="text-align: left;">Mentions the last user who claimed the ticket.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.name}</code></td>
+<td style="text-align: left;">The claimer's username.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.nickname}</code></td>
+<td style="text-align: left;">The claimer's server nickname.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.id}</code></td>
+<td style="text-align: left;">The claimer's unique Discord ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.icon}</code></td>
+<td style="text-align: left;">URL of the claimer's profile picture.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.tag}</code></td>
+<td style="text-align: left;">The claimer's 4-digit discriminator.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{claim.user.full}</code></td>
+<td style="text-align: left;">The claimer's username and discriminator.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="escalation-info">Escalation Info</h3>
+<p>Used specifically in escalation notification messages.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{escalate.reason}</code></td>
+<td style="text-align: left;">The reason provided for the escalation.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{escalate.panel}</code></td>
+<td style="text-align: left;">The name of the destination panel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{escalate.staff}</code></td>
+<td style="text-align: left;">The staff member who escalated the ticket.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-server-channel-panel-data">3. Server, Channel &amp; Panel Data</h2>
+<h3 id="server">Server</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{server.name}</code> / <code>{server_name}</code></td>
+<td style="text-align: left;">The name of the server.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{server.id}</code> / <code>{server_id}</code></td>
+<td style="text-align: left;">The server's unique ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{server_members}</code></td>
+<td style="text-align: left;">Total member count of the server.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{server.icon}</code></td>
+<td style="text-align: left;">Direct URL to the server's icon.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{server.banner}</code></td>
+<td style="text-align: left;">Direct URL to the server's banner.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="channel">Channel</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{channel_mention}</code></td>
+<td style="text-align: left;">Mentions the current channel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{channel.name}</code> / <code>{channel_name}</code></td>
+<td style="text-align: left;">The name of the channel where the variable is used.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{channel.id}</code> / <code>{channel_id}</code></td>
+<td style="text-align: left;">The ID of the channel where the variable is used.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="panel">Panel</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{panel.name}</code></td>
+<td style="text-align: left;">The name of the panel where the variable is used.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{panel.count}</code></td>
+<td style="text-align: left;">The current sequential ticket number for this panel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{panel.ticketLimit}</code></td>
+<td style="text-align: left;">The configured ticket limit for the current panel.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-forms-special-data">4. Forms &amp; Special Data</h2>
+<h3 id="form-data">Form Data</h3>
+<p>Used to extract specific answers when creating a ticket via a form.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{create.form_0}</code></td>
+<td style="text-align: left;">The answer to the 1st question in the form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{create.form_1}</code></td>
+<td style="text-align: left;">The answer to the 2nd question in the form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{create.form_2}</code></td>
+<td style="text-align: left;">The answer to the 3rd question in the form.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{create.form_X}</code></td>
+<td style="text-align: left;">Replace <code>X</code> with the question index (starting at 0).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="special-variables">Special Variables</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{empty}</code></td>
+<td style="text-align: left;">Inserts an empty-like invisible character. Useful for required embed fields.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{random}</code></td>
+<td style="text-align: left;">Generates a random number (can be customized with <code>?rmin</code>/<code>?rmax</code> modifiers).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{Role ID}</code></td>
+<td style="text-align: left;">Pings a specific role. Replace <code>Role ID</code> with the actual ID (e.g., <code>{9876543210}</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-channel-naming-specifics">5. Channel Naming Specifics</h2>
+<p>These variables are specifically tailored for generating dynamic <strong>Channel</strong> and <strong>Thread</strong> names.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{user}</code></td>
+<td style="text-align: left;">The ticket opener's username (shorthand for <code>{ticket.user.name}</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{count}</code></td>
+<td style="text-align: left;">The unique, incrementing ticket number for this server.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{panel.name}</code></td>
+<td style="text-align: left;">The name of the panel used to create the ticket.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{panel.count}</code></td>
+<td style="text-align: left;">The sequential ticket number strictly for this specific panel.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-time-dates">6. Time &amp; Dates</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placeholder</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>{time}</code></td>
+<td style="text-align: left;">Current Unix timestamp in seconds.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;t:{time}&gt;</code></td>
+<td style="text-align: left;">Discord's dynamic timestamp (auto-adjusts to the viewing user's timezone).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{time.created}</code></td>
+<td style="text-align: left;">Unix timestamp for when the ticket was opened.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{time.deleted}</code></td>
+<td style="text-align: left;">Unix timestamp for when the ticket was deleted.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{time.created.age}</code></td>
+<td style="text-align: left;">How long ago the ticket was created.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{time.deleted.age}</code></td>
+<td style="text-align: left;">Duration between ticket creation and deletion.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-advanced-logic-modifiers">7. Advanced Logic (Modifiers)</h2>
+<p>You can append modifiers to almost any variable to change how it is formatted or displayed. 
+<strong>Syntax:</strong> <code>{variable?modifier}</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Modifier</th>
+<th style="text-align: left;">Alias</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Result / Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Uppercase</strong></td>
+<td style="text-align: left;"><code>?uc</code></td>
+<td style="text-align: left;"><code>{user_name?uppercase}</code></td>
+<td style="text-align: left;"><code>JOHN</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lowercase</strong></td>
+<td style="text-align: left;"><code>?lc</code></td>
+<td style="text-align: left;"><code>{user_name?lowercase}</code></td>
+<td style="text-align: left;"><code>john</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Max Length</strong></td>
+<td style="text-align: left;"><code>?ml=X</code></td>
+<td style="text-align: left;"><code>{ticket.id?maxLength=5}</code></td>
+<td style="text-align: left;"><code>12345</code> (truncates if exceeded)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pad Left</strong></td>
+<td style="text-align: left;"><code>?pl=X</code></td>
+<td style="text-align: left;"><code>{count?padLeft=4}</code></td>
+<td style="text-align: left;"><code>0005</code> (adds leading zeros)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pad Right</strong></td>
+<td style="text-align: left;"><code>?pr=X</code></td>
+<td style="text-align: left;"><code>{count?padRight=4}</code></td>
+<td style="text-align: left;"><code>5000</code> (adds trailing zeros)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fallback</strong></td>
+<td style="text-align: left;"><code>?fb=Text</code></td>
+<td style="text-align: left;"><code>{claim.user?fallback=Unclaimed}</code></td>
+<td style="text-align: left;">Displays "Unclaimed" if variable is empty.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Not Fallback</strong></td>
+<td style="text-align: left;"><code>?nfb=Text</code></td>
+<td style="text-align: left;"><code>{claim.user?nfb=Claimed!}</code></td>
+<td style="text-align: left;">Displays "Claimed!" <em>only</em> if the variable contains data.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Math</strong></td>
+<td style="text-align: left;"><code>?m=op</code></td>
+<td style="text-align: left;"><code>{count?math=+1}</code></td>
+<td style="text-align: left;">Performs algebraic operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Clean</strong></td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;"><code>{create.form_0?clean}</code></td>
+<td style="text-align: left;">Removes backticks (<code>`</code>) to prevent markdown breaking.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Random Min</strong></td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;"><code>{random?rmin=10}</code></td>
+<td style="text-align: left;">Sets the minimum bound for a random number.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Random Max</strong></td>
+<td style="text-align: left;"><em>(None)</em></td>
+<td style="text-align: left;"><code>{random?rmax=100}</code></td>
+<td style="text-align: left;">Sets the maximum bound for a random number.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-image-placeholders-reference">8. Image Placeholders Reference</h2>
+<p>When setting up embeds requiring <strong>Image URLs</strong> (like Thumbnails, Author Icons, or Image properties), ensure you use variables that resolve to a valid direct image URL:</p>
+<ul>
+<li><code>{user_avatar}</code></li>
+<li><code>{author.icon}</code></li>
+<li><code>{ticket.user.icon}</code></li>
+<li><code>{claim.user.icon}</code></li>
+<li><code>{server.icon}</code></li>
+<li><code>{server.banner}</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../panels/templates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using Templates">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Using Templates
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../settings/commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Command List">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Command List
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
