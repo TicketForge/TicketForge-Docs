@@ -1,36 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
-  /* --- 1. CORE PALETTE (Aligned to new Dashboard) --- */
   --tf-bg-deep: #111214;
-  /* Deep slate background */
   --tf-surface: #151517;
-  /* Elevated card background */
-  --tf-surface-hover: #1c1d21;
-  /* Card hover state */
+  --tf-surface-hover: #1e1f22;
 
   --tf-primary: #6366f1;
-  /* Tailwind Indigo-500 */
   --tf-primary-hover: #4f46e5;
-  /* Tailwind Indigo-600 */
   --tf-primary-glow: rgba(99, 102, 241, 0.2);
 
-  --tf-border: rgba(255, 255, 255, 0.08);
-  --tf-border-hover: rgba(255, 255, 255, 0.15);
+  --tf-border: rgba(255, 255, 255, 0.06);
+  --tf-border-hover: rgba(255, 255, 255, 0.12);
 
-  --tf-text-main: #cbd5e1;
-  /* Slate-300 */
-  --tf-text-muted: #94a3b8;
-  /* Slate-400 */
+  --tf-text-main: #dbdee1;  
+  --tf-text-muted: #949ba4; 
   --tf-text-heading: #ffffff;
 
-  /* MkDocs Theme Overrides */
   --md-default-bg-color: var(--tf-bg-deep);
   --md-default-fg-color: var(--tf-text-main);
   --md-primary-fg-color: var(--tf-primary);
   --md-code-bg-color: #0b0c0e;
-  --md-code-font: "JetBrains Mono", monospace;
+  
   --md-text-font: "Inter", sans-serif;
+  --md-typeset-font-size: 15px; 
 }
 
 /* --- 2. GLOBAL RESET & BACKGROUND --- */
@@ -82,20 +74,16 @@ body {
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   height: 36px !important;
-  /* Increased from default 24px. Adjust this value to your liking. */
   width: auto !important;
   transition: transform 0.2s ease;
 }
 
-/* Optional: Add a subtle hover effect to the logo */
 .md-header__button.md-logo:hover img {
   transform: scale(1.05);
 }
 
-/* Optional: Make the "TicketForge" text slightly larger to match the new logo size */
 .md-header__title .md-header__topic {
   font-size: 1.2rem !important;
-  /* Increased from default */
   font-weight: 700 !important;
   letter-spacing: -0.02em;
 }
@@ -118,7 +106,6 @@ body {
     display: none !important;
   }
 
-  /* 1. RESET MKDOCS NESTING */
   .md-nav--primary .md-nav__list {
     margin: 0 !important;
     border: none !important;
@@ -133,22 +120,21 @@ body {
     padding: 0 !important;
   }
 
-  /* 2. SECTION HEADERS */
-  .md-nav--primary>.md-nav__list>.md-nav__item--nested>label.md-nav__link {
+  .md-nav--primary > .md-nav__list > .md-nav__item--nested > label.md-nav__link {
     color: #64748b !important;
-    font-size: 0.7rem !important;
+    font-size: 0.6875rem !important;
     font-weight: 800 !important;
     letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
     background: transparent !important;
-    padding: 0 12px !important;
-    margin: 2rem 0 0.5rem 0 !important;
+    padding: 0 10px !important;
+    margin: 1.5rem 0 0.25rem 0 !important;
     border: none !important;
     pointer-events: none !important;
     display: block !important;
   }
 
-  .md-nav--primary>.md-nav__list>.md-nav__item--nested>label.md-nav__link .md-nav__icon {
+  .md-nav--primary > .md-nav__list > .md-nav__item--nested > label.md-nav__link .md-nav__icon {
     display: none !important;
   }
 
@@ -156,11 +142,37 @@ body {
     display: none !important;
   }
 
-  .md-nav--primary .md-nav__item--nested>.md-nav {
+  .md-nav--primary .md-nav__item--nested > .md-nav {
     display: block !important;
   }
 
   /* 3. STANDARD LINKS (The "Pills") */
+  .md-nav--primary a.md-nav__link {
+    color: #cbd5e1 !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    margin: 2px 0 !important;
+    border-radius: 6px !important;
+    display: block !important;
+    line-height: 1.4 !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .md-nav--primary a.md-nav__link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .md-nav--primary .md-nav__item--active > a.md-nav__link,
+  .md-nav--primary a.md-nav__link--active {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    background-color: var(--tf-primary) !important;
+    box-shadow: 0 4px 15px -3px var(--tf-primary-glow) !important;
+  }
+
   .md-nav--primary a.md-nav__link {
     color: #cbd5e1 !important;
     font-size: 0.875rem !important;
@@ -234,17 +246,14 @@ body {
   color: var(--tf-text-main) !important;
 }
 
-/* TOC Active State (Highlight bar on the left, pure white text) */
 .md-nav--secondary .md-nav__link--active {
   color: #ffffff !important;
-  /* Fixed: Pure white for readability */
   font-weight: 600 !important;
   background-color: transparent !important;
   box-shadow: none !important;
   position: relative;
 }
 
-/* Custom left highlight line for active TOC item */
 .md-nav--secondary .md-nav__link--active::before {
   content: "";
   position: absolute;
@@ -257,8 +266,6 @@ body {
 }
 
 /* --- 7. UI ELEMENTS & CONTENT --- */
-
-/* Primary Buttons */
 .md-typeset .md-button--primary {
   background-color: var(--tf-primary);
   border-radius: 12px;
@@ -275,7 +282,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Standard Buttons */
 .md-typeset .md-button:not(.md-button--primary) {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
@@ -290,7 +296,6 @@ body {
   color: #fff !important;
 }
 
-/* Feature Cards Grid */
 .md-typeset .grid.cards ul li {
   background-color: var(--tf-surface);
   border: 1px solid var(--tf-border);
@@ -305,7 +310,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Admonitions (Callouts) */
 .md-typeset .admonition {
   background-color: var(--tf-surface) !important;
   border: 1px solid var(--tf-border) !important;
@@ -319,7 +323,6 @@ body {
   font-weight: 700;
 }
 
-/* Search Input */
 .md-search__input {
   background-color: rgba(0, 0, 0, 0.4) !important;
   border: 1px solid var(--tf-border);
@@ -330,7 +333,6 @@ body {
   border-color: var(--tf-primary);
 }
 
-/* Code Blocks */
 .md-typeset pre>code {
   background-color: var(--md-code-bg-color) !important;
   border: 1px solid var(--tf-border);
@@ -341,8 +343,6 @@ body {
 
 /* --- 8. MOBILE SPECIFIC FIXES (Slide-out Drawer) --- */
 @media screen and (max-width: 76.1875em) {
-
-  /* Drawer Background */
   .md-drawer {
     background-color: var(--tf-bg-deep) !important;
     border-right: 1px solid var(--tf-border);
@@ -354,7 +354,6 @@ body {
     padding-top: 0 !important;
   }
 
-  /* Main Drawer Header (The Logo Area) */
   .md-nav--primary>.md-nav__title {
     background: var(--tf-bg-deep) !important;
     border-bottom: 1px solid var(--tf-border) !important;
@@ -364,7 +363,6 @@ body {
     font-weight: 800 !important;
     font-size: 1.2rem !important;
 
-    /* Force logo and text to be side-by-side */
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -374,13 +372,11 @@ body {
   .md-nav--primary>.md-nav__title img,
   .md-nav--primary>.md-nav__title svg {
     height: 36px !important;
-    /* Kept slightly smaller than desktop so it fits mobile nicely */
     width: auto !important;
     margin: 0 !important;
     display: block !important;
   }
 
-  /* Drill-down Submenu Header (Fixes the overlapping text and arrow) */
   .md-nav__item .md-nav__title {
     background: var(--tf-bg-deep) !important;
     border-bottom: 1px solid var(--tf-border) !important;
@@ -393,7 +389,6 @@ body {
     display: flex !important;
     align-items: center !important;
     gap: 16px !important;
-    /* Pushes the text safely away from the back arrow */
     line-height: 1.4 !important;
   }
 
@@ -401,8 +396,6 @@ body {
     display: none !important;
   }
 
-  /* Root Level Categories & Home Button (Big Touch Pills) */
-  /* Updated to exclude the __toc label from receiving this styling */
   .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link,
   .md-nav--primary>.md-nav__list>.md-nav__item>label.md-nav__link:not([for="__toc"]) {
     background: rgba(255, 255, 255, 0.03) !important;
@@ -418,13 +411,11 @@ body {
     align-items: center;
   }
 
-  /* Submenu Links (Removes the ugly lines, adds Pill styling) */
   .md-nav__item .md-nav__item .md-nav__link {
     background: transparent !important;
     border: none !important;
     padding: 12px 16px !important;
     margin: 4px 16px !important;
-    /* Indents them and detaches them from edges */
     border-radius: 10px !important;
     color: var(--tf-text-muted) !important;
     font-weight: 500 !important;
@@ -432,65 +423,84 @@ body {
     transition: all 0.2s ease !important;
   }
 
-  /* Active Submenu Link (Matches the sleek Desktop pill) */
   .md-nav__item .md-nav__item .md-nav__link--active {
     color: #ffffff !important;
     font-weight: 600 !important;
     background-color: var(--tf-primary) !important;
     box-shadow: 0 4px 15px -3px var(--tf-primary-glow) !important;
     border-left: none !important;
-    /* Removes that weird blue left border */
   }
 }
 
-/* --- 9. TYPOGRAPHY --- */
+/* --- 9. TYPOGRAPHY & TABLES --- */
+html {
+  font-size: 16px;
+}
+
+.md-typeset {
+  font-size: 0.875rem;
+}
+
+.md-typeset p, .md-typeset li {
+  line-height: 1.6;
+  color: var(--tf-text-main);
+  font-size: 0.875rem;
+}
+
 .md-typeset h1 {
   color: var(--tf-text-heading);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
 }
 
-.md-typeset h2,
-.md-typeset h3 {
+.md-typeset h2 {
   color: var(--tf-text-heading) !important;
   font-weight: 700;
   letter-spacing: -0.02em;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.md-typeset h3 {
+  color: var(--tf-text-heading) !important;
+  font-weight: 600;
+  font-size: 1.05rem;
 }
 
 .md-typeset h4 {
   color: var(--tf-primary) !important;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
-.md-typeset p {
-  line-height: 1.7;
-  color: var(--tf-text-main);
-}
-
-/* Table overrides to match Dashboard surface color */
 .md-typeset table:not([class]) {
   background: var(--tf-surface);
   border: 1px solid var(--tf-border);
-  border-radius: 12px;
+  border-radius: 8px;
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  font-size: 0.8125rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .md-typeset table:not([class]) th {
-  background-color: rgba(255, 255, 255, 0.03) !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
   color: var(--tf-text-heading) !important;
   font-weight: 600;
   border-bottom: 1px solid var(--tf-border);
-  padding: 16px;
+  padding: 10px 14px;
   text-align: left;
 }
 
 .md-typeset table:not([class]) td {
-  padding: 16px;
+  padding: 10px 14px;
   border-bottom: 1px solid var(--tf-border);
   color: var(--tf-text-muted);
+  vertical-align: top;
 }
 
 .md-typeset table:not([class]) tr:last-child td {
@@ -502,11 +512,11 @@ body {
   color: var(--tf-text-main) !important;
 }
 
-/* Images & Assets */
 .md-typeset img {
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--tf-border);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  margin-top: 0.5rem;
 }
 
 .md-typeset img[src*=".svg"],
@@ -515,4 +525,27 @@ body {
   box-shadow: none;
   border-radius: 0;
   background: transparent;
+  margin-top: 0;
+}
+
+/* --- 10. WIDESCREEN LAYOUT EXPANSION --- */
+.md-grid {
+  max-width: 1600px;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+  .md-sidebar--secondary {
+    width: 14rem;
+  }
+}
+
+@media screen and (min-width: 100em) {
+  .md-grid {
+    max-width: 90vw;
+  }
 }

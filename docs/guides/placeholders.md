@@ -1,41 +1,54 @@
 # Variables & Placeholders
 
-You can use these dynamic variables in your **Messages**, **Embeds**, and **Channel Names**. The bot will automatically replace them with real data when the message is sent or the channel is created.
+You can use dynamic variables in your **Messages**, **Embeds**, and **Channel Names**. The bot will automatically replace them with real data when the message is sent, the channel is created, or the application is processed.
 
 ---
 
-## 1. User & Staff Variables
+## 1. Context: User vs. Author
 
-### Ticket Owner (The User)
-Variables related to the person who triggered the ticket creation.
+Before using variables, it is crucial to understand the difference between the **User** and the **Author** in TicketForge.
 
-| Placeholder | Description |
-| :--- | :--- |
-| `{user_mention}` | Mentions the user (e.g. @Username). |
-| `{user_name}` | The user's username. |
-| `{user_nickname}` | The user's server nickname. |
-| `{user_id}` | The user's unique Discord ID. |
-| `{user_avatar}` | Direct URL to the user's avatar. |
-| `{user_tag}` | The user's 4-digit discriminator. |
-| `{user_full}` | The user's username and discriminator combined. |
-
-### The Action Author (The Trigger)
-Variables related to **whoever clicked the button or ran the command**. 
-*Note: In a Welcome Message, this is usually the ticket owner. In a "Ticket Claimed" message, this is the staff member.*
-
-| Placeholder | Description |
-| :--- | :--- |
-| `{author}` | Mentions the user who triggered the action. |
-| `{author.name}` | The author's username. |
-| `{author.nickname}` | The author's server nickname. |
-| `{author.id}` | The author's unique Discord ID. |
-| `{author.icon}` | URL of the author's profile picture. |
-| `{author.tag}` | The author's 4-digit discriminator. |
-| `{author.full}` | The author's username and discriminator combined. |
+*   **The User (`{user_*}`)**: The person who *owns* the object. 
+    *   In a Ticket, this is the person who opened the ticket. 
+    *   In an Application, this is the applicant.
+*   **The Author (`{author.*}`)**: The person who *triggered* the current action. 
+    *   If the user clicks "Start Application", the user is the author. 
+    *   If a Staff member clicks "Accept", the staff member is the author.
 
 ---
 
-## 2. Ticket Context
+## 2. Application Placeholders
+
+These variables are specifically available within the **Application Editor > Messages** section (e.g., Application Received, Accepted/Denied notices).
+
+### Application Data
+| Placeholder | Description |
+| :--- | :--- |
+| `{application.name}` | The name of the application panel (e.g., "Staff App"). |
+| `{application.results}` | The fully formatted list of questions and answers submitted by the applicant. |
+| `{application.conclusion}` / `{conclusion}` | The final status (e.g., "Accepted" or "Denied"). |
+| `{application.reason}` / `{reason}` | The reason provided by staff when accepting/denying. |
+| `{deadline}` | The calculated deadline time (if a time limit was set). |
+
+### Review & Staff Actions
+Used in Review Results and DM Notifications.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{review_action}` | The action in lowercase (e.g., "accepted" or "denied"). |
+| `{review_action_title}` | The action in title case (e.g., "Accepted" or "Denied"). |
+| `{review_action_time}` | The Unix timestamp when the review was completed. |
+| `{review_reason}` | The sanitized reason shown on the staff review result. |
+| `{application.handled_by}` / `{handled_by}` | The staff member who reviewed the application. |
+| `{reviewer}` | Mentions the staff member who reviewed the application. |
+| `{reviewer.name}` | The reviewing staff member's username. |
+| `{reviewer.icon}` | URL of the reviewing staff member's profile picture. |
+
+---
+
+## 3. Ticket Placeholders
+
+These variables are available within the **Panel Editor > Messages** section for standard Tickets.
 
 ### General Ticket Info
 | Placeholder | Description |
@@ -45,79 +58,71 @@ Variables related to **whoever clicked the button or ran the command**.
 | `{ticket.id}` | The unique channel ID of the ticket. |
 | `{ticket_opener}` | Mentions the user who opened the ticket. |
 | `{ticket_closer}` | Mentions the user who closed the ticket. |
-| `{transcript.users}` / `{transcript_users}` | List of users involved in the ticket transcript. |
-
-### Ticket Owner Specifics
-| Placeholder | Description |
-| :--- | :--- |
-| `{ticket.user}` / `{ticket.owner}` | Mentions the ticket owner/creator. |
-| `{ticket.user.name}` | The ticket owner's username. |
-| `{ticket.user.nickname}` | The ticket owner's server nickname. |
-| `{ticket.user.id}` | The ticket owner's unique Discord ID. |
-| `{ticket.user.icon}` | URL of the ticket owner's profile picture. |
-| `{ticket.user.tag}` | The ticket owner's 4-digit discriminator. |
-| `{ticket.user.full}` | The ticket owner's username and discriminator. |
+| `{close_reason}` / `{ticket.close_reason}`| The reason provided when the ticket was closed. |
+| `{transcript.users}` / `{transcript_users}`| List of users involved in the ticket transcript. |
 
 ### Claim Status
 | Placeholder | Description |
 | :--- | :--- |
 | `{claim.user}` | Mentions the last user who claimed the ticket. |
 | `{claim.user.name}` | The claimer's username. |
-| `{claim.user.nickname}` | The claimer's server nickname. |
-| `{claim.user.id}` | The claimer's unique Discord ID. |
 | `{claim.user.icon}` | URL of the claimer's profile picture. |
-| `{claim.user.tag}` | The claimer's 4-digit discriminator. |
-| `{claim.user.full}` | The claimer's username and discriminator. |
 
 ### Escalation Info
-Used specifically in escalation notification messages.
-
 | Placeholder | Description |
 | :--- | :--- |
 | `{escalate.reason}` | The reason provided for the escalation. |
 | `{escalate.panel}` | The name of the destination panel. |
 | `{escalate.staff}` | The staff member who escalated the ticket. |
 
----
-
-## 3. Server, Channel & Panel Data
-
-### Server
-| Placeholder | Description |
-| :--- | :--- |
-| `{server.name}` / `{server_name}` | The name of the server. |
-| `{server.id}` / `{server_id}` | The server's unique ID. |
-| `{server_members}` | Total member count of the server. |
-| `{server.icon}` | Direct URL to the server's icon. |
-| `{server.banner}` | Direct URL to the server's banner. |
-
-### Channel
-| Placeholder | Description |
-| :--- | :--- |
-| `{channel_mention}` | Mentions the current channel. |
-| `{channel.name}` / `{channel_name}` | The name of the channel where the variable is used. |
-| `{channel.id}` / `{channel_id}` | The ID of the channel where the variable is used. |
-
-### Panel
-| Placeholder | Description |
-| :--- | :--- |
-| `{panel.name}` | The name of the panel where the variable is used. |
-| `{panel.count}` | The current sequential ticket number for this panel. |
-| `{panel.ticketLimit}` | The configured ticket limit for the current panel. |
-
----
-
-## 4. Forms & Special Data
-
-### Form Data
+### Ticket Form Data (Pre-ticket Modals)
 Used to extract specific answers when creating a ticket via a form.
 
 | Placeholder | Description |
 | :--- | :--- |
 | `{create.form_0}` | The answer to the 1st question in the form. |
 | `{create.form_1}` | The answer to the 2nd question in the form. |
-| `{create.form_2}` | The answer to the 3rd question in the form. |
 | `{create.form_X}` | Replace `X` with the question index (starting at 0). |
+
+---
+
+## 4. Universal Placeholders
+
+These variables can be used globally across both Tickets and Applications.
+
+### User & Author Identities
+| Placeholder | Description |
+| :--- | :--- |
+| `{user_mention}` | Mentions the user/applicant (e.g. @Username). |
+| `{user_name}` | The user/applicant's username. |
+| `{user_nickname}` | The user/applicant's server nickname. |
+| `{user_id}` | The user/applicant's unique Discord ID. |
+| `{user_avatar}` | Direct URL to the user/applicant's avatar. |
+| `{author}` | Mentions the action author (staff or user). |
+| `{author.name}` | The author's username. |
+| `{author.id}` | The author's unique Discord ID. |
+| `{author.icon}` | URL of the author's profile picture. |
+
+### Server & Channel
+| Placeholder | Description |
+| :--- | :--- |
+| `{server.name}` / `{server_name}` | The name of the Discord server. |
+| `{server.id}` / `{server_id}` | The server's unique ID. |
+| `{server_members}` | Total member count of the server. |
+| `{server.icon}` | Direct URL to the server's icon. |
+| `{server.banner}` | Direct URL to the server's banner. |
+| `{channel_mention}` | Mentions the current channel. |
+| `{channel.name}` / `{channel_name}` | The name of the current channel. |
+| `{channel.id}` / `{channel_id}` | The ID of the current channel. |
+
+### Time & Dates
+| Placeholder | Description |
+| :--- | :--- |
+| `{time}` | Current Unix timestamp in seconds. |
+| `<t:{time}>` | Discord's dynamic timestamp (auto-adjusts to the viewing user's timezone). |
+| `{time.created}` | Unix timestamp for when the ticket/app was created. |
+| `{time.deleted}` | Unix timestamp for when the ticket/app was deleted. |
+| `{time.created.age}`| How long ago the ticket/app was created. |
 
 ### Special Variables
 | Placeholder | Description |
@@ -130,31 +135,18 @@ Used to extract specific answers when creating a ticket via a form.
 
 ## 5. Channel Naming Specifics
 
-These variables are specifically tailored for generating dynamic **Channel** and **Thread** names.
+These variables are strictly tailored for generating dynamic **Ticket Channel** and **Thread** names in the Panel settings.
 
 | Placeholder | Description |
 | :--- | :--- |
-| `{user}` | The ticket opener's username (shorthand for `{ticket.user.name}`). |
+| `{user}` | The ticket opener's username (alias for `{ticket.user.name}`). |
 | `{count}` | The unique, incrementing ticket number for this server. |
 | `{panel.name}` | The name of the panel used to create the ticket. |
 | `{panel.count}` | The sequential ticket number strictly for this specific panel. |
 
 ---
 
-## 6. Time & Dates
-
-| Placeholder | Description |
-| :--- | :--- |
-| `{time}` | Current Unix timestamp in seconds. |
-| `<t:{time}>` | Discord's dynamic timestamp (auto-adjusts to the viewing user's timezone). |
-| `{time.created}` | Unix timestamp for when the ticket was opened. |
-| `{time.deleted}` | Unix timestamp for when the ticket was deleted. |
-| `{time.created.age}`| How long ago the ticket was created. |
-| `{time.deleted.age}`| Duration between ticket creation and deletion. |
-
----
-
-## 7. Advanced Logic (Modifiers)
+## 6. Advanced Logic (Modifiers)
 
 You can append modifiers to almost any variable to change how it is formatted or displayed. 
 **Syntax:** `{variable?modifier}`
@@ -170,17 +162,18 @@ You can append modifiers to almost any variable to change how it is formatted or
 | **Not Fallback** | `?nfb=Text`| `{claim.user?nfb=Claimed!}` | Displays "Claimed!" *only* if the variable contains data. |
 | **Math** | `?m=op` | `{count?math=+1}` | Performs algebraic operations (`+`, `-`, `*`, `/`). |
 | **Clean** | *(None)* | `{create.form_0?clean}` | Removes backticks (`` ` ``) to prevent markdown breaking. |
-| **Random Min** | *(None)* | `{random?rmin=10}` | Sets the minimum bound for a random number. |
-| **Random Max** | *(None)* | `{random?rmax=100}` | Sets the maximum bound for a random number. |
+| **Random Min** | `?rmin=X`| `{random?rmin=10}` | Sets the minimum bound for a random number. |
+| **Random Max** | `?rmax=X`| `{random?rmax=100}` | Sets the maximum bound for a random number. |
 
 ---
 
-## 8. Image Placeholders Reference
+## 7. Image Placeholders Reference
 
 When setting up embeds requiring **Image URLs** (like Thumbnails, Author Icons, or Image properties), ensure you use variables that resolve to a valid direct image URL:
 
 * `{user_avatar}`
 * `{author.icon}`
+* `{reviewer.icon}`
 * `{ticket.user.icon}`
 * `{claim.user.icon}`
 * `{server.icon}`

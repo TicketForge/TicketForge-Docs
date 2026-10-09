@@ -24,20 +24,22 @@ You can earn temporary Premium access by voting for TicketForge on top.gg.
 ## Why Upgrade?
 
 ### 1. Scale without Limits
-The free plan is capped at 3 panels. Premium unlocks **25 Panels**, allowing you to create dedicated support flows for every department
+The free plan is generously capped to handle normal server loads. Premium unlocks huge capacities:
+*   **Tickets:** 25 Panels (Up from 3)
+*   **Applications:** 15 Applications (Up from 3)
 
-### 2. Professional Automation
+### 2. Advanced Application Forms
+Unleash the full power of the form builder for your recruitment and appeals:
+*   **Image Uploads:** Require users to upload screenshots (e.g., proof of bans, portfolio).
+*   **Regex Validation:** Enforce strict formatting (e.g., email addresses or specific ID formats) on text answers.
+*   **Time Limits:** Apply a countdown timer to applications. Perfect for tests or strict questionnaires.
+*   **Advanced Web Portals:** Force Discord sign-in, allow anonymous submissions, and enable pre-submit answer modifications.
+
+### 3. Professional Ticket Automation
 Stop doing manual work. Premium automates the boring stuff:
-
 *   **Escalation:** Move tickets seamlessly between departments (e.g., Support -> Billing).
 *   **Google Drive Sync:** Automatically upload transcripts to your cloud storage.
 *   **Auto-Close:** Automatically close tickets if the user leaves the server.
-*   **DM Notifications:** Automatically DM users when their ticket is created or closed.
-
-### 3. Advanced Workflow Tools
-*   **Claiming System:** Prevent staff collisions. A staff member can "Claim" a ticket, locking out other mods so they don't waste time on the same issue.
-*   **Rating System (CSAT):** Gather feedback. Ask users to rate their support experience (1-5 stars) and track staff performance.
-*   **Tickets as Threads:** Keep your server clean. Organize tickets as **Private Threads** inside a single channel.
 
 ### 4. Custom Branding
 Make the bot feel like *your* bot.
