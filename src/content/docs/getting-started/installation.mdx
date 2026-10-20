@@ -1,0 +1,80 @@
+---
+title: Installation & Invite
+description: Getting TicketForge running on your server takes just a few clicks.
+---
+
+Getting TicketForge running on your server takes just a few clicks.
+
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube-nocookie.com/embed/O-QQjthtYQk" 
+    title="How to Set Up TicketForge"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowFullScreen>
+  </iframe>
+</div>
+
+---
+
+## 1. Invite the Bot
+
+To start using TicketForge, invite the bot to your Discord server and authorize it with the necessary permissions.
+
+<a 
+  href="https://discord.com/oauth2/authorize?client_id=1312832688889008218&permissions=2252160926870544&integration_type=0&scope=applications.commands+bot" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="discord-invite-card not-content"
+>
+  <img src="/images/logo.png" alt="TicketForge Logo" />
+  <div class="invite-content">
+    <div class="invite-title">Invite TicketForge</div>
+    <p class="invite-desc">Click to authorize the bot. Requires 'Manage Server' permissions on Server.</p>
+  </div>
+  <span class="invite-arrow">&rarr;</span>
+</a>
+
+:::caution[Permission Hierarchy Check]
+For TicketForge to manage roles (e.g., adding a "Support" role to an agent or assigning an "Applicant" role), the **TicketForge** bot role must be placed **higher** in your Discord Server Settings than any role it is configured to manage or assign.
+:::
+
+---
+
+## 2. Required Permissions
+
+When authorizing the bot, ensure the following permissions are granted:
+
+| Permission | Operational Reason |
+| :--- | :--- |
+| **Manage Roles** | Assigns support roles, manages ticket permissions, and automates roles on application approval. |
+| **Manage Channels** | Creates ticket channels, renames active tickets, and organizes ticket categories. |
+| **Change Nickname** | Allows the bot to apply a configured server nickname. |
+| **View Channels** | Essential for the bot to see and route tickets to your channels. |
+| **Send Messages** | Posts panel triggers, welcome prompts, and embeds. |
+| **Send Messages in Threads** | Required if you enable the "Tickets as Threads" feature. |
+| **Create Private Threads** | Allows the bot to spawn private ticket threads for a cleaner channel sidebar. |
+| **Manage Messages** | Cleans up interaction triggers and deletes confirmation prompts. |
+| **Pin Messages** | Automatically pins welcome and control embeds inside ticket channels. |
+| **Manage Threads** | Locks and archives threads when tickets are closed. |
+| **Embed Links** | Renders rich interactive panels, surveys, and logs. |
+| **Attach Files** | Generates and delivers self-contained HTML transcript files. |
+| **Read Message History** | Required to construct complete conversation transcripts. |
+| **Use External Emojis** | Displays custom branding and status icons in bot embeds. |
+
+---
+
+## 3. Verify Installation
+
+Once the bot joins your server, navigate to any accessible text channel and run:
+
+```bash
+/ping
+```
+
+## Troubleshooting
+
+### The Bot Is Offline
+Check the official [TicketForge Status Page](https://ticketforge.statuspage.io/) to confirm Discord gateway and API operational status.
+
+### Slash Commands Are Not Showing Up
+Discord can occasionally take a few minutes to sync new application commands to your server. If commands do not appear after typing `/`, re-authorize the bot using the invite link above to force an immediate command refresh.

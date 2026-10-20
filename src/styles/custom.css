@@ -1,0 +1,397 @@
+/* ==========================================================================
+   1. DASHBOARD PALETTE & LAYOUT PROPORTIONS
+   ========================================================================== */
+:root {
+  /* Match your Vue Dashboard exact colors */
+  --tf-bg-deep: #111114;
+  --tf-surface: #141417;
+  --tf-border: rgba(255, 255, 255, 0.08);
+  --tf-primary: #4f46e5;       /* indigo-600 */
+  --tf-primary-hover: #4338ca; /* indigo-700 */
+  --tf-primary-border: #6366f1;/* indigo-500 */
+
+  /* Map to Starlight core tokens */
+  --sl-color-bg: var(--tf-bg-deep);
+  --sl-color-bg-sidebar: var(--tf-bg-deep);
+  --sl-color-hairline: var(--tf-border);
+
+  /* Fix spacing proportions (prevents massive empty void on widescreen) */
+  --sl-sidebar-width: 17rem;
+  --sl-toc-width: 14rem;       /* Clamps right sidebar width */
+  --sl-content-width: 64rem;   /* Gives content room to breathe */
+}
+
+/* ==========================================================================
+   2. LEFT SIDEBAR: CRISP VIBRANT ACTIVE STATE
+   ========================================================================== */
+
+/* Active link: Solid Indigo, White Text, Glow Shadow (Matches Sidebar.vue) */
+.sidebar-content a[aria-current="page"] {
+  background-color: var(--tf-primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: 1px solid var(--tf-primary-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px -2px rgba(99, 102, 241, 0.4) !important;
+  padding: 8px 12px !important;
+}
+
+/* Inactive links: Clean subtle text */
+.sidebar-content a:not([aria-current="page"]) {
+  color: #949ba4 !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Inactive hover: Dark surface pill like your dashboard */
+.sidebar-content a:not([aria-current="page"]):hover {
+  color: #ffffff !important;
+  background-color: #1e1f22 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Sidebar Section Headers (TICKETS, APPLICATIONS, etc.) */
+.sidebar-content .top-level > li > details > summary,
+.sidebar-content .top-level > li > .group-label {
+  color: #64748b !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* ==========================================================================
+   3. RIGHT SIDEBAR (TABLE OF CONTENTS) PROPORTIONS & BORDER
+   ========================================================================== */
+
+/* Add a subtle dividing border to anchor the right sidebar */
+@media (min-width: 72rem) {
+  .right-sidebar {
+    border-left: 1px solid var(--tf-border) !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+/* "On this page" Title */
+.right-sidebar h2 {
+  color: #64748b !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Right sidebar TOC links */
+.right-sidebar a {
+  color: #949ba4 !important;
+  font-size: 0.82rem !important;
+  transition: color 0.15s ease !important;
+}
+
+.right-sidebar a:hover {
+  color: #ffffff !important;
+}
+
+.right-sidebar a[aria-current="true"] {
+  color: var(--tf-primary-border) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY & READABILITY (Fix cramped text)
+   ========================================================================== */
+.sl-markdown-content {
+  font-size: 0.95rem;
+  line-height: 1.75;          /* Relaxed line height for reading */
+  color: #dbdee1;             /* Discord main text color */
+}
+
+.sl-markdown-content p {
+  margin-bottom: 1.35rem;     /* Clean paragraph spacing */
+}
+
+.sl-markdown-content h1 {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1.5rem !important;
+  color: #ffffff !important;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  color: #ffffff !important;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   5. FRAMED & ROUNDED IMAGES
+   ========================================================================== */
+.sl-markdown-content img {
+  display: block;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background-color: #0d0d0f;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6) !important;
+  margin: 1.75rem 0 !important;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   6. POLISHED LISTS
+   ========================================================================== */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sl-markdown-content li {
+  margin-bottom: 0.6rem;      /* Give bullet points room to breathe */
+  line-height: 1.7;
+}
+
+.sl-markdown-content li::marker {
+  color: #6366f1;             /* Indigo colored bullets/numbers */
+}
+
+/* ==========================================================================
+   7. INTERACTIVE MODULE CARDS (CardGrid & Cards)
+   ========================================================================== */
+.sl-markdown-content .card {
+  background-color: #141417 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.sl-markdown-content .card:hover {
+  background-color: #1a1a1f !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px -5px rgba(99, 102, 241, 0.12);
+}
+
+.sl-markdown-content .card .title {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sl-markdown-content .card .body {
+  color: #949ba4 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+.sl-markdown-content .card a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #818cf8 !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.sl-markdown-content .card a:hover {
+  color: #a5b4fc !important;
+  text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE 16:9 VIDEO CONTAINER
+   ========================================================================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65);
+  margin: 1.5rem 0 2.5rem 0;
+  background-color: #0d0d0f;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   9. DISCORD BLUE INVITE CARD WITH ROUNDED LOGO
+   ========================================================================== */
+.discord-invite-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0 2rem 0;
+  background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px -4px rgba(88, 101, 242, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.discord-invite-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -4px rgba(88, 101, 242, 0.55);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Rounded Logo inside the card */
+.discord-invite-card img {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background-color: #111114 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.discord-invite-card .invite-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.discord-invite-card .invite-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.discord-invite-card .invite-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.discord-invite-card .invite-arrow {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.discord-invite-card:hover .invite-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   POLISHED CARD-STYLE TABLES (Matches Image 2)
+   ========================================================================== */
+
+/* 1. Outer Container: Rounded Card with Subtle Border */
+.sl-markdown-content table {
+  width: 100% !important;
+  display: table !important;
+  border-collapse: separate !important; /* Required for border-radius to work */
+  border-spacing: 0 !important;
+  
+  background-color: #121316 !important; /* Soft dark surface, not pure black */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  
+  margin: 2rem 0 !important;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2. Table Headers (Setting, Applicable To, Description) */
+.sl-markdown-content th {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: -0.01em !important;
+  
+  padding: 16px 20px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  text-align: left !important;
+}
+
+/* 3. Table Rows & Cells */
+.sl-markdown-content td {
+  padding: 16px 20px !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+  color: #949ba4 !important; /* Soft gray for readability */
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; /* Soft row divider */
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  vertical-align: middle !important;
+  transition: background-color 0.15s ease !important;
+}
+
+/* 4. First Column (Bold White Target Text) */
+.sl-markdown-content td:first-child {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important; /* Keeps names like "Question Label" on one line */
+}
+
+/* 5. Clean Bottom: Remove Border on Last Row */
+.sl-markdown-content tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* 6. Subtle Row Hover Effect */
+.sl-markdown-content tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* 1. Remove the theme switcher dropdown from the header */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* 2. Lock CSS to dark mode even if browser requests light mode */
+:root,
+:root[data-theme='light'] {
+  color-scheme: dark !important;
+  --sl-color-bg: var(--tf-bg-deep) !important;
+  --sl-color-bg-sidebar: var(--tf-bg-deep) !important;
+  --sl-color-bg-nav: rgba(17, 18, 20, 0.85) !important;
+  --sl-color-gray-1: #ffffff !important;
+  --sl-color-gray-2: #dbdee1 !important;
+  --sl-color-gray-3: #949ba4 !important;
+  --sl-color-gray-5: var(--tf-surface) !important;
+  --sl-color-gray-6: var(--tf-bg-deep) !important;
+}

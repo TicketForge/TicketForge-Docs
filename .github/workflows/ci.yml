@@ -1,36 +1,54 @@
-name: ci
+name: Deploy Documentation
+
 on:
   push:
     branches:
       - main
       - master
+  workflow_dispatch:
 
+# Grants GitHub Actions permissions to publish to GitHub Pages
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevents multiple concurrent deployments from colliding
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: 3.x
-
-      - name: Install system dependencies (Cairo)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+          node-version: 22
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pip install mkdocs-material mkdocs-glightbox "mkdocs-material[imaging]"
+        run: npm ci
 
-      - name: Deploy
-        run: mkdocs gh-deploy --force
+      - name: Build Astro Documentation
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
