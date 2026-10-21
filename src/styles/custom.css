@@ -395,3 +395,13 @@ starlight-theme-select {
   --sl-color-gray-5: var(--tf-surface) !important;
   --sl-color-gray-6: var(--tf-bg-deep) !important;
 }
+
+/* TicketForge Docs Navbar Title Color */
+.site-title {
+  color: #ffffff !important;
+  font-weight: 700; /* optional: makes the branding stand out */
+}
+
+.site-title:hover {
+  color: #6366f1 !important; /* smooth hover state */
+}

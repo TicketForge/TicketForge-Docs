@@ -5,6 +5,8 @@ description: Complete reference for placeholders and formatting modifiers across
 
 You can use dynamic variables in your **Messages**, **Embeds**, and **Channel Names**. The bot will automatically replace them with real data when the message is sent, the channel is created, or the application is processed.
 
+![Variable Options](/images/applications/placeholders.png)
+
 ---
 
 ## 1. Context: User vs. Author

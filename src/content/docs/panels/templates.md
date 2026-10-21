@@ -5,6 +5,10 @@ description: Export, clone, and share production panel setups using share codes.
 
 The templating engine allows you to replicate configurations across staging and production environments without rebuilding forms manually.
 
+![Template Options](/images/applications/select_template.png)
+
+---
+
 ## Creating Templates
 
 1. Open the target panel in the **Panel Editor**.
