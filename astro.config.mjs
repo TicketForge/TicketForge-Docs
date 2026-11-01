@@ -44,7 +44,7 @@ export default defineConfig({
         src: './src/assets/logo.png',
         replacesTitle: false,
       },
-      favicon: './src/assets/logo.png',
+      favicon: '/favicon.png',
       social: [
         {
           icon: 'discord',
