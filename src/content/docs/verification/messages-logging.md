@@ -3,6 +3,8 @@ title: Verification Messages & Audit Logging
 description: Customize in-Discord verification embeds, verify buttons, and stream threat events to audit channels.
 ---
 
+![Web Verification Portal](/images/verification/messages.png)
+
 Customize public Discord verification prompts and stream detailed security audit logs to private staff channels.
 
 ---
@@ -43,6 +45,8 @@ Use dynamic placeholders in your verification embed titles, descriptions, and fo
 ## 3. Audit Logging & Security Streams
 
 Keep a tamper-proof paper trail of every verification event under **Verification > Audit Logs**.
+
+![Web Verification Portal](/images/verification/audit_logging.png)
 
 ### 1. Setup
 Select your private staff log channel (e.g., `#verification-logs`) from the **Audit Log Channel** dropdown.

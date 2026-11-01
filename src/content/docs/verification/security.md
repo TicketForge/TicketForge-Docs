@@ -3,6 +3,8 @@ title: Security & Anti-Alt Threat Engine
 description: Deep browser telemetry, threat scoring, VPN/Tor blocking, and alt-account detection.
 ---
 
+![Web Verification Portal](/images/verification/security.png)
+
 The **Web Security Engine** operates as an intelligent risk-scoring firewall. When members verify via browser, TicketForge analyzes network reputation, browser authenticity, and device telemetry to prevent raids before they happen.
 
 ---

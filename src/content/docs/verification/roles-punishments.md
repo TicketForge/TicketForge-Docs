@@ -3,6 +3,8 @@ title: Roles, Punishments & Appeals
 description: Configure role transition lifecycles, automated punishment triggers, and appeal pipelines.
 ---
 
+![Web Verification Portal](/images/verification/punishments.png)
+
 Control what roles members receive when they join, what happens if they fail verification, and how blocked users can submit appeals.
 
 ---
