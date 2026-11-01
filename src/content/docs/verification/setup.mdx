@@ -1,0 +1,77 @@
+---
+title: Verification Overview & Setup
+description: Protect your Discord server against raids, bots, and alts with automated member verification.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+TicketForge includes an enterprise-grade member verification suite designed to gate server access, detect alt accounts, block proxies, and stop automated raid attacks.
+
+New members are assigned an unverified role upon joining and must complete a verification check before unlocking your community.
+
+![Verification Control Deck](/images/verification/verification_overview.png)
+
+---
+
+## Verification Methods
+
+TicketForge supports three verification methods to match your server's security posture:
+
+| Method | Environment | Threat & Telemetry Engine | Challenge Type | Tier |
+| :--- | :--- | :--- | :--- | :--- |
+| **Web Verification** | Web Browser (`ticketforge.xyz/verify`) | **Full Suite** (VPN, Tor, DevTools, Alts) | hCaptcha or Top.gg Vote | **Free** |
+| **Discord Captcha** | Native in Discord | Gateway signals | Visual image puzzle | <Badge text="Premium" variant="caution" /> |
+| **Click to Pass** | Native in Discord | Account age filters | Single button confirmation | <Badge text="Premium" variant="caution" /> |
+
+---
+
+## 1. Quickstart Deployment Guide
+
+### Step 1: Configure Role Hierarchy
+In Discord, open **Server Settings > Roles** and make sure the **TicketForge** bot role is higher in the list than your Unverified role, your Verified member role, and any Quarantine roles.
+
+:::caution[Permission Hierarchy]
+Discord strictly blocks bots from assigning, revoking, or managing any role that is positioned equal to or higher than the bot's own highest role.
+:::
+
+### Step 2: Configure Roles in the Dashboard
+1. Open the [TicketForge Dashboard](https://ticketforge.xyz).
+2. Go to **Verification > General & Access**.
+3. Under **Role Management**, configure your roles:
+   * **Unverified Roles:** Assigned automatically when someone joins your server.
+   * **Verified Roles:** Granted immediately once a user passes verification.
+
+![Role Configuration](/images/verification/roles_setup.png)
+
+### Step 3: Dispatch the Verification Panel
+1. Click **Send to Discord** in the top action toolbar.
+2. Select your designated `#verification` or `#welcome` channel.
+3. The bot posts the interactive verification embed equipped with the **Verify** action button.
+
+:::tip[Updating Existing Panels]
+If you modify embed styling or button labels later, click **Update Message** in the action bar and enter the existing Discord message link to push changes without reposting.
+:::
+
+---
+
+## 2. Core Gatekeeper Policies
+
+Under **Verification > General & Access**, you can apply entry conditions before a user can even initiate verification:
+
+* **Minimum Account Age:** Reject brand-new throwaway Discord accounts by setting a minimum account age requirement (configurable from minutes up to days or months). Accounts created more recently than the threshold are blocked.
+* **Avatar Requirement:** Require users to have a custom Discord profile avatar. Users using default blank Discord avatars will be prevented from verifying until they set a profile picture.
+
+---
+
+## 3. The Public Verification Experience
+
+When a user clicks the **Verify** button inside Discord using **Web Verification**:
+
+![Web Verification Portal](/images/verification/verify_portal.png)
+
+1. **Private Ephemeral Link:** The bot replies with a private, signed one-time link (`ticketforge.xyz/verify/:guildId?t=:token`).
+2. **Device & Network Inspection:** The browser loads the verification portal and silently evaluates browser telemetry, network nodes, and headless automation drivers.
+3. **Challenge Resolution:**
+   * **hCaptcha Challenge:** The member solves a fast image puzzle.
+   * **Verify by Voting:** Members can alternatively verify instantly by casting a vote for TicketForge on Top.gg.
+4. **Instant Role Grant:** Once passed, the bot revokes their Unverified role and adds their Verified role in Discord in milliseconds.

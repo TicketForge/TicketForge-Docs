@@ -108,6 +108,15 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Verification',
+          items: [
+            { label: 'Overview & Setup', link: '/verification/setup/' },
+            { label: 'Roles & Punishments', link: '/verification/roles-punishments/' },
+            { label: 'Security & Anti-Alt Engine', link: '/verification/security/' },
+            { label: 'Messages & Audit Logging', link: '/verification/messages-logging/' },
+          ],
+        },
+        {
           label: 'Templates',
           items: [
             { label: 'Using Templates', link: '/panels/templates/' },
