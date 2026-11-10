@@ -89,6 +89,7 @@ export default defineConfig({
             { label: 'Limits & Schedules', link: '/features/limits/' },
             { label: 'Transcripts', link: '/features/transcripts/' },
             { label: 'Ratings (CSAT)', link: '/features/ratings/' },
+            { label: 'Automation', link: '/features/automation/' },
           ],
         },
         {

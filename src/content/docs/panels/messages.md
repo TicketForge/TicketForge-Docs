@@ -160,14 +160,17 @@ All custom image and thumbnail fields must be direct media links ending in `.png
 
 Customize messages for every phase of the ticket workflow under **Panel Editor > Messages**:
 
-| Trigger Name | Format Options | Delivery Location | When It Fires |
-| :--- | :--- | :--- | :--- |
-| **Panel Message** | V1 Embed or V2 Components | Public Channel | Displayed in your support channel; contains the initial ticket creation trigger. |
-| **Welcome Message** | V1 Embed or V2 Components | Ticket Channel | First message sent inside a newly created ticket channel. |
-| **Ticket Controls** | V1 Embed or V2 Components | Ticket Channel | Houses the active management buttons (*Close*, *Claim*, *Escalate*). |
-| **Claimed / Unclaimed** | V1 Embed or V2 Components | Ticket Channel | Posted when an agent takes or releases ownership of a ticket. |
-| **Close Confirmation** | V1 Embed or V2 Components | Ticket Channel | Prompts the user with "Are you sure?" when two-step close is enabled. |
-| **Closed / Reopened** | V1 Embed or V2 Components | Ticket Channel | System notices posted when a ticket is archived or reopened. |
-| **Delete Warning** | V1 Embed or V2 Components | Ticket Channel | Final 5-second countdown alert before channel deletion. |
-| **Transcript Log** | **V1 Embed Only** | Log Channel | Posted in your private transcript channel with the attached HTML archive. |
-| **DM: Created / Closed** | V1 Embed or V2 Components | User DMs | Direct messages sent to the ticket creator upon creation or closure. |
+| Trigger Name | System ID | Format Options | Default Destination | When It Fires |
+| :--- | :--- | :--- | :--- | :--- |
+| **Panel Message** | `panel_message` | V1 Embed or V2 Components | Public Channel | Displayed in your support hub; contains the ticket creation trigger. |
+| **Welcome Message** | `opened_message` | V1 Embed or V2 Components | Ticket Channel | First message sent inside a newly created ticket channel. |
+| **Ticket Controls** | `ticket_controls` | V1 Embed or V2 Components | Ticket Channel | Houses the active management buttons (*Close*, *Claim*, *Escalate*). |
+| **Inactivity Notice** | `inactivity_message` | V1 Embed or V2 Components | Inside Ticket or Staff Channel | Sent when a ticket sits inactive without responses past the configured delay. |
+| **Ticket Claimed** | `claimed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when an agent takes ownership of a ticket. |
+| **Ticket Unclaimed** | `unclaimed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when a ticket is released back to the general pool. |
+| **Close Confirmation** | `close_question` | V1 Embed or V2 Components | Ticket Channel | Prompts the user with "Are you sure?" when two-step close is active. |
+| **Ticket Closed** | `closed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when a ticket is archived or closed (replaces controls). |
+| **Delete Warning** | `delete_warning` | V1 Embed or V2 Components | Ticket Channel | Final 5-second countdown alert before channel deletion. |
+| **Transcript Log** | `transcript_message` | **V1 Embed Only** | Log Channel | Posted in your private transcript channel with the attached HTML archive. |
+| **Creation DM** | `created_dm` | V1 Embed or V2 Components | User DMs | Direct message sent to the ticket creator immediately after opening. |
+| **Closing DM** | `closed_dm` | V1 Embed or V2 Components | User DMs | Direct message sent to the ticket creator upon closing. |
