@@ -58,7 +58,7 @@ You can fine-tune where commands work:
 | `/application-accept <application> [reason]` | Accepts a user's pending application and runs assigned role automations. |
 | `/application-deny <application> [reason]` | Denies a user's pending application and notifies the applicant. |
 | **Configuration** | |
-| `/setup` | Configure and manage ticket panels for this server directly in Discord. |
+| `/setup` | Configure and manage global settings, ticket panels, applications, verification, and welcomer settings for this server directly in Discord. |
 | `/premium` | Check the server's subscription status, active plan, and benefits. |
 | **Moderation** | |
 | `/blacklist <user> [reason]` | Blacklists a user. If used inside a ticket, it automatically transcribes and deletes it. |

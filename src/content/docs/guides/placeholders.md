@@ -91,6 +91,34 @@ Used to extract specific answers when creating a ticket via a form.
 
 ---
 
+## 3.5. Welcomer & Milestone Placeholders
+
+These variables are available within the **Welcomer** module across **Welcome (Channel)**, **Welcome (DM)**, **Leave Message**, **Milestones**, and the **Card Badge Banner**.
+
+### Member & Server Data
+| Placeholder | Description |
+| :--- | :--- |
+| `{user.mention}` / `{user_mention}` | Mentions the joining or leaving member (`@Username`). |
+| `{user.name}` / `{user_name}` | The member's Discord username. |
+| `{user.id}` / `{user_id}` | The member's Discord Snowflake ID. |
+| `{user.avatar}` / `{user_avatar}` | Direct URL to the member's profile avatar. |
+| `{guild.name}` / `{server.name}` | The name of the Discord server. |
+| `{guild.id}` / `{server.id}` | The Discord server's unique ID. |
+| `{guild.memberCount}` / `{server.members}` | Total live member count of the server. |
+| `{guild.icon}` / `{server.icon}` | Direct URL to the server's icon. |
+| `{guild.banner}` / `{server.banner}` | Direct URL to the server's banner. |
+
+### Milestone Variables
+Available inside **Milestone Announcement Messages** and the **Badge Banner Text** overlay.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{milestone.value}` | The member milestone threshold reached (e.g., `1000`). |
+| `{number}` | The milestone value reached (also supported in Badge Banner Text). |
+| `{count}` | Alias for `{number}`. |
+
+---
+
 ## 4. Universal Placeholders
 
 These variables can be used globally across both Tickets and Applications.

@@ -118,6 +118,15 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Welcomer',
+          items: [
+            { label: 'Overview & General', link: '/welcomer/setup/' },
+            { label: 'Welcome Cards', link: '/welcomer/cards/' },
+            { label: 'Welcome & Leave Messages', link: '/welcomer/messages/' },
+            { label: 'Member Milestones', link: '/welcomer/milestones/' },
+          ],
+        },
+        {
           label: 'Templates',
           items: [
             { label: 'Using Templates', link: '/panels/templates/' },

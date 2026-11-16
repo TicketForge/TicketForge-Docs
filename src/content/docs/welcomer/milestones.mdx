@@ -1,0 +1,54 @@
+---
+title: Member Milestones
+description: Celebrate server growth automatically with interval or exact member count announcements and custom milestone badges.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+Celebrate your community's growth automatically whenever your server hits major member count targets.
+
+Navigate to **Welcomer > Milestones** and toggle **Milestone Celebrations** ON to configure your triggers and design.
+
+![Member Milestones Trigger & Delivery](/images/welcomer/milestones_settings.png)
+
+---
+
+## 1. Trigger & Delivery
+
+* **Announcement Channel:** Select the Discord text or announcement channel where milestone celebrations will be posted.
+* **Trigger Thresholds:** Configure one or more member count targets (all thresholds must be at least **10 members**):
+
+| Mode | Behavior | Examples | Tier |
+| :--- | :--- | :--- | :--- |
+| **Every X Members (Interval)** | Triggers automatically on every multiple of the configured number (up to 5 interval rules). | `100` fires at `100`, `200`, `300`, `400`... | <Badge text="Premium" variant="caution" /> |
+| **Specific Numbers** | Triggers once when the server reaches the exact member count configured. | `50`, `250`, `1000`, `5000` | **Free** *(Expanded limit on Premium)* |
+
+:::note[Milestone Evaluation Order]
+If **Wait for Server Verification** is enabled on your server, welcome messages wait until verification passes—but **Member Milestones** are evaluated immediately when the member joins so your live member count matches the exact milestone trigger.
+:::
+
+---
+
+## 2. Card Badge & Overlay
+
+Milestone cards automatically feature a celebratory diamond-divider badge (in **Centered** and **Custom** layouts) or a frosted capsule pill (in **Horizontal** layout):
+
+![Milestone Card Badge & Overlay](/images/welcomer/milestones_badge.png)
+
+* **Badge Banner Text:** Customize the badge text (up to **32 characters**, default: `🎉 {number} MEMBERS`). Supports `{number}` and `{count}` placeholders.
+* **Badge Accent Color:** Set a custom hex color (`#FBBF24` by default) applied to the badge text, diamond decorators, and gradient divider lines.
+
+### Independent Milestone Card Design
+* **Use Welcome Card Background (Enabled by default):** Inherits the exact layout, background theme, and dim opacity of your primary Welcome Card.
+* **Independent Design (Disabled):** Reveals an embedded **Milestone Card Customizer** allowing you to design a completely separate layout, background theme, dim opacity, and drag-and-drop badge position (`milestoneBadgeX` / `milestoneBadgeY`) exclusively for milestone announcements.
+
+---
+
+## 3. Announcement Message
+
+Customize the celebration message using the **Canvas Editor** at the bottom of the page:
+
+![Milestone Announcement Preview](/images/welcomer/milestones_preview.png)
+
+* **Embed / V2 Integration:** When using V1 embeds, `attachment://milestone.png` is automatically bound into the embed image slot. When using **Components (V2)** <Badge text="Premium" variant="caution" />, the milestone card renders directly inside the card block slot.
+* **Supported Variables:** Use `{milestone.value}`, `{number}`, or `{count}` alongside `{user.mention}` and `{guild.name}` to shout out the member who pushed your server over the milestone.

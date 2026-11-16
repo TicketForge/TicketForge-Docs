@@ -1,0 +1,124 @@
+---
+title: Welcome & Leave Messages
+description: Configure channel welcomes, auto-delete timers, card placement, private DMs, and leave notices using classic Embeds (V1) or modern Components (V2).
+---
+
+import { Badge } from "@astrojs/starlight/components";
+
+Navigate to **Welcomer > Messages & DMs** to configure how and where TicketForge delivers welcome and departure notifications.
+
+![Welcome & Leave Messages Settings](/images/welcomer/messages_settings.png)
+
+---
+
+## 1. Message Channels & Delivery Modes
+
+Use the top tab switcher to configure each of the three lifecycle messages independently:
+
+### Welcome (Channel)
+
+Posts a greeting in a public or onboarding text channel when a member joins (or passes verification).
+
+- **Welcome Channel:** Select any text or announcement channel where greetings should be posted.
+- **Auto-Delete Message After** <Badge text="Premium" variant="caution" />: Automatically deletes the welcome message after a set delay—from **1 minute up to 24 hours** (`1440` minutes)—to keep busy chat channels tidy. Set to `0` to keep messages permanently.
+- **Welcome Card Image:** Toggle ON to generate and send the member's Welcome Card alongside the message.
+- **Image Placement:**
+  - **Attachment:** Sends `welcome.png` as a standard Discord file attachment below your message or embed.
+  - **Embed image:** Embeds `welcome.png` directly inside your primary embed's main image slot (`attachment://welcome.png`). _(Automatically enables and initializes Embed 0 if none exists)._
+
+### Welcome (DM) <Badge text="Premium" variant="caution" />
+
+Sends a private Direct Message to new members upon joining (or passing verification).
+
+- Ideal for delivering server rules, onboarding links, or private welcome guides without cluttering public channels.
+- **Privacy & Anti-Spam:** If a user has server DMs disabled, or if their Discord account is less than **60 minutes old**, the DM is safely skipped.
+
+### Leave Message
+
+Posts a departure notice when a member leaves or is removed from your server.
+
+- **Leave Message Channel:** Select the channel where leave notices should be posted.
+- **Verified Members Only:** When enabled, leave messages are only sent if the departing user held verified server role(s)—preventing unverified bot joins/leaves from flooding your logs.
+
+---
+
+## 2. Choosing Your Message Format
+
+At the top of the canvas editor in **Welcomer > Messages & DMs**, you can toggle between both formatting engines with a live Discord preview:
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.25rem",
+    alignItems: "start",
+    margin: "1.5rem 0",
+  }}
+>
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Classic Embeds (V1)
+    </span>
+    <img
+      src="/images/edit_settings/v1-preview.png"
+      alt="Classic Embeds (V1) Canvas Editor"
+      style={{
+        width: "100%",
+        borderRadius: "8px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize: "0.95rem",
+        color: "#f4f4f5",
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+      }}
+    >
+      Components (V2)
+      <span
+        style={{
+          background: "rgba(234, 179, 8, 0.15)",
+          color: "#eab308",
+          border: "1px solid rgba(234, 179, 8, 0.3)",
+          fontSize: "0.7rem",
+          fontWeight: 700,
+          padding: "1px 6px",
+          borderRadius: "9999px",
+          textTransform: "uppercase",
+        }}
+      >
+        Premium
+      </span>
+    </span>
+    <img
+      src="/images/edit_settings/v2-preview.png"
+      alt="Components (V2) Canvas Editor"
+      style={{
+        width: "100%",
+        borderRadius: "8px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+</div>
+
+| Feature                    | Embeds (V1)                                                                    | Components (V2) <Badge text="Premium" variant="caution" />                  |
+| :------------------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| **Layout Style**           | Plain text or classic embed cards with accent color bars                       | Modular layout: containers, text blocks, images, dividers, and link buttons |
+| **Max Capacity**           | Up to 4 embeds per message                                                     | **Up to 9 root blocks** & **36 total nested components**                    |
+| **Character Limit**        | 6,000 characters total across embeds                                           | 4,000 characters total                                                      |
+| **Welcome Card Placement** | Sent as a file attachment or bound inside Embed 0 (`attachment://welcome.png`) | Rendered directly inside the dedicated Welcome Card container slot          |
+
+For a full walkthrough of block types, drag-and-drop nesting, and embed fields, see the [Messages & Component Builder Guide](/panels/messages/). For supported variables like `{user.mention}`, `{guild.name}`, and `{guild.memberCount}`, see the [Variable Placeholders Reference](/guides/placeholders/).

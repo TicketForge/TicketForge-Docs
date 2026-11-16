@@ -1,0 +1,194 @@
+---
+title: Welcome Card Designer
+description: Design custom 1024×450 welcome and milestone cards with preset layouts, themes, or the drag-and-drop canvas builder.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+TicketForge generates high-resolution **`1024×450` PNG** welcome cards rendered live with each member's Discord avatar, display name, and live member number.
+
+Navigate to **Welcomer > General & Card > Welcome Card Configuration** to customize your card.
+
+![Welcome Card Configuration](/images/welcomer/card_designer.png)
+
+---
+
+## 1. Card Layouts
+
+Choose between two built-in preset layouts or build your own from scratch:
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "1.25rem",
+    alignItems: "start",
+    margin: "1.5rem 0",
+  }}
+>
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Centered
+    </span>
+    <img
+      src="/images/welcomer/layout_centered.png"
+      alt="Centered Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Horizontal (Sidebar)
+    </span>
+    <img
+      src="/images/welcomer/layout_sidebar.png"
+      alt="Horizontal Sidebar Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize: "0.95rem",
+        color: "#f4f4f5",
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+      }}
+    >
+      Custom
+      <span
+        style={{
+          background: "rgba(234, 179, 8, 0.15)",
+          color: "#eab308",
+          border: "1px solid rgba(234, 179, 8, 0.3)",
+          fontSize: "0.7rem",
+          fontWeight: 700,
+          padding: "1px 6px",
+          borderRadius: "9999px",
+          textTransform: "uppercase",
+        }}
+      >
+        Premium
+      </span>
+    </span>
+    <img
+      src="/images/welcomer/layout_custom.png"
+      alt="Custom Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+</div>
+
+| Layout | Visual Style | Tier |
+| :--- | :--- | :--- |
+| **Centered** | Circular avatar centered at the top with username and member subtitle centered below. | **Free** |
+| **Horizontal (Sidebar)** | Large circular avatar on the left with a localized header kicker, username, and subtitle aligned on the right. | **Free** |
+| **Custom** | Full interactive drag-and-drop canvas allowing free placement, sizing, visibility toggles, and custom colors for every element. | <Badge text="Premium" variant="caution" /> |
+
+---
+
+## 2. Custom Drag & Drop Canvas
+
+<Badge text="Premium" variant="caution" />
+
+When **Custom** layout is selected, an interactive canvas appears directly in the dashboard:
+
+![Custom Layout Drag & Drop Canvas](/images/welcomer/layout_custom.png)
+
+* **Bounded Drag & Drop:** Click and drag any element directly on the card preview. Coordinates are automatically bounded to prevent avatars or text from clipping off the edges.
+* **Reset Layout:** One-click reset restores default coordinates, sizes, and `#FFFFFF` text colors.
+
+### Customizable Elements
+
+Each element can be individually **toggled ON/OFF**, resized, recolored (hex picker), and repositioned:
+
+| Element | Controls Available | Notes |
+| :--- | :--- | :--- |
+| **Avatar** | Toggle, Size (`40px` – `140px`), X/Y Position | Rendered as a circle with an outer border matching the Name color. |
+| **Header Text** | Toggle, Font Size (`8px` – `24px`), Color, X/Y Position | Automatically localized to your server's **Bot Language** (e.g., *"Welcome to the server"*). |
+| **Name (Title)** | Toggle, Font Size (`12px` – `40px`), Color, X/Y Position | Displays the joining member's display name / username. |
+| **Subtitle** | Toggle, Font Size (`9px` – `26px`), Color, X/Y Position | Displays `Member #<count>`. |
+| **Milestone Badge** | X/Y Position | Appears on the canvas when customizing an independent Milestone Card. |
+
+---
+
+## 3. Background Themes & Dimming
+
+![Background Theme Gallery & Dim Opacity](/images/welcomer/card_themes.png)
+
+### Built-In Presets (Free)
+Select from **7 curated themes** loaded locally for instant rendering (**Transparent** + 6 illustrated presets):
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "1rem",
+    margin: "1.25rem 0 1.75rem 0",
+  }}
+>
+  {[
+    { name: "Midnight (Default)", file: "midnight.png" },
+    { name: "Cozy", file: "cozy.png" },
+    { name: "Forest", file: "forest.png" },
+    { name: "Mint", file: "mint.png" },
+    { name: "Ocean", file: "ocean.png" },
+    { name: "Sunrise", file: "sunrise.png" },
+  ].map((theme) => (
+    <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+      <img
+        src={`/images/backgrounds/${theme.file}`}
+        alt={`${theme.name} Card Background`}
+        style={{
+          width: "100%",
+          aspectRatio: "1024 / 450",
+          objectFit: "cover",
+          borderRadius: "8px",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          display: "block",
+          margin: 0,
+        }}
+      />
+      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#dbdee1" }}>
+        {theme.name}
+      </span>
+    </div>
+  ))}
+</div>
+
+* **Transparent:** Outputs a clean transparent PNG background (ideal for minimalist overlays).
+
+### Custom Background Uploads <Badge text="Premium" variant="caution" />
+Select **Upload your own** and paste a direct `http://` or `https://` image URL (PNG or JPG—supports Discord CDN, Imgur, and S3 URLs).
+* **Recommended Resolution:** `1024×450px` (automatically center-cropped to cover if aspect ratio differs).
+
+### Background Dim Opacity
+Use the **Background Dim Opacity** slider (`0%` to `100%`, default `10%`) to add a dark overlay behind your text and avatar, ensuring high contrast on bright or detailed backgrounds.
+
+:::note[Automatic Emoji & Unicode Support]
+Welcome cards bundle **Inter** and **Noto Color Emoji** fonts natively, ensuring Unicode usernames and milestone badge emojis render accurately.
+:::

@@ -1,0 +1,75 @@
+---
+title: Welcomer Overview & General Settings
+description: Greet new members automatically with custom welcome cards, auto-assigned roles, verification interlocks, and raid protection.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+The **Server Welcomer** module automates your community's onboarding experience. Greet newcomers with dynamically rendered welcome cards, assign starter roles, send welcome DMs, track departing members, and celebrate member milestones.
+
+![Welcomer Control Deck](/images/welcomer/welcomer_overview.png)
+
+---
+
+## 1. Control Deck & Quick Actions
+
+At the top of the **Welcomer** editor, the Control Deck provides instant diagnostics and testing tools:
+
+### Welcomer Health Badge
+The live **Health Status** indicator continuously validates your configuration against your Discord server:
+* **🟢 Healthy:** All enabled outputs, channels, and roles are properly configured.
+* **🟡 Warnings:** Non-critical configuration gaps (e.g., system is disabled, system is active with no enabled outputs, or milestones are enabled without any threshold rules).
+* **🔴 Critical:** Blocking issues such as a deleted destination channel, missing `View Channel` / `Send Messages` bot permissions, or an auto-assign role positioned higher than the bot's role.
+
+Click any item inside the Health dropdown to jump directly to the setting that needs fixing.
+
+### Test Welcome
+Click **Test Welcome** to dispatch a live mock welcome message—complete with your rendered welcome card—to any channel in your server.
+
+![Send Test Welcome Modal](/images/welcomer/test_welcome.png)
+
+* You can target a private staff channel to preview layout and copy changes without pinging members.
+* If you have unsaved edits in the editor, **Test Welcome** saves them automatically before dispatching.
+* Protected by a **30-second cooldown** per server to prevent channel spam.
+
+### Reset Defaults
+Restores all welcome cards, auto-assigned roles, message embeds, and milestone rules back to factory defaults.
+
+---
+
+## 2. General Settings
+
+Navigate to **Welcomer > General & Card** to configure core module behavior:
+
+![Welcomer General Settings](/images/welcomer/general_settings.png)
+
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| **Enable Welcomer System** | Master switch for the entire welcomer module (channel welcomes, DMs, auto-roles, leave notices, and milestones). | `Disabled` |
+| **Wait for Server Verification** | Delays channel welcomes, DM welcomes, and join role assignments until the user passes TicketForge's **Verification** check. | `Disabled` |
+| **Ignore Bot Accounts** | Prevents sending welcome messages or assigning roles when a Discord bot is added to the server. | `Enabled` |
+
+:::tip[Verification Interlock]
+If you use TicketForge's [Verification System](/verification/setup/), enable **Wait for Server Verification**. New members won't be welcomed in general chat until they prove they are human—keeping your welcome channel free of unverified bots and raid accounts.
+:::
+
+---
+
+## 3. Auto-Assign Roles
+
+Automatically grant starter roles (such as `@Member` or `@Community`) when a user joins your server—or immediately after they pass verification if **Wait for Server Verification** is enabled.
+
+### Security & Role Hierarchy Safeguards
+To protect your server against privilege escalation:
+* **Hierarchy Check:** The **TicketForge** bot role must sit **higher** in **Server Settings > Roles** than every role selected in **Roles to Assign**.
+* **Dangerous Permissions Blocked:** TicketForge automatically blocks assigning `@everyone` or roles with dangerous administrative permissions (`Administrator`, `Manage Server`, `Manage Roles`, `Manage Channels`, `Ban Members`, or `Kick Members`).
+
+---
+
+## 4. Built-In Raid & Anti-Spam Protections
+
+The Welcomer service includes automatic safeguards to keep your server and bot performance protected during raids:
+
+* **Raid Surge Shield:** If a server experiences a sudden join surge (**8 or more joins within 5 seconds**), the Welcomer automatically engages a **90-second lockdown**, suppressing high-cost card rendering and welcome dispatches until traffic stabilizes.
+* **New-Account DM Protection:** To comply with Discord anti-spam rules, **Welcome DMs** are automatically skipped for newly created Discord accounts younger than **60 minutes**.
+* **In-Discord Setup (`/setup`):** You can also toggle welcomer modules, select channels, assign roles, and edit basic messages directly inside Discord by running `/setup`.
