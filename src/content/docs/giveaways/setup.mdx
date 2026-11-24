@@ -1,0 +1,78 @@
+---
+title: Giveaways Overview & Luck Modifiers
+description: Configure the giveaway system, monitor configuration health, and reward members with boosted role multipliers and vote bonus entries.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+The **Giveaways** module lets you host automated giveaways in Discord with flexible end conditions, anti-bot entry checks, ticket-based prize claiming, and weighted entry multipliers.
+
+Navigate to **Giveaways > Configuration** in the dashboard to set up your server-wide defaults and luck rules.
+
+![Giveaways Control Deck](/images/giveaways/giveaway_overview.png)
+
+---
+
+## 1. Control Deck & Quick Actions
+
+At the top of the Giveaway Editor, the Control Deck gives you quick access to search, diagnostics, and creation tools:
+
+### Search Palette
+Press `/` or `Ctrl+K` (`Cmd+K` on Mac) to open the quick search palette and jump directly to settings, multipliers, or actions like **Create Giveaway** and **Reset to Defaults**.
+
+### Giveaway Health Badge
+The live **Health Status** indicator checks your giveaway configuration against your Discord server in real time:
+* **🟢 Healthy:** All channels, roles, ticket panels, and buttons are valid.
+* **🟡 Warnings:** The Giveaway System is currently disabled/paused.
+* **🔴 Critical:** Blocking configuration issues—such as a Winner Role placed above the bot's role, a missing linked Prize Claim Ticket Panel, an empty Participate button (missing both label and emoji), or a deleted/unwritable Audit Log channel.
+
+Click any issue in the Health dropdown to jump directly to the setting that needs fixing.
+
+### Create Giveaway & Reset to Defaults
+* **Create Giveaway:** Saves any pending changes (if the system is enabled) and opens the 5-step giveaway creation wizard.
+* **Reset to Defaults:** Restores all luck modifiers, entry requirements, claiming settings, embed styling, and winner DM customizations back to factory defaults.
+
+---
+
+## 2. General System Toggle
+
+Under **General & Luck > Giveaway System**:
+
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| **Giveaway System Active** | Master switch to enable or pause creating and joining giveaways on your server. | `Enabled` |
+
+:::note[Paused Giveaways]
+When **Giveaway System Active** is toggled off, you cannot publish new giveaways from the dashboard until the system is re-enabled.
+:::
+
+---
+
+## 3. Luck Modifiers
+
+Reward active voters and valued community roles with extra giveaway entries under **General & Luck > Luck Modifiers**.
+
+![Luck Modifiers & Boosted Roles](/images/giveaways/luck_modifiers.png)
+
+### Vote Entries
+
+| Setting | Description | Tier |
+| :--- | :--- | :--- |
+| **Vote Entries** | Automatically rewards members who have an active Top.gg vote for TicketForge with extra entries. Enabled by default. | <Badge text="Premium" variant="caution" /> *(to toggle or customize)* |
+| **Bonus Entries per Vote** | Number of extra entries added (`1` – `25`) when a participant has an active vote. | <Badge text="Premium" variant="caution" /> |
+
+### Stack Multipliers <Badge text="Premium" variant="caution" />
+
+* **Disabled (Default):** If a member holds multiple Boosted Roles, only their **highest** multiplier is applied.
+* **Enabled:** All matching Boosted Role multipliers stack together for the participant.
+
+### Boosted Roles
+
+Assign custom entry multipliers to specific Discord roles:
+
+1. Select roles from the **Boosted Roles** dropdown (**up to 2 roles** on Free, **up to 25 roles** on Premium).
+2. Adjust each role's multiplier from **`1x` up to `100x`** in `0.5x` increments (defaults to `2x`).
+
+:::tip[Per-Giveaway Multiplier Control]
+You can toggle **Boosted Roles Extra Entries** ON or OFF individually when creating or editing a specific giveaway in Step 4 of the wizard.
+:::

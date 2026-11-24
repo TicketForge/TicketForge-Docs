@@ -1,0 +1,3835 @@
+<repo-to-text>
+Directory: ticketforge-docs
+
+Directory Structure:
+<directory_structure>
+.
+├── .gitignore
+|   astro.config.mjs
+|   package.json
+|   README.md
+|   tsconfig.json
+|           ci.yml
+|       |   graph_banner.webp
+|       |   ticketforge-banner.webp
+|       |       logo-sm-circled.png
+|       |       logo-sm.png
+|       |       logo.png
+|       |       ticketforge-logo.png
+|               ticketforge-banner-placeholderv2.png
+|               ticketforge-logo-25degrees-circle-placeholderv3.png
+|   |   favicon.png
+|   |   |   graph_banner.webp
+|   |   |   ticketforge-banner.webp
+|   |   |       logo-sm-circled.png
+|   |   |       logo-sm.png
+|   |   |       logo.png
+|   |   |       ticketforge-logo.png
+|   |           ticketforge-banner-placeholderv2.png
+|   |           ticketforge-logo-25degrees-circle-placeholderv3.png
+|       |   logo.png
+|       |       action_modal.png
+|       |       app_editor.png
+|       |       automation_page.png
+|       |       builder_overview.png
+|       |       canvas_editor.png
+|       |       choice_config.png
+|       |       cooldowns.png
+|       |       create_app_card.png
+|       |       delivery_methods.png
+|       |       delivery_page.png
+|       |       details_modal.png
+|       |       editor_overview.png
+|       |       health_badge.png
+|       |       image_config.png
+|       |       inactivity_config.png
+|       |       inactivity_notifier.png
+|       |       layout.png
+|       |       loggable_events.png
+|       |       logging_page.png
+|       |       logging_setup.png
+|       |       notification_page.png
+|       |       placeholders.png
+|       |       preview_template.png
+|       |       quantity_limits.png
+|       |       repeating_reminders.png
+|       |       resolution_actions.png
+|       |       role_restrictions.png
+|       |       select_template.png
+|       |       setup_wizard.png
+|       |       submissions_page.png
+|       |       template_config.png
+|       |       text_config.png
+|       |       time_constraints.png
+|       |       user_leave.png
+|       |       v1-app-preview.png
+|       |       v2-app-block-anatomy.png
+|       |       v2-app-preview.png
+|       |       cozy.png
+|       |       forest.png
+|       |       midnight.png
+|       |       mint.png
+|       |       ocean.png
+|       |       sunrise.png
+|       |       create_panel.png
+|       |       login.png
+|       |       preparetosend.png
+|       |       preview_template.png
+|       |       select_server.png
+|       |       select_template.png
+|       |       select_template_config.png
+|       |       select_template_config_multi.png
+|       |       commands.png
+|       |       edit_panel.webp
+|       |       savebar.png
+|       |       status_health.png
+|       |       unified_searchbar.png
+|       |       automation_settings.png
+|       |       claiming_settings.png
+|       |       drag-drop-indicators.png
+|       |       dropdown-example.png
+|       |       escalation_settings.png
+|       |       form_settings.png
+|       |       layout_settings.png
+|       |       limit_settings.png
+|       |       message_settings.png
+|       |       multibutton-example.png
+|       |       rating_settings.png
+|       |       serverconfig_settings.png
+|       |       thread_settings.png
+|       |       ticket_settings.png
+|       |       transcript_settings.png
+|       |       v1-embed-fields-grid.png
+|       |       v1-preview.png
+|       |       v2-block-anatomy.png
+|       |       v2-preview.png
+|       |       audit_logging.png
+|       |       messages.png
+|       |       punishments.png
+|       |       roles_setup.png
+|       |       security.png
+|       |       verification_overview.png
+|       |       verify_portal.png
+|               card_designer.png
+|               card_themes.png
+|               general_settings.png
+|               layout_centered.png
+|               layout_custom.png
+|               layout_sidebar.png
+|               messages_settings.png
+|               milestones_badge.png
+|               milestones_preview.png
+|               milestones_settings.png
+|               test_welcome.png
+|               welcomer_overview.png
+    |   content.config.ts
+    |       logo.png
+    |       |   index.mdx
+    |       |   premium.mdx
+    |       |       automation.md
+    |       |       create.md
+    |       |       delivery.md
+    |       |       editor.md
+    |       |       layouts.md
+    |       |       limits.md
+    |       |       logging.md
+    |       |       messages.md
+    |       |       notifications.md
+    |       |       questions.md
+    |       |       submissions.md
+    |       |       automation.md
+    |       |       claiming.md
+    |       |       escalation.md
+    |       |       forms.md
+    |       |       limits.md
+    |       |       ratings.md
+    |       |       threads.md
+    |       |       transcripts.md
+    |       |       dashboard.md
+    |       |       installation.mdx
+    |       |       button-styles.mdx
+    |       |       placeholders.md
+    |       |       troubleshooting.md
+    |       |       create.md
+    |       |       editor.md
+    |       |       management.md
+    |       |       messages.md
+    |       |       templates.md
+    |       |       example.md
+    |       |       commands.md
+    |       |       server-config.mdx
+    |       |       messages-logging.md
+    |       |       roles-punishments.md
+    |       |       security.md
+    |       |       setup.mdx
+    |               cards.mdx
+    |               messages.mdx
+    |               milestones.mdx
+    |               setup.mdx
+            custom.css
+</directory_structure>
+
+<content full_path="astro.config.mjs">
+import { defineConfig } from 'astro/config';
+import starlight from '@astrojs/starlight';
+
+export default defineConfig({
+	devToolbar: {
+    enabled: false,
+  },
+  site: 'https://docs.ticketforge.xyz',
+  integrations: [
+    starlight({
+      title: 'TicketForge Docs',
+      description: 'The ultimate Discord ticketing and application bot.',
+      // Auto-open external links in a new tab safely
+      head: [
+        {
+          tag: 'script',
+          content: `
+            document.documentElement.dataset.theme = 'dark';
+            try { localStorage.setItem('starlight-theme', 'dark'); } catch (e) {}
+          `,
+        },
+        {
+          tag: 'script',
+          content: `
+            document.addEventListener('DOMContentLoaded', () => {
+              const applyExternalTargets = () => {
+                document.querySelectorAll('a').forEach((link) => {
+                  if (link.hostname && link.hostname !== window.location.hostname) {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                  }
+                });
+              };
+
+              applyExternalTargets();
+              // Re-run if page content updates dynamically
+              const observer = new MutationObserver(applyExternalTargets);
+              observer.observe(document.body, { childList: true, subtree: true });
+            });
+          `,
+        },
+      ],
+      logo: {
+        src: './src/assets/logo.png',
+        replacesTitle: false,
+      },
+      favicon: '/favicon.png',
+      social: [
+        {
+          icon: 'discord',
+          label: 'Discord Support',
+          href: 'https://ticketforge.xyz/invite',
+        },
+        {
+          icon: 'external',
+          label: 'Dashboard',
+          href: 'https://ticketforge.xyz',
+        },
+      ],
+      customCss: [
+        '@fontsource/inter/400.css',
+        '@fontsource/inter/600.css',
+        '@fontsource/inter/700.css',
+        '@fontsource/jetbrains-mono/400.css',
+        './src/styles/custom.css',
+      ],
+      sidebar: [
+        {
+          label: 'Getting Started',
+          items: [
+            { label: 'Overview', link: '/' },
+            { label: 'Installation', link: '/getting-started/installation/' },
+            { label: 'Dashboard Overview', link: '/getting-started/dashboard/' },
+            { label: 'Premium Plans', link: '/premium/' },
+          ],
+        },
+        {
+          label: 'Tickets',
+          items: [
+            { label: 'Creating Panels', link: '/panels/create/' },
+            { label: 'The Panel Editor', link: '/panels/editor/' },
+            { label: 'Messages & Embeds', link: '/panels/messages/' },
+            { label: 'Interaction Styles', link: '/guides/button-styles/' },
+            { label: 'Custom Forms', link: '/features/forms/' },
+            { label: 'Ticket Settings', link: '/panels/management/' },
+            { label: 'Escalation', link: '/features/escalation/' },
+            { label: 'Claiming', link: '/features/claiming/' },
+            { label: 'Threads', link: '/features/threads/' },
+            { label: 'Limits & Schedules', link: '/features/limits/' },
+            { label: 'Transcripts', link: '/features/transcripts/' },
+            { label: 'Ratings (CSAT)', link: '/features/ratings/' },
+            { label: 'Automation', link: '/features/automation/' },
+          ],
+        },
+        {
+          label: 'Applications',
+          items: [
+            { label: 'Creating Applications', link: '/applications/create/' },
+            { label: 'The App Editor', link: '/applications/editor/' },
+            { label: 'Delivery & Web Portals', link: '/applications/delivery/' },
+            { label: 'Interaction Styles', link: '/applications/layouts/' },
+            { label: 'Question Builder', link: '/applications/questions/' },
+            { label: 'Messages & Embeds', link: '/applications/messages/' },
+            { label: 'Processing Submissions', link: '/applications/submissions/' },
+            { label: 'Role Automation', link: '/applications/automation/' },
+            { label: 'Limits & Cooldowns', link: '/applications/limits/' },
+            { label: 'Inactivity Notifier', link: '/applications/notifications/' },
+            { label: 'Audit Logging', link: '/applications/logging/' },
+          ],
+        },
+        {
+          label: 'Verification',
+          items: [
+            { label: 'Overview & Setup', link: '/verification/setup/' },
+            { label: 'Roles & Punishments', link: '/verification/roles-punishments/' },
+            { label: 'Security & Anti-Alt Engine', link: '/verification/security/' },
+            { label: 'Messages & Audit Logging', link: '/verification/messages-logging/' },
+          ],
+        },
+        {
+          label: 'Welcomer',
+          items: [
+            { label: 'Overview & General', link: '/welcomer/setup/' },
+            { label: 'Welcome Cards', link: '/welcomer/cards/' },
+            { label: 'Welcome & Leave Messages', link: '/welcomer/messages/' },
+            { label: 'Member Milestones', link: '/welcomer/milestones/' },
+          ],
+        },
+        {
+          label: 'Templates',
+          items: [
+            { label: 'Using Templates', link: '/panels/templates/' },
+          ],
+        },
+        {
+          label: 'Reference',
+          items: [
+            { label: 'Variable Placeholders', link: '/guides/placeholders/' },
+            { label: 'Command List', link: '/settings/commands/' },
+            { label: 'Server Settings', link: '/settings/server-config/' },
+            { label: 'Troubleshooting', link: '/guides/troubleshooting/' },
+          ],
+        },
+      ],
+    }),
+  ],
+});
+</content>
+
+<content full_path="package.json">
+{
+  "name": "ticketforge-docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.42.6",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "astro": "^7.2.10",
+    "sharp": "^0.35.3"
+  }
+}
+
+</content>
+
+<content full_path="README.md">
+<div align="center">
+  <img src="docs/assets/images/logo.png" alt="TicketForge Logo" width="200" />
+
+  # TicketForge Documentation
+
+  **The ultimate Discord ticketing bot designed to streamline support requests.**
+
+  [![Documentation](https://img.shields.io/badge/Read-Documentation-7c3aed?style=for-the-badge&logo=materialformkdocs)](https://docs.ticketforge.xyz/)
+  [![Dashboard](https://img.shields.io/badge/Access-Dashboard-020617?style=for-the-badge)](https://ticketforge.xyz/)
+  [![Discord](https://img.shields.io/badge/Join-Support_Server-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/ya3Rv9VmpR)
+
+</div>
+
+---
+
+## Overview
+
+This repository contains the source code for the **TicketForge** documentation site, built with **MkDocs** and **Material for MkDocs**.
+
+## Structure
+
+- **docs/** - Contains all markdown content and assets.
+- **mkdocs.yml** - The configuration file for the static site generator.
+</content>
+
+<content full_path="tsconfig.json">
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}
+
+</content>
+
+<content full_path="src\content\docs\index.mdx">
+---
+title: Official TicketForge Docs
+description: The command center for your Discord community. Tame the chaos with intuitive ticket panels, smart automation, and powerful application forms.
+hero:
+  title: Official TicketForge Docs
+  tagline: The command center for your Discord community. Tame the chaos with intuitive ticket panels, smart automation, and powerful application forms.
+  image:
+    file: ../../assets/logo.png
+  actions:
+    - text: Get Started
+      link: /panels/create/
+      icon: right-arrow
+      variant: secondary
+    - text: Open Dashboard
+      link: https://ticketforge.xyz/
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Core Modules
+
+<CardGrid>
+  <Card title="Ticket Panels" icon="document">
+    Set up standard support tickets, automated claiming, and private threads.
+    
+    [Explore Ticket Docs &rarr;](/panels/create/)
+  </Card>
+
+  <Card title="Application Forms" icon="pencil">
+    Build robust staff recruitment apps, ban appeals, and web portals.
+    
+    [Explore App Docs &rarr;](/applications/create/)
+  </Card>
+
+  <Card title="Server Verification" icon="puzzle">
+    Gate server access with Web Verification, anti-alt detection, VPN blocking, and automatic role assignment.
+    
+    [Explore Verification Docs &rarr;](/verification/setup/)
+  </Card>
+
+  <Card title="Server Welcomer" icon="rocket">
+    Greet new members with rendered welcome cards, automated join roles, DM welcomes, leave logs, and milestone celebrations.
+    
+    [Explore Welcomer Docs &rarr;](/welcomer/setup/)
+  </Card>
+
+  <Card title="Server Settings" icon="setting">
+    Configure custom bot branding, Google Drive transcript sync, language, and ticket limits.
+    
+    [Explore Server Settings &rarr;](/settings/server-config/)
+  </Card>
+
+  <Card title="Commands & Permissions" icon="forward-slash">
+    Granular control over bot slash commands, role restrictions, and staff access rights.
+    
+    [Explore Commands &rarr;](/settings/commands/)
+  </Card>
+</CardGrid>
+
+---
+
+## Powerful Management
+
+TicketForge isn't just a bot, it's a complete CRM for Discord.
+
+<CardGrid>
+  <Card title="Data-Driven Decisions" icon="information">
+    Visualize support health with the **Guild Statistics** dashboard. Track ticket volume, response times, and peak hours to optimize staffing.
+  </Card>
+
+  <Card title="Web Portal Applications" icon="laptop">
+    Share direct links to your forms. Users can apply via an external web interface with responses syncing directly to Discord.
+  </Card>
+
+  <Card title="Audit Logs" icon="list-format">
+    Maintain a tamper-proof trail. The **Activity Log** tracks every configuration update, submission review, and dashboard login.
+  </Card>
+
+  <Card title="CSAT & Analytics" icon="star">
+    Gather CSAT scores (1–5 Stars) and feedback after every ticket to identify your top-performing support agents.
+  </Card>
+</CardGrid>
+</content>
+
+<content full_path="src\content\docs\premium.mdx">
+---
+title: Premium & Subscription Plans
+description: Compare Free, Premium, and Support tiers to scale your tickets, applications, and verification security.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+# Scale without Limits.
+
+Start for free, upgrade when your community needs more tickets, applications, advanced automation, and custom branding.
+
+---
+
+## Plan Comparison
+
+| Feature Category | Free Plan | Premium Plan (€5/mo) | Support Plan (€8/mo) |
+| :--- | :--- | :--- | :--- |
+| **Pricing (Monthly)** | **€0 / forever** | **€5 / month** | **€8 / month** |
+| **Pricing (Yearly - Save 20%)** | **€0 / forever** | **€50 / year** | **€80 / year** |
+| **Tickets** | | | |
+| Ticket Panels | Up to 5 panels | **Up to 25 panels** | **Up to 25 panels** |
+| Tickets as Threads | ❌ No | **✅ Included** | **✅ Included** |
+| Staff Claiming & Ownership | ❌ No | **✅ Included** | **✅ Included** |
+| CSAT Post-Ticket Ratings | ❌ No | **✅ Included** | **✅ Included** |
+| Operating Hours & Schedules | ❌ No | **✅ Included** | **✅ Included** |
+| Google Drive Transcripts | ❌ No | **✅ Included** | **✅ Included** |
+| Auto-Close on Leave / Inactivity | ❌ No | **✅ Included** | **✅ Included** |
+| Ticket Lifecycle Role Automations | ❌ No | **✅ Included** | **✅ Included** |
+| Button Role Access Restrictions | ❌ No | **✅ Included** | **✅ Included** |
+| **Applications** | | | |
+| Active Applications | Up to 5 applications | **Up to 25 applications** | **Up to 25 applications** |
+| Questions per Form | Up to 10 questions | **Up to 25 questions** | **Up to 25 questions** |
+| Image Upload Form Fields | ❌ No | **✅ Included** | **✅ Included** |
+| Regex Pattern Validation | ❌ No | **✅ Included** | **✅ Included** |
+| Per-Question Timers | ❌ No | **✅ Included** | **✅ Included** |
+| Custom URL Tokens & Slugs | ❌ No | **✅ Included** | **✅ Included** |
+| Discord Sign-In Web Gate | ❌ No | **✅ Included** | **✅ Included** |
+| Cooldowns & Auto-Submit | ❌ No | **✅ Included** | **✅ Included** |
+| Staff Inactivity Reminders | ❌ No | **✅ Included** | **✅ Included** |
+| **Verification** | | | |
+| Web Portal Verification Gate | **✅ Included** | **✅ Included** | **✅ Included** |
+| Minimum Account Age & Avatar Check | **✅ Included** | **✅ Included** | **✅ Included** |
+| Verified & Unverified Roles | Up to 3 roles | **High-capacity** | **High-capacity** |
+| Custom Retry Cooldowns & Appeals | **✅ Included** | **✅ Included** | **✅ Included** |
+| Verification Audit Log Events | **✅ Included** | **✅ Included** | **✅ Included** |
+| Discord CAPTCHA & Click-to-Pass | ❌ No | **✅ Included** | **✅ Included** |
+| Anti-VPN, Proxy & Tor Blocking | ❌ No | **✅ Included** | **✅ Included** |
+| Threat Scoring & Risk Analysis | ❌ No | **✅ Included** | **✅ Included** |
+| Geo-Blocking & Country Access | ❌ No | **✅ Included (Up to 50 countries)** | **✅ Included (Up to 50 countries)** |
+| Multi-Role Punishment Actions | Basic Actions | **✅ Advanced Multi-Role Actions** | **✅ Advanced Multi-Role Actions** |
+| **General & Whitelabel** | | | |
+| Components V2 Layout Builder | ❌ Tickets & Apps V1 only | **✅ Tickets & Apps V2** | **✅ Tickets & Apps V2** |
+| Full Embed Designer | Basic Embeds | **✅ Full Designer** | **✅ Full Designer** |
+| Custom Bot Persona (Guild) | ❌ No | **✅ Avatar, Name, Bio, Banner** | **✅ Avatar, Name, Bio, Banner** |
+| Full Whitelabel Bot (Custom Token) | ❌ No | ❌ No | **✅ Dedicated Bot Instance** |
+| Roadmap Feature Voting | ❌ No | ❌ No | **✅ Direct Voting Access** |
+| Supporter Discord Role | ❌ No | ❌ No | **✅ Exclusive Role** |
+| Analytics & History | 7-day retention | **Unlimited history** | **Unlimited history** |
+| **Welcomer** | | | |
+| Channel Welcome & Leave Messages | **✅ Included** | **✅ Included** | **✅ Included** |
+| Preset Welcome Cards (Centered & Horizontal) | **✅ Included** | **✅ Included** | **✅ Included** |
+| Built-in Card Themes (7 Presets) | **✅ Included** | **✅ Included** | **✅ Included** |
+| Auto-Assign Join Roles | Basic limit | **✅ Expanded capacity** | **✅ Expanded capacity** |
+| Specific Member Milestones | Basic limit | **✅ Expanded capacity** | **✅ Expanded capacity** |
+| Interval Milestones (*Every X Members*) | 5 | 25 | 25 |
+| Direct Message (DM) Welcomes | ❌ No | **✅ Included** | **✅ Included** |
+| Custom Drag & Drop Card Layout | ❌ No | **✅ Included** | **✅ Included** |
+| Custom Card Background Uploads | ❌ No | **✅ Included** | **✅ Included** |
+| Auto-Delete Welcome Messages (up to 24h) | ❌ No | **✅ Included** | **✅ Included** |
+---
+
+## Detailed Plan Breakdown
+
+<CardGrid>
+  <Card title="Free Plan" icon="document">
+    **Essential ticketing, intake forms, verification, and welcomer tools for growing servers.**
+    * **Tickets:** Up to 5 panels, multi-panel routing, department escalation, intake forms (3 questions), two-step confirmation close, manual transcript generation.
+    * **Applications:** Up to 5 applications, 10 questions per form, text & multiple choice fields, web portal & DM submissions, role automation on decision.
+    * **Verification:** Web portal verification gate, minimum account age & avatar requirements, up to 3 verified & unverified roles, custom retry cooldowns & appeals panel, audit log events.
+    * **Welcomer:** Channel welcome & leave messages, Centered & Horizontal cards, 7 preset themes, basic auto-assign roles, specific member milestones.
+    * **General:** Basic message embeds, standard rate limits (4 tickets/min), 7-day analytics & history, community support.
+  </Card>
+
+  <Card title="Premium Plan (€5/mo)" icon="star">
+    **Anti-VPN verification, Components V2, custom welcome cards, claiming, ratings, and higher limits.**
+    * **Tickets:** Up to 25 ticket panels, Tickets as Threads, staff claiming & permissions, CSAT post-ticket user ratings, operational schedules, Google Drive transcripts, auto-close triggers, custom channel naming & counters.
+    * **Applications:** Up to 25 applications, 25 questions per form, image upload fields, regex pattern validation, per-question response timers, custom URL tokens, Discord sign-in gates, submission cooldowns, inactivity review reminders.
+    * **Verification:** Discord CAPTCHA & Click-to-Pass gates, anti-VPN/proxy/Tor network blocking, threat scoring & risk analysis, geo-blocking (country access control), advanced multi-role punishments.
+    * **Welcomer:** Custom drag-and-drop card layouts, custom background uploads, DM welcomes, auto-delete welcome messages, interval milestones, independent milestone cards.
+    * **General:** Components V2 layout builder (Tickets, Apps & Welcomer), full embed designer, custom bot persona (avatar, name, bio, banner), high-capacity rate limits, unlimited history, priority support.
+  </Card>
+
+  <Card title="Support Plan (€8/mo)" icon="discord">
+    **Total brand sovereignty with a dedicated bot token and roadmap access.**
+    * **Everything included in Premium**
+    * **Full Whitelabel Bot:** Run TicketForge under your own Discord Bot Token with your custom application profile and presence.
+    * **Direct Roadmap Voting:** Vote on upcoming features and guide product development.
+    * **Exclusive Role:** Supporter role in the official TicketForge Discord community.
+  </Card>
+</CardGrid>
+
+---
+
+## How to Upgrade
+
+1. Log in to the [TicketForge Dashboard](https://ticketforge.xyz/).
+2. Select your server and navigate to the **Premium** tab in the sidebar.
+3. Select **Monthly** or **Yearly** (Save 20%) and proceed to checkout.
+
+:::tip[Vote to Earn Free Tokens]
+You can earn temporary Premium access by running `/vote` in your Discord server and voting on Top.gg. Tokens accumulate daily to keep Premium active without a card.
+:::
+</content>
+
+<content full_path="src\content\docs\applications\automation.md">
+---
+title: Role Automation & Triggers
+description: Automate role assignments and handle departed applicants.
+---
+
+Stop manually updating Discord roles every time an application is processed. TicketForge can handle role assignments, edge cases, and staff reminders automatically. 
+
+![Automation Options](/images/applications/automation_page.png)
+
+Navigate to **Edit Application > Automation** to configure these settings.
+
+## 1. Resolution Actions
+
+You can instruct the bot to add or remove specific Discord roles based on the exact status of the application. 
+
+* **On Submit:** Executes the moment a user finishes the form (e.g., adding an "Applicant" role so they know their form went through).
+* **On Accept:** Executes when a staff member approves the application (e.g., adding the "Trial Mod" role and removing the "Applicant" role).
+* **On Deny:** Safely revert or remove roles if the user is rejected.
+
+![Resolution Actions](/images/applications/resolution_actions.png)
+
+:::caution[Permission Check]
+For the bot to assign these roles, the **TicketForge** role must be placed **higher** in your Discord Server Settings than the roles you select here.
+:::
+
+---
+
+## 2. Auto-Deny Missing Users *(Premium)*
+
+Sometimes users apply for a position and then leave the server before your staff has a chance to review their submission. 
+
+If **Auto-Deny Missing Users** is enabled, TicketForge will automatically detect if the applicant is no longer in the Discord server. It will instantly mark their pending application as "Denied" and log it, keeping your staff queue clean from ghost applications.
+
+![User Leave Handling](/images/applications/user_leave.png)
+
+---
+
+## 3. Inactivity Notifier *(Premium)*
+
+Never let an application slip through the cracks. The **Inactivity Notifier** will automatically ping your staff if an application sits in the "Pending" state for too long.
+
+### Configuration
+1. **Notification Channel:** The text channel where the reminder ping should be sent (usually a private staff channel).
+2. **Roles to Ping:** Select your Management or Reviewer roles.
+3. **Initial Delay:** The amount of time the application must sit idle before the first ping is sent (e.g., 24 hours).
+
+### Repeating Reminders
+If a single ping isn't enough to get your staff's attention, you can enable **Repeating Reminders**.
+* **Interval Time:** Continue to ping staff every X hours.
+* **Max Pings:** Limit how many times the reminder repeats (e.g., stop pinging after 3 reminders) to prevent endless spam if the team is genuinely busy.
+
+![Inactivity Notifier](/images/applications/inactivity_notifier.png)
+</content>
+
+<content full_path="src\content\docs\applications\create.md">
+---
+title: Creating an Application
+description: Step-by-step guide to configuring application forms for recruitment and appeals.
+---
+
+An **Application** allows you to collect structured data from your users through dynamic forms. TicketForge allows you to build multiple applications for different purposes (e.g., "Staff Recruitment", "Ban Appeals", "Giveaway Entry").
+
+## 1. Login & Access
+
+To begin, visit the [TicketForge Website](https://ticketforge.xyz).
+
+1. Click the **Login with Discord** button in the top right corner.
+2. Authorize the TicketForge application to access your account information.
+
+![Dashboard Home](/images/creating-panel/login.png)
+
+## 2. Server Selection
+
+Once logged in, you will automatically navigate to the server selection page. Select the server where you want to create the application.
+
+You can also navigate to this page by clicking on your profile and then "Servers".
+
+1. Click on your **Profile Picture** in the top right corner to open the menu.
+2. Select **Dashboard** from the dropdown menu.
+
+![Server List](/images/creating-panel/select_server.png)
+
+:::tip[Can't see your server?]
+If a server is missing from this list, ensure you have the **Manage Server** permission on that Discord server. If you just got permissions, try logging out and logging back in to refresh your token.
+:::
+
+## 3. Creating the Application
+
+After selecting a server, navigate to the **Applications** tab in the sidebar and click the **Create Application** card.
+
+![Create App Card](/images/applications/create_app_card.png)
+
+### Step A: Selection Strategy
+
+You will be presented with three ways to start your configuration:
+
+1. **Official Templates:** Pre-configured templates designed by our team for common use cases (e.g., "Staff Recruitment").
+2. **Community Templates:** User-generated templates shared by other server owners.
+3. **Import from Code:** If you have a share code (format: `XXXX-XXXX-XXXX`), paste it here to clone an exact configuration.
+
+![Template Selection](/images/applications/select_template.png)
+
+#### Previewing Templates
+Before making a choice, you can click on any template card to open a detailed **Interactive Preview**. This allows you to view the exact questions, the Discord embed message, and the user flow before committing to it.
+
+![Preview Template](/images/applications/preview_template.png)
+
+### Step B: Configuration
+
+Once you click **Use Template**, you must configure the core identity of the application.
+
+You only need to define three essential settings:
+* **Application Name:** The title of the form (e.g., "Moderator Application").
+* **Target Results Channel:** The private Discord channel where completed application answers will be posted for your staff to read. *(Required)*
+* **Review Roles (Optional):** The Discord roles (e.g., `@Head Mod`) that are allowed to click the "Accept" or "Deny" buttons on the submitted applications.
+
+![Setup Wizard](/images/applications/template_config.png)
+
+### Step C: Creation
+
+Click **Create Application**. You will be instantly redirected to the **Application Editor** where you can finalize your questions, adjust automation rules, and send the form to your Discord server!
+
+![Success Modal](/images/applications/setup_wizard.png)
+</content>
+
+<content full_path="src\content\docs\applications\delivery.md">
+---
+title: Delivery & Web Portals
+description: Choose between Direct Message (DM) and Web Portal applications.
+---
+
+How do users actually fill out your application? You can configure this under **Edit Application > General Settings**.
+
+![Delivery Methods Selector](/images/applications/delivery_methods.png)
+
+## Application Methods
+
+| Method | Description |
+| :--- | :--- |
+| **Direct Message (DM)** | The bot sends the form to the user's DMs. (Requires users to have server DMs enabled). |
+| **Web Portal** | Generates a secure web link (e.g., `ticketforge.xyz/apply/...`) that users can fill out in their browser. |
+| **Both** | Allows the user to choose their preferred method when they click the trigger button in your server. |
+
+## Web Portal Features
+
+If you use the Web Portal method, you gain access to several powerful tools tailored for browser-based submissions:
+
+* **Require Discord Sign-in:** *(Premium)* Forces users to log in with Discord before viewing the form, preventing link forwarding to non-members.
+* **Allow Anonymous Submissions:** *(Premium)* Collect raw feedback without attaching a Discord account identity. (Anonymous submissions cannot be formally "Accepted" or "Denied" as there is no user to notify).
+</content>
+
+<content full_path="src\content\docs\applications\editor.md">
+---
+title: The Application Editor
+description: The complete workspace for building forms with real-time health checks and auto-save protection.
+---
+
+The **Application Editor** is your workspace for building and refining your forms. It features a real-time health check system, auto-save protection, and granular control over every aspect of your application workflow.
+
+![Application Editor](/images/applications/app_editor.png)
+
+## Editor Navigation
+
+The application settings are divided into logical categories to help you build your form step-by-step:
+
+### 1. General & Visuals
+* **General** — Rename the app, toggle its Active status, update the Target Results Channel, and select the Apply Method (DM, Web Portal, or Both).
+* **Layout** — Switch between standard buttons, dropdown menus, or multi-app layouts.
+* **Questions** — The core Form Builder. Add, edit, reorder, or set time limits on your questions.
+* **Buttons** — Customize the color, label, and emoji of the button users click to start the app.
+* **Messages** — Customize the text and embeds sent by the bot (Start Notice, Success Message, DM results, etc.).
+
+### 2. Advanced & Automation
+Powerful tools to restrict access and automate your workflow.
+
+* **Access & Limits** — Restrict applications to specific roles, set cooldowns, and cap pending applications.
+* **Automation** — Auto-assign roles when an application is submitted, accepted, or denied.
+* **Audit Logging** — Post updates to a private channel when users start, submit, or cancel forms.
+* **Integrations** *(Premium)* — Run the application under your own Custom Bot identity.
+
+---
+
+## Editor Interface Features
+
+### Health Check (Status Badge)
+In the top right toolbar, you will see a live **App Health** badge.
+* **🟢 Healthy:** The application is ready to use.
+* **🟡 Warnings:** Non-critical issues found (e.g., "No Review Roles selected").
+* **🔴 Critical:** Errors that prevent the app from working (e.g., "Missing Target Results Channel").
+
+**Click the badge** to see a detailed checklist. Clicking on an issue will automatically scroll you to the exact setting that needs fixing.
+
+![Health Check](/images/applications/health_badge.png)
+
+### Save System
+The editor tracks your changes locally. If you modify any setting, a **Save Bar** appears at the bottom of the screen.
+* **Discard:** Reverts all unsaved changes to the last stable version.
+* **Save Changes:** Pushes your configuration to the database and the live bot.
+
+![The Savebar](/images/dashboard/savebar.png)
+
+:::note[Idle Protection]
+If you leave the editor open without saving, an "Idle" modal will appear to prevent data loss or conflicting edits.
+:::
+
+---
+
+## Action Menu
+
+Located in the top toolbar, these quick-actions allow you to deploy and manage the application itself.
+
+![Actionbar](/images/dashboard/unified_searchbar.png)
+
+| Action | Description |
+| :--- | :--- |
+| **Send to Discord** | Posts the configured trigger message/button to a channel of your choice. |
+| **Update in Discord** | Updates the content/embeds of an *existing* application message without deleting it. |
+| **Share Code** | Generates a `XXXX-XXXX-XXXX` code to safely share this configuration with another server. |
+| **Clone** | Creates an exact duplicate of this application within the same server. |
+| **Template** | Publishes this configuration to the Community Templates gallery. |
+| **Rename** | Change the internal name of the application. |
+| **Delete** | Permanently removes the application configuration. **Cannot be undone.** |
+</content>
+
+<content full_path="src\content\docs\applications\layouts.md">
+---
+title: Interaction Styles (Layouts)
+description: Combine multiple forms into single buttons, select menus, or button grids.
+---
+
+TicketForge gives you total control over how users start your applications. Instead of cluttering your server with dozens of different buttons across multiple channels, you can combine applications into sleek, unified menus.
+
+![Dropdown Menu](/images/applications/layout.png)
+
+Navigate to **Edit Application > Layout** to choose and configure your interaction style.
+
+## 1. Standard Button
+The default layout. A single button attached to an embed message that triggers one specific application. 
+
+* **Best for:** Dedicated channels (e.g., a `#staff-applications` channel that only serves one purpose).
+* **Customization:** You can change the button's text, color, and emoji from the **Buttons** tab.
+
+---
+
+## 2. Select Menu (Dropdown)
+Combines multiple applications into a clean dropdown menu. When a user selects an option, the assigned application instantly opens.
+
+* **Capacity:** Up to 5 options (Free) or 25 options (Premium).
+* **Best for:** Hub channels where users need to choose from many different types of forms (e.g., "Report Player", "Report Bug", "Ban Appeal").
+
+![Panel with Dropdown Selection](/images/edit_settings/dropdown-example.png)
+
+### Configuration
+1. **Menu Placeholder:** The grey text visible before a user clicks the menu (e.g., "Choose an application...").
+2. **Add Options:** Click **Add New Option**.
+3. **Label & Description:** Define what the user sees in the list.
+4. **Trigger Application:** Select which existing application opens when this option is clicked.
+
+---
+
+## 3. Multi-Panel (Button Grid)
+Attaches multiple applications as individual buttons stacked under a single embed message. 
+
+* **Capacity:** Up to 5 buttons (Free) or 15 buttons (Premium).
+* **Best for:** Small to medium hubs where you want all options immediately visible without requiring the user to click a dropdown first (e.g., "Apply for Mod" and "Apply for Builder" side-by-side).
+
+![Panel with Multiple Buttons](/images/edit_settings/multibutton-example.png)
+
+### Configuration
+1. **Attached Applications:** Select which applications to include from the multi-select dropdown.
+2. **Buttons Per Row:** Control the grid layout. Discord allows a maximum of 5 buttons per row. If you attach 6 applications and set "Buttons Per Row" to 3, you will get a 3x2 grid.
+
+:::tip[Live Preview]
+The Layout page features a **Live Preview** box at the top. As you add dropdown items or adjust your multi-panel grid, the preview updates instantly so you know exactly how it will look in Discord!
+:::
+</content>
+
+<content full_path="src\content\docs\applications\limits.md">
+---
+title: Access Limits & Cooldowns
+description: Protect staff by restricting who can apply and how often.
+---
+
+Protect your staff from spam by restricting who can apply and how often. 
+
+Navigate to **Edit Application > Access & Limits** to configure your server's defense mechanisms.
+
+![Limits Configurator](/images/applications/delivery_page.png)
+
+## 1. Role Restrictions
+
+Strictly define which Discord roles are permitted to view and start the application.
+
+* **Required Roles:** The user MUST have one of these roles to see the application button. Useful for restricting forms to "Level 10+" or "VIP" members.
+* **Blocked Roles:** The user is prevented from applying if they have ANY of these roles. This is perfect for blocking "Muted", "Blacklisted", or "Suspended" roles from spamming the system.
+
+![Role Restrictions](/images/applications/role_restrictions.png)
+
+---
+
+## 2. Quantity Limits
+
+Cap the volume of applications to ensure your staff isn't overwhelmed.
+
+* **Per User Limit:** Restrict users from having more than X pending applications at once. Usually, this is set to **1** to prevent a single user from submitting multiple identical forms.
+* **Global Limit:** Cap the total number of unreviewed applications server-wide. If this limit is reached, nobody else can apply until staff reviews the existing backlog.
+
+![Quantity Limits](/images/applications/quantity_limits.png)
+
+---
+
+## 3. Submission Cooldowns *(Premium)*
+
+Even if a user's previous application was reviewed and denied, you might not want them instantly applying again.
+
+Enable the **Submission Cooldown** to force users to wait a specific amount of time (e.g., 7 days or 30 days) after submitting before they are allowed to apply for this specific form again.
+
+![Submission Cooldowns](/images/applications/cooldowns.png)
+
+---
+
+## 4. Time Constraints
+
+You can apply a countdown timer to the entire application process. This is excellent for exams, trivia, or ensuring users don't hold an application "open" for days at a time.
+
+1. **Application Time Limit:** Set the maximum allowed time (in minutes or hours) to complete the entire form. 
+    * *Note:* You can also set specific time limits on individual questions via the **Questions** tab.
+2. **Auto-Submit on Timeout:** *(Premium)* If the timer runs out, you can automatically submit whatever answers the user *did* finish instead of immediately discarding the application.
+3. **Auto-Submit Min %:** If Auto-Submit is enabled, you can require the user to have completed at least X% of the form for it to save. If they complete less than the minimum percentage when the timer expires, the application is discarded.
+
+![Time Constraints](/images/applications/time_constraints.png)
+</content>
+
+<content full_path="src\content\docs\applications\logging.md">
+---
+title: Audit Logging
+description: Keep an audit trail of applicant submissions and staff actions.
+---
+
+Keep a strict, tamper-proof paper trail of your applicants and staff actions. Instead of digging through Discord's default audit logs, TicketForge can route specific application lifecycle events to a dedicated channel.
+
+Navigate to **Edit Application > Audit Logging** to configure your event stream.
+
+![Logging Configurator](/images/applications/logging_page.png)
+
+## 1. Setup
+
+To begin logging, simply select a private **Audit Log Channel** from the dropdown menu. 
+
+Once a channel is selected, the bot will post detailed, color-coded embeds into this channel whenever a significant event occurs. Each log entry includes:
+* The exact timestamp of the event.
+* The targeted user (the applicant).
+* The staff member who executed the action (if applicable).
+* The Application ID for easy cross-referencing in the dashboard.
+
+![Logging Setup](/images/applications/logging_setup.png)
+
+---
+
+## 2. Loggable Events
+
+By default, some servers don't want to be pinged for *every* tiny action. You can toggle specific events ON or OFF to reduce spam in your log channel:
+
+| Event | Description |
+| :--- | :--- |
+| **Started** | Logs the exact moment a user clicks the trigger button and begins the form. Useful for tracking drop-off rates. |
+| **Submitted** | Logs when a user successfully finishes the final question and submits the application. |
+| **Approved** | Logs when a staff member officially Accepts the application. |
+| **Denied** | Logs when a staff member officially Rejects the application. |
+| **Cancelled** | Logs if a user manually aborts the process, or if their time limit expires before they can submit. |
+
+![Loggable Events](/images/applications/loggable_events.png)
+</content>
+
+<content full_path="src\content\docs\applications\messages.md">
+---
+title: Application Messages & Component Builder
+description: Customize application portal messages, staff review cards, and automated decision DMs using classic Embeds (V1) or modern Components (V2).
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+TicketForge provides a visual dual-engine message builder for your entire application workflow. Deliver application notices using traditional Discord **Embeds (V1)** or design rich, modular review cards with **Components (V2)**.
+
+![Application Message Canvas Editor](/images/applications/editor_overview.png)
+
+---
+
+## 1. Choosing Your Application Message Format
+
+At the top of the canvas editor in **Application Editor > Messages**, you can toggle between both engines:
+
+<div class="not-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; align-items: start; margin: 1.5rem 0;">
+  <div style="margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+    <span style="font-weight: 600; font-size: 0.95rem; color: #f4f4f5;">
+      Classic Embeds (V1)
+    </span>
+    <img 
+      src="/images/applications/v1-app-preview.png" 
+      alt="Classic Application Embeds (V1) Canvas Editor" 
+      style="width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); display: block; margin: 0;" 
+    />
+  </div>
+
+  <div style="margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+    <span style="font-weight: 600; font-size: 0.95rem; color: #f4f4f5; display: flex; align-items: center; gap: 0.5rem;">
+      Components (V2)
+      <span style="background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 9999px; text-transform: uppercase;">Premium</span>
+    </span>
+    <img 
+      src="/images/applications/v2-app-preview.png" 
+      alt="Application Components (V2) Canvas Editor" 
+      style="width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); display: block; margin: 0;" 
+    />
+  </div>
+</div>
+
+| Feature | Embeds (V1) | Components (V2) <Badge text="Premium" variant="caution" /> |
+| :--- | :--- | :--- |
+| **Layout Style** | Standard vertical embed cards with accent borders | Modular layout: containers, question blocks, and inline buttons |
+| **Max Capacity** | Up to 4 embeds per message | **Up to 9 root blocks** & **36 total nested components** |
+| **Character Limit** | 6,000 characters total across embeds | 4,000 characters total |
+| **Staff Review Actions** | Fixed button rows at the very bottom | Embedded directly inside review containers or section rows |
+| **Submission Logs** | **Required** (V1 only) | ❌ *Unavailable for persistent HTML archives* |
+
+:::note[Archive Log Restriction]
+The **Application Archive / Log Message** (`app_submission_archive`) is locked to **Embeds (V1)** to guarantee persistent HTML rendering in Discord's chat log archives.
+:::
+
+---
+
+## 2. Components (V2) for Applications
+
+*(Premium Feature)*
+
+Components V2 allows you to build review cards where applicant details, specific answers, and reviewer controls (*Accept*, *Deny*, *Notes*) are logically grouped.
+
+![Application Review Card Anatomy](/images/applications/v2-app-block-anatomy.png)
+
+### Component Block Types
+
+| Block Type | Description | Application Use Case |
+| :--- | :--- | :--- |
+| **Container** | Outer card with an optional left accent border. | Grouping submission answers or reviewer decision logs. |
+| **Section** | Two-column split row: content on the left, accessory on the right. | Displaying applicant summary with their avatar or a quick *Review* button. |
+| **Text Display** | Markdown block. Supports bold text, links, and code blocks. | Showing question prompts, candidate answers, and requirements. |
+| **Image** | Wide media banner (max height: 300px). | Recruitment banners or department headers. |
+| **Thumbnail** | Compact square graphic (56×56px / 64×64px). | Server branding or applicant avatar accessory. |
+| **Separator** | Visual horizontal rule. | Dividing applicant answers from reviewer controls. |
+| **Link Button** | Clickable URL button pointing to external websites. | Linking to external portfolios, Google Docs, or GitHub profiles. |
+| **Action Button** | System-managed interactive button. | Triggering application logic (*Accept*, *Deny*, *Request Info*). |
+| **Select Menu** | Interactive dropdown anchor. | Department selection or denial reason presets. |
+
+---
+
+### Structural Limits & Nesting Rules
+
+To ensure application messages reliably send without Discord API payload errors:
+
+1. **Hierarchy Limits:**
+   * **Root Blocks:** Maximum of **9 top-level blocks**.
+   * **Total Components:** Maximum of **36 total components** (including all nested items).
+   * **Text Budget:** Maximum of **4,000 characters** across all questions, labels, and text displays.
+2. **Container Restrictions:**
+   * Containers cannot be nested inside other containers.
+3. **Section Restrictions:**
+   * A Section can contain Markdown text and a single accessory (thumbnail or button). It cannot contain another Section or Container.
+4. **Mobile Responsive Stacking:**
+   * On mobile devices, sections with review action buttons automatically stack the button full-width beneath the text to preserve readable answers.
+
+---
+
+### Application Interaction Safeguards
+
+When working with review controls (*Accept*, *Deny*, *Hold*):
+
+* **Reviewer Action Sync:** When switching review formats (e.g., *Button Actions* vs. *Modal Deny Reasons*), the builder preserves and synchronizes the *Accept* and *Deny* action anchors.
+* **Orphan Button Safeguard:** Deleting a container that holds active review buttons will automatically move those buttons into the next available container, preventing applications from becoming un-reviewable.
+* **One-Click V1 $\rightarrow$ V2 Converter:** Convert classic application embeds into styled V2 containers and answer blocks with one click.
+
+---
+
+## 3. Classic Embeds (V1) Engine
+
+The V1 engine provides classic embed cards with high-density field grids, ideal for reading multi-question responses.
+
+![Application Embed Q&A Field Structure](/images/edit_settings/v1-embed-fields-grid.png)
+
+### Embed Structure & Capacity
+
+* **Multi-Embed Support:** Up to **10 embeds** per application message.
+* **Character Budget:** Up to **6,000 characters** total per message.
+* **Accent Colors:** Custom hex color pickers per embed state (e.g., pending gold, accepted green, denied red).
+
+### Question & Field Hierarchy
+
+1. **Author:** Applicant's avatar, username, and ID.
+2. **Title:** Application title or target position (e.g., *Staff Application — Senior Moderator*).
+3. **Description:** Introduction, application overview, or reviewer notes.
+4. **Fields (Q&A Pairs):**
+   * **Inline Fields:** Displays short answers (e.g., *Age*, *Timezone*, *Mic Available?*) side-by-side in 2 or 3 columns.
+   * **Standard Fields:** Spans the full width for long essay responses.
+5. **Media:**
+   * **Thumbnail:** Small top-right icon (e.g., applicant avatar or role badge).
+   * **Main Image:** Full-width recruitment banner below questions.
+6. **Footer:** Submission timestamp and application reference ID (`#APP-0042`).
+
+---
+
+## 4. Reordering & Drag-and-Drop
+
+Organize question blocks, answers, and staff action rows with drag-and-drop:
+
+![Application Block Drag and Drop Highlighting](/images/edit_settings/drag-drop-indicators.png)
+
+* **Pointer Grab:** Grab the grip icon (`⋮⋮`) on any question card, embed, or component block.
+* **Drop Highlighting:**
+  * **Blue top/bottom bar:** Places the item before or after the targeted block.
+  * **Blue inner box:** Places the item *inside* an answer container or section.
+* **Arrow Controls (V1):** Use the Up and Down arrow buttons on embed headers to reorder embeds directly.
+
+---
+
+## 5. Dynamic Application Placeholders
+
+Inject live applicant and review data anywhere across your text blocks, embed fields, or URLs:
+
+### Applicant & User Data
+* `{applicant_mention}` — Mentions the applicant (`@User`).
+* `{applicant_name}` — Plain username of the applicant.
+* `{applicant_id}` — Discord Snowflake ID of the applicant.
+* `{applicant_avatar}` — Direct avatar image URL of the applicant.
+
+### Application & Submission Data
+* `{app_title}` — The title of the application form.
+* `{app_id}` — The internal ID of the application configuration.
+* `{submission_id}` — Unique reference code for the submission.
+* `{submission_url}` — Direct URL to the submission on the web portal.
+
+### Review & Decision Data
+* `{reviewer_mention}` — Mentions the staff member who processed the application.
+* `{reviewer_name}` — Username of the reviewing staff member.
+* `{status}` — Current status (`Pending`, `Accepted`, `Denied`, `Waitlisted`).
+* `{reason}` — Denial or hold reason entered by the reviewer.
+
+:::tip[Direct Image URL Requirement]
+All custom image or thumbnail fields must use direct image links (`.png`, `.jpg`, `.webp`) or dynamic avatar variables like `{applicant_avatar}` or `{server.icon}`.
+:::
+
+---
+
+## 6. Available Application Lifecycle Triggers
+
+Customize your messages across each stage of the application workflow under **Application Editor > Messages**:
+
+| Trigger Name | Format Options | Delivery Location | When It Fires |
+| :--- | :--- | :--- | :--- |
+| **Apply Portal Message** | V1 Embed or V2 Components | Public Channel | Posted in your apply channel; contains the "Apply" button or dropdown. |
+| **Submission Review Card** | V1 Embed or V2 Components | Staff Review Channel | Sent to staff containing candidate answers and *Accept* / *Deny* action buttons. |
+| **Applicant Receipt DM** | V1 Embed or V2 Components | User DMs | Automated confirmation receipt sent to the user immediately upon submission. |
+| **Accepted DM** | V1 Embed or V2 Components | User DMs | Sent when staff approve the application (often accompanied by automated role assignment). |
+| **Denied DM** | V1 Embed or V2 Components | User DMs | Sent when staff deny the application; supports the `{reason}` placeholder. |
+| **Under Review Notice** | V1 Embed or V2 Components | User DMs / Channel | Optional notice sent if an application is placed on hold or moved to an interview stage. |
+| **Archive Log** | **V1 Embed Only** | Private Log Channel | Permanent record posted with the attached application history and staff audit log. |
+</content>
+
+<content full_path="src\content\docs\applications\notifications.md">
+---
+title: Inactivity Notifier
+description: Configure reminders for staff to review pending applications.
+---
+
+*(Premium Feature)*
+
+Never let an application slip through the cracks. The **Inactivity Notifier** acts as a smart alarm clock for your staff. If an application sits in the "Pending" state for too long without being reviewed, the bot will automatically send a reminder ping to your team.
+
+Navigate to **Edit Application > Automation** to configure your notifier settings.
+
+![Notifications Configurator](/images/applications/notification_page.png)
+
+## 1. Basic Configuration
+
+To enable the notifier, you need to define where the alert goes and who it pings:
+
+1. **Enable Inactivity Notifier:** Toggle the master switch to ON.
+2. **Notification Channel:** Select the text channel where the reminder ping should be sent. This is usually a private `#staff-chat` or `#management` channel.
+3. **Roles to Ping:** Select the specific Discord roles (e.g., `@Reviewer` or `@Admin`) that should be mentioned in the alert.
+4. **Initial Delay:** The amount of time the application must sit idle before the *first* ping is sent (e.g., 24 hours).
+
+![Inactivity Configuration](/images/applications/inactivity_config.png)
+
+---
+
+## 2. Repeating Reminders
+
+If your team is busy, a single ping might get lost in the chat. You can enable **Repeating Reminders** to have the bot continuously follow up until a staff member finally clicks Accept or Deny.
+
+* **Interval Time:** The amount of time the bot should wait between consecutive pings (e.g., every 12 hours).
+* **Max Pings:** Limit how many times the reminder repeats. For example, setting this to `3` means the bot will stop pinging after the 3rd reminder, preventing endless spam if your team is genuinely unavailable.
+
+![Repeating Reminders](/images/applications/repeating_reminders.png)
+
+:::tip[Workflow Synergy]
+The Inactivity Notifier pairs perfectly with the **Auto-Deny Missing Users** feature. If an applicant leaves the server while sitting in the queue, the application is auto-denied, and the Inactivity Notifier is safely canceled so your staff isn't pinged for a dead application!
+:::
+</content>
+
+<content full_path="src\content\docs\applications\questions.md">
+---
+title: Question Builder
+description: Configure text validation, multiple-choice options, and file uploads.
+---
+
+The core of any application is the data you collect. The **Question Builder** is a powerful, drag-and-drop interface that lets you design the exact form your users will fill out.
+
+Navigate to **Edit Application > Questions** to open the builder.
+
+![Question Builder Overview](/images/applications/builder_overview.png)
+
+## 1. Managing Questions
+
+* **Add a Question:** Click the **Add New Question** button at the bottom of the list. You can add up to 10 questions on the Free plan, or 25 on Premium.
+* **Reorder:** Click and hold the grip icon on the left side of any question to drag it up or down the list.
+* **Expand/Collapse:** Click anywhere on a question's header to open its configuration settings.
+
+---
+
+## 2. Basic Properties
+Every question, regardless of its type, shares these core settings:
+
+* **Question Label:** The actual prompt the user sees (e.g., "Why do you want to join the team?").
+* **Description / Help Text:** Smaller, secondary text used to provide context or instructions (e.g., "Please provide at least two sentences.").
+* **Required Response:** If toggled ON, the user cannot submit the application without answering this field. If toggled OFF, it becomes optional.
+
+---
+
+## 3. Response Types
+
+TicketForge supports multiple ways for users to answer your questions. Select the **Response Type** at the top of the expanded question menu.
+
+### Text Answer
+The standard text input box.
+* **Min / Max Characters:** Enforce strict length limits. Prevent one-word answers by setting a minimum character count, or prevent spam by capping the maximum length.
+* **Regex Validation:** *(Premium)* Require the answer to match a specific mathematical pattern. Perfect for forcing users to enter valid email addresses, URLs, or specific ID formats.
+
+![Text Answer Config](/images/applications/text_config.png)
+
+### Multiple Choice
+Provide users with a list of predefined options to choose from.
+* **Add Choices:** Click **Add Choice** to create new options. You can have up to 5 choices (Free) or 25 choices (Premium) per question.
+* **Min / Max Selections:** This setting dictates how the question behaves:
+    * *Radio Buttons (Single Choice):* Set Min to 1 and Max to 1. The user can only pick one answer.
+    * *Checkboxes (Multiple Choice):* Set Max to a number greater than 1. The user can select multiple options simultaneously.
+
+![Multiple Choice Config](/images/applications/choice_config.png)
+
+### Image Upload *(Premium)*
+Requires the user to provide an image attachment. 
+* **Best for:** Age verification, building portfolios, or providing screenshot proof for ban appeals. 
+* *Note:* Users will be prompted to upload a file directly from their device or paste an image URL.
+
+![Image Upload Config](/images/applications/image_config.png)
+
+---
+
+## 4. Time Constraints *(Premium)*
+
+Want to run a timed test or a strict questionnaire where users can't spend hours Googling answers? You can enforce a strict **Time Limit** on individual questions.
+
+1. Toggle **Time Limit** to ON at the bottom of the question configuration.
+2. Set the **Duration** (e.g., 60 seconds).
+3. When the user reaches this question, a visible countdown timer will appear. If it hits zero, the question is locked, and they are forced to move to the next one.
+</content>
+
+<content full_path="src\content\docs\applications\submissions.md">
+---
+title: Processing Submissions
+description: Manage applicant queues, inspect historical records, and process decisions.
+---
+
+When users complete an application, their answers are sent to two places simultaneously: your **Target Results Channel** in Discord, and your web dashboard.
+
+While you can review applications entirely within Discord using the buttons attached to the application embeds, the **Submissions Dashboard** provides a powerful, unified inbox for your staff to manage high volumes of applicants.
+
+## 1. The Submissions Inbox
+
+Navigate to **Submissions** on the dashboard sidebar to view all applications across your server.
+
+![Submissions Inbox](/images/applications/submissions_page.png)
+
+### Filtering & Searching
+Use the top control bar to quickly find what you're looking for:
+* **Search:** Look up a specific user by their Discord Username or User ID.
+* **Panel Filter:** Only show submissions from a specific application (e.g., only show "Builder Applications").
+* **Status Filter:** Filter by lifecycle state:
+    * *Pending:* Awaiting review.
+    * *Interviewing:* Pushed to a secondary stage.
+    * *Accepted / Denied:* Resolved applications.
+* **Date Range:** Filter submissions from the last 7 days, 30 days, or a custom range.
+
+---
+
+## 2. Viewing Application Details
+
+Clicking on any submission card opens the **Details Modal**, giving you complete context before making a decision.
+
+![Submission Details](/images/applications/details_modal.png)
+
+### Applicant Profile & History
+At the top of the modal, you'll see the user's avatar, Discord ID, and a historical summary. This helps you identify serial applicants or users who have been repeatedly denied in the past. 
+*Displays their Total, Pending, Interviewing, Accepted, and Denied counts.*
+
+### Applicant Answers
+Scroll down to view exactly how the user answered your form.
+* **Text Answers:** Displayed in easily readable blocks.
+* **Multiple Choice:** Displayed as clean, tagged pills.
+* **Image Uploads:** Rendered directly in the dashboard so you don't have to open external links to verify proof or portfolios.
+
+---
+
+## 3. Moderation Actions
+
+As a staff member (with a designated Review Role), you can finalize the application using the action buttons.
+
+### Accept or Deny
+Clicking **Accept** or **Deny** will open a confirmation prompt requiring a **Reason**. 
+* This reason is logged for your internal records.
+* If you have **Result DMs** configured, this reason is directly messaged to the applicant.
+* Any configured **Role Automation** (e.g., giving them the "Staff" role) triggers instantly upon confirmation.
+
+![Action Modal](/images/applications/action_modal.png)
+
+### Delete
+Permanently wipes the submission from the database. Use this for spam or test applications. **This action is irreversible.**
+
+### Anonymous Submissions
+If your application allows **Anonymous Submissions** (common for feedback forms), the submission will be marked with a special `ANONYMOUS` badge.
+Because there is no Discord account attached to the submission, **you cannot Accept or Deny anonymous forms**. They are strictly read-only data for your team.
+
+---
+
+## 4. Discord Integration
+
+You don't *have* to use the web dashboard! TicketForge is deeply integrated into Discord. 
+
+When a user submits an application, the bot posts an embed in your Target Results Channel containing their answers and attached **Staff Action Buttons** (Accept, Deny, Open Interview, User History). 
+
+Your staff can click these buttons directly inside Discord to trigger the exact same moderation modals and automations as the web dashboard.
+</content>
+
+<content full_path="src\content\docs\features\automation.md">
+---
+title: Ticket Automation & Inactivity Notifier
+description: Automate user departure handling, lifecycle DMs, and ticket inactivity reminders.
+---
+
+TicketForge includes automation rules to maintain server hygiene, keep users informed, and prevent tickets from sitting abandoned in your support queue.
+
+Navigate to **Panel Editor > Automation** to configure these settings.
+
+![Automation Settings](/images/edit_settings/automation_settings.png)
+
+---
+
+## 1. User Leave Handling
+
+<Badge text="Premium" variant="caution" />
+
+What happens if a user opens a ticket and then leaves your Discord server? TicketForge can automatically detect this and prevent your queue from filling with ghost tickets.
+
+* **Monitor User Leave:** Toggle this feature ON to track server membership for active ticket openers.
+* **Actions:**
+  * **Close Ticket (Recommended):** Moves the ticket to the closed/archived state, generates an HTML transcript (if enabled), and logs the event for staff review.
+  * **Delete Ticket:** Immediately deletes the ticket channel permanently without saving a transcript.
+
+---
+
+## 2. Direct Message (DM) Notifications
+
+Keep users updated outside of Discord channels by dispatching direct messages on ticket lifecycle transitions:
+
+* **Send DM on Ticket Creation:** Sends an instant confirmation DM to the user when their ticket is opened, containing ticket details and channel access instructions.
+* **Send DM on Ticket Close:** Sends a post-resolution DM summarizing the closure and attaching the full chat transcript.
+
+:::caution[Privacy Settings Warning]
+If a user has **Direct Messages disabled** for your server in their Discord privacy settings, the bot will not be able to deliver these updates. This is a Discord platform restriction.
+:::
+
+---
+
+## 3. Ticket Inactivity Notifier
+
+<Badge text="Premium" variant="caution" />
+
+Never let customer requests or abandoned tickets slip through the cracks. The **Inactivity Notifier** monitors your tickets and automatically sends an alert if a ticket sits idle without responses.
+
+### Basic Configuration
+
+* **Enable Inactivity Notifier:** Master switch to activate idle tracking for this panel.
+* **Notification Destination:**
+  * **Inside Ticket Channel (Default):** Posts the inactivity reminder directly into the active ticket channel to prompt the customer or staff for a reply.
+  * **Custom Text Channel:** Routes alerts to a dedicated staff channel (e.g., `#ticket-alerts`) so management can step in.
+* **Roles to Mention:** Select up to 5 staff roles (e.g., `@Support Lead` or `@Senior Agent`) to be pinged in the notification.
+* **Initial Delay:** The duration of inactivity required before the first reminder is dispatched (configurable from **10 minutes** up to **3 days** / 4,320 minutes).
+
+---
+
+### Repeating Reminders
+
+If an initial reminder isn't answered, you can instruct the bot to continuously follow up:
+
+* **Repeating Reminder Toggle:** Enables recurring follow-up reminders.
+* **Repeat Interval:** Time between consecutive reminder pings (minimum **10 minutes**, maximum **3 days**).
+* **Max Notifications:** Caps the maximum number of reminders (from **1 to 10**) sent before stopping, preventing channel spam if the team or customer is unavailable.
+
+---
+
+## 4. Message Customization
+
+All three automation touchpoints can be customized using either **Embeds (V1)** or **Components (V2)**:
+
+| Message Name | Trigger ID | Purpose |
+| :--- | :--- | :--- |
+| **Inactivity Notice** | `inactivity_message` | Sent inside the ticket (or destination channel) when the inactivity timer triggers. |
+| **Creation DM** | `created_dm` | Direct message sent to the ticket creator upon opening. |
+| **Closing DM** | `closed_dm` | Direct message sent to the ticket creator upon closure. |
+
+You can customize each message directly by clicking the **Edit Message** shortcut on the Automation page, or by navigating to **Panel Editor > Messages**.
+</content>
+
+<content full_path="src\content\docs\features\claiming.md">
+---
+title: Ticket Claiming System
+description: Prevent collision by assigning ticket ownership to specific staff members.
+---
+
+The claiming system designates a single agent responsible for a ticket, preventing multiple team members from responding simultaneously.
+
+![Claiming Settings](/images/edit_settings/claiming_settings.png)
+
+## Core Policies
+
+* **Restrict Actions:** Restricts typing and controls to the claiming staff member and ticket creator.
+* **Claimer Must Unclaim:** Prevents other agents from overriding ownership without explicit release.
+* **Zero Permissions Mode:** Hides the channel from other support agents once claimed.
+
+## Visual Indicators
+* **Dynamic Channel Renaming:** Updates channel name to `claimed-{user}`.
+* **Category Re-routing:** Moves the ticket to an active "In Progress" category.
+</content>
+
+<content full_path="src\content\docs\features\escalation.md">
+---
+title: Ticket Escalation
+description: Move tickets dynamically between departments without forcing users to open new requests.
+---
+
+Escalation allows you to move an active ticket from one panel to another (e.g., from "General Support" to "Billing" or "High Priority"). This ensures tickets reach the right department without forcing the user to open a new request.
+
+![Escalation Settings](/images/edit_settings/escalation_settings.png)
+
+## How it Works
+
+When a ticket is escalated:
+1. The ticket adopts the configuration of the **Target Panel**.
+2. Permissions are updated to match the new panel's Support Roles.
+3. The ticket can be physically moved to a new Category.
+4. Staff can be automatically unclaimed to allow the new team to take over.
+
+## Configuration
+
+Navigate to **Panel Editor > Escalation**.
+
+### 1. Allowed Targets
+Select which panels this current panel can escalate *to*. 
+* *Example:* A "Triage" panel might be allowed to escalate to "Billing", "Tech Support", and "Management".
+
+### 2. Escalation Actions
+Control what happens during the transfer:
+
+| Setting | Description |
+| :--- | :--- |
+| **Update Category** | Moves the ticket channel to the category defined in the Target Panel. |
+| **Update Permissions** | Syncs channel permissions to the Target Panel's support roles (e.g., hiding it from Moderators and showing it to Admins). |
+| **Update Name** | Renames the channel based on the Target Panel's naming scheme. |
+| **Auto Unclaim** | Removes the current claimer, releasing the ticket for the new department to claim. |
+| **Send Transfer Message** | Posts a system message indicating the ticket has been transferred. |
+| **Send New Panel Message** | Posts the "Welcome Message" of the target panel, ensuring the user sees the correct greeting/instructions for the new department. |
+
+## How to Escalate
+Staff members can escalate a ticket in two ways:
+
+1. **Escalation Button:** If `Show Escalate Button` is enabled in settings, a button appears in the ticket interface.
+2. **Slash Command:** Using `/escalate <reason>` to select the target panel from a dropdown.
+</content>
+
+<content full_path="src\content\docs\features\forms.md">
+---
+title: Pre-Ticket Forms (Modals)
+description: Capture required details using modals before creating ticket channels.
+---
+
+Pre-ticket forms require members to submit structured information before creating a ticket channel, giving your team immediate context.
+
+![Form Settings](/images/edit_settings/form_settings.png)
+
+## Configuration Flow
+
+1. Navigate to **Panel Editor > Forms**.
+2. Toggle **Enable Ticket Forms**.
+3. Click **Add Question**.
+
+## Supported Field Types
+
+| Field Type | Inputs Supported | Operational Use Case |
+| :--- | :--- | :--- |
+| **Text (Short)** | Single-line input, character limits | Usernames, Order IDs, Transaction Hashes |
+| **Text (Paragraph)** | Multi-line text area | Incident details, issue reproduction steps |
+| **Single Choice** | Radio options (Choose 1) | Department selection, platform (PC/Console) |
+| **Multiple Choice** | Checkboxes (Min/Max limits) | Affected services, server nodes |
+
+## Response Routing
+
+Once submitted:
+1. The ticket channel is provisioned.
+2. Form responses are rendered into a pinned Discord embed at the top of the channel.
+3. Variables are exposed globally for use in channel names (e.g., `{create.form_0}`).
+</content>
+
+<content full_path="src\content\docs\features\limits.md">
+---
+title: Limits & Support Schedules
+description: Set ticket volume caps and define operational business hours.
+---
+
+Protect staff from spikes in support requests by enforcing concurrency limits and business hours.
+
+![Limit Settings](/images/edit_settings/limit_settings.png)
+
+## Concurrency Safeguards
+* **Per User Limit (Open):** Maximum concurrent active tickets per account (Default: 1).
+* **Per User Limit (Closed):** Total historical tickets retained per user before requiring cleanups.
+* **Bypass Roles:** Exclude VIPs, staff, or server boosters from rate limits.
+
+## Operational Hours Matrix
+1. Set your operational **Timezone** (e.g., `UTC` or `America/New_York`).
+2. Configure the weekly operating grid to define open and closed hours.
+3. Select an enforcement action for off-hours:
+   * **Disable Creation:** Blocks ticket interaction entirely.
+   * **Notification Mode:** Creates the ticket, but warns the user that responses will be delayed until operating hours resume.
+</content>
+
+<content full_path="src\content\docs\features\ratings.md">
+---
+title: Staff Rating System (CSAT)
+description: Collect customer satisfaction scores and gather performance data.
+---
+
+Gather direct feedback on agent performance when tickets resolve.
+
+![Rating Settings](/images/edit_settings/rating_settings.png)
+
+## Survey Mechanics
+1. An agent marks a ticket as resolved.
+2. The bot sends a CSAT prompt featuring 1–5 star rating buttons.
+3. The user submits their rating and optional feedback.
+4. Results sync to your web analytics dashboard.
+
+## Delivery Options
+* **Channel Prompt:** Sends the rating survey in the ticket channel prior to deletion.
+* **Direct Message:** Sends the survey directly to the user's DMs.
+* **Hybrid:** Attempts DM delivery first, falling back to the ticket channel if the user has DMs disabled.
+* **Public Feed:** Automatically streams 5-star reviews into a designated testimonials channel.
+</content>
+
+<content full_path="src\content\docs\features\threads.md">
+---
+title: Tickets as Threads
+description: Create tickets inside private threads to bypass channel limits and keep sidebars clean.
+---
+
+By default, TicketForge creates a new **Text Channel** for every ticket. The **Tickets as Threads** feature changes this behavior to create **Private Threads** inside a single parent channel.
+
+![Thread Settings](/images/edit_settings/thread_settings.png)
+
+## Why use Threads?
+* **Cleaner Sidebar:** Prevents your server sidebar from getting cluttered with 50+ open ticket channels.
+* **Bypass Limits:** Discord has a limit of 500 channels per server. Threads do not count towards this limit, allowing for thousands of tickets.
+* **Performance:** Faster creation times on large servers.
+
+## Configuration
+
+1. Navigate to **Panel Editor > Threads**.
+2. Enable **Tickets as Threads**.
+3. **Parent Channel:** Select the text channel where the threads will live.
+
+## Options
+
+| Setting | Description |
+| :--- | :--- |
+| **Thread Name** | Format: `ticket-{count}` or `help-{user}`. |
+| **Add Support Team** | Automatically adds the configured support roles to the thread so they can view it. |
+| **Allow User Invites** | Allows the ticket creator to invite other users to the thread via `@mention`. |
+
+:::caution[Category Settings]
+When Thread Mode is enabled, **Category settings are disabled**. Threads always reside in their parent channel and cannot be "moved" to a category.
+:::
+</content>
+
+<content full_path="src\content\docs\features\transcripts.md">
+---
+title: Transcripts & Event Auditing
+description: HTML transcript generation, Google Drive sync, and event streams.
+---
+
+Ensure conversation history is preserved using self-contained HTML transcripts that replicate Discord's visual style.
+
+![Transcript Settings](/images/edit_settings/transcript_settings.png)
+
+## Cloud Synchronization (Google Drive)
+*Premium Feature*
+
+Back up transcripts directly to your Google Drive to prevent data loss from expired Discord CDN links:
+1. Link your Google account under **Server Config > Google Drive**.
+2. Select your destination backup folder.
+3. TicketForge uploads transcripts asynchronously upon ticket closure.
+
+## Archive Triggers
+* **Auto-Save on Close:** Renders the transcript when a ticket is closed.
+* **Auto-Save on Delete:** Generates the transcript immediately before channel deletion.
+* **Direct Message Dispatch:** Automatically sends the completed HTML archive to the user's DMs.
+</content>
+
+<content full_path="src\content\docs\getting-started\dashboard.md">
+---
+title: Dashboard Overview
+description: Tour the TicketForge web command center and management interface.
+---
+
+The **TicketForge Dashboard** is the command center for your support system, providing a fast, responsive web interface to manage your bot configurations.
+
+## Navigation & Sections
+
+Select your server to view the main navigation sidebar:
+
+![Panel Editor](/images/dashboard/edit_panel.webp)
+
+| Section | Function |
+| :--- | :--- |
+| **Panel Editor** | Build panels, design embed messages, configure pre-ticket forms, and configure ticket logic. |
+| **Commands** | Permission manager for slash commands. Disable specific commands or restrict them by role/channel. |
+| **Server Config** | Global settings such as Bot Language, Staff Access Roles, and Interaction Blacklists. |
+| **History** | Audit log tracking configuration changes made through the web interface. |
+| **Statistics** | Analytics tracking ticket volumes, claim durations, and agent response times. |
+| **Premium** | Manage subscriptions, download invoices, and redeem license keys. |
+
+## Navigation & Workflow
+
+### Breadcrumbs
+Located at the top left (`My Server > Support Panel > Messages`):
+* Click **My Server** to return to root server settings.
+* Click **Support Panel** to jump directly to the settings matrix for that panel.
+
+
+### Save Bar & Drafts
+The dashboard uses a local draft engine. Modifications are not pushed to the live bot until committed:
+* **Discard:** Reverts local adjustments back to current state.
+* **Save Changes:** Deploys updates directly to the database and live bot runtime.
+
+:::note[Idle Protection]
+Leaving the editor open with uncommitted drafts triggers an idle safety modal to prevent concurrent edit conflicts.
+:::
+
+## Troubleshooting
+
+**403 Forbidden Error?**
+Your OAuth session expired or your permissions on the server changed. Log out and log back in to refresh your Discord access token.
+
+**Dashboard Not Loading?**
+Check the [TicketForge Status Page](https://ticketforge.statuspage.io/) to confirm API operational health.
+</content>
+
+<content full_path="src\content\docs\getting-started\installation.mdx">
+---
+title: Installation & Invite
+description: Getting TicketForge running on your server takes just a few clicks.
+---
+
+Getting TicketForge running on your server takes just a few clicks.
+
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube-nocookie.com/embed/O-QQjthtYQk" 
+    title="How to Set Up TicketForge"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowFullScreen>
+  </iframe>
+</div>
+
+---
+
+## 1. Invite the Bot
+
+To start using TicketForge, invite the bot to your Discord server and authorize it with the necessary permissions.
+
+<a 
+  href="https://discord.com/oauth2/authorize?client_id=1312832688889008218&permissions=2252160926870544&integration_type=0&scope=applications.commands+bot" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="discord-invite-card not-content"
+>
+  <img src="/images/logo.png" alt="TicketForge Logo" />
+  <div class="invite-content">
+    <div class="invite-title">Invite TicketForge</div>
+    <p class="invite-desc">Click to authorize the bot. Requires 'Manage Server' permissions on Server.</p>
+  </div>
+  <span class="invite-arrow">&rarr;</span>
+</a>
+
+:::caution[Permission Hierarchy Check]
+For TicketForge to manage roles (e.g., adding a "Support" role to an agent or assigning an "Applicant" role), the **TicketForge** bot role must be placed **higher** in your Discord Server Settings than any role it is configured to manage or assign.
+:::
+
+---
+
+## 2. Required Permissions
+
+When authorizing the bot, ensure the following permissions are granted:
+
+| Permission | Operational Reason |
+| :--- | :--- |
+| **Manage Roles** | Assigns support roles, manages ticket permissions, and automates roles on application approval. |
+| **Manage Channels** | Creates ticket channels, renames active tickets, and organizes ticket categories. |
+| **Change Nickname** | Allows the bot to apply a configured server nickname. |
+| **View Channels** | Essential for the bot to see and route tickets to your channels. |
+| **Send Messages** | Posts panel triggers, welcome prompts, and embeds. |
+| **Send Messages in Threads** | Required if you enable the "Tickets as Threads" feature. |
+| **Create Private Threads** | Allows the bot to spawn private ticket threads for a cleaner channel sidebar. |
+| **Manage Messages** | Cleans up interaction triggers and deletes confirmation prompts. |
+| **Pin Messages** | Automatically pins welcome and control embeds inside ticket channels. |
+| **Manage Threads** | Locks and archives threads when tickets are closed. |
+| **Embed Links** | Renders rich interactive panels, surveys, and logs. |
+| **Attach Files** | Generates and delivers self-contained HTML transcript files. |
+| **Read Message History** | Required to construct complete conversation transcripts. |
+| **Use External Emojis** | Displays custom branding and status icons in bot embeds. |
+
+---
+
+## 3. Verify Installation
+
+Once the bot joins your server, navigate to any accessible text channel and run:
+
+```bash
+/ping
+```
+
+## Troubleshooting
+
+### The Bot Is Offline
+Check the official [TicketForge Status Page](https://ticketforge.statuspage.io/) to confirm Discord gateway and API operational status.
+
+### Slash Commands Are Not Showing Up
+Discord can occasionally take a few minutes to sync new application commands to your server. If commands do not appear after typing `/`, re-authorize the bot using the invite link above to force an immediate command refresh.
+</content>
+
+<content full_path="src\content\docs\guides\button-styles.mdx">
+---
+title: Interaction Styles (Layout)
+description: Configure panel presentation options using buttons, dropdown menus, and grids.
+---
+
+TicketForge offers three distinct interaction styles for your panels, allowing you to optimize for space or visual appeal.
+
+![Layout Settings](/images/edit_settings/layout_settings.png)
+
+## Video Tutorial
+
+Watch our video guide below to learn step-by-step how to set up both multi-panel buttons and select style (dropdown) layouts:
+
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube-nocookie.com/embed/6YBDP4lsVKY" 
+    title="YouTube video player" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowFullScreen>
+  </iframe>
+</div>
+
+*(If the embedded video above doesn't load, you can also [watch the tutorial on YouTube](https://www.youtube.com/watch?v=3nqu6CQ8AyQ).)*
+
+---
+
+## 1. Single Button
+The standard panel with a single button. This is the default style and is best for simple, straightforward setups where users only need one option to click.
+
+---
+
+## 2. Select Menu (Dropdown)
+Best for panels with many categories (e.g., "Tech Support", "Billing", "Report Player", "Bug Report").
+
+* **Capacity:** Up to 25 options in a single menu.
+* **Descriptions:** Each option can have a secondary text line for context.
+* **Emojis:** Supported for every option.
+* **Logic:** Each option in the dropdown triggers a *different* panel configuration behind the scenes.
+
+![Panel with Dropdown Selection](/images/edit_settings/dropdown-example.png)
+
+---
+
+## 3. Multi-Panel
+A powerful layout that combines buttons from **multiple different panels** into a single message. Best for panels with 2-5 options.
+
+* **How it works:** You create a "Master Panel" and attach other panels to it.
+* **Visual:** The bot displays the buttons from all attached panels in a grid under one embed.
+* **Benefit:** Allows you to have a "General Support" button and an "Apply for Staff" button in the same message, even though they have completely different logic/roles behind them.
+
+![Panel with Multiple Buttons](/images/edit_settings/multibutton-example.png)
+
+### Configurable Buttons
+In **Panel Editor > Buttons**, you can customize the following system buttons for any of your panels:
+
+| Button | Default Label | Function |
+| :--- | :--- | :--- |
+| **Create Ticket** | `Open Ticket` | Opens a new ticket for the user. |
+| **Close Ticket** | `Close` | Archives the ticket (or triggers confirmation). |
+| **Claim Ticket** | `Claim` | Assigns the ticket to the clicker. |
+| **Transcript** | `Transcript` | Generates a log file of the chat. |
+| **Delete** | `Delete` | Permanently deletes the channel. |
+| **Re-Open** | `Re-Open` | Moves a closed ticket back to the open category. |
+| **Confirm Close** | `Confirm` | The "Yes" button in the close confirmation prompt. |
+| **Cancel Close** | `Cancel` | The "No" button in the close confirmation prompt. |
+
+* **Customization:** You can change the **Label** and **Color** (Blurple, Grey, Green, Red), and **Role Requirements** for each button.
+</content>
+
+<content full_path="src\content\docs\guides\placeholders.md">
+---
+title: Variables & Dynamic Placeholders
+description: Complete reference for placeholders and formatting modifiers across embeds, messages, and channel names.
+---
+
+You can use dynamic variables in your **Messages**, **Embeds**, and **Channel Names**. The bot will automatically replace them with real data when the message is sent, the channel is created, or the application is processed.
+
+![Variable Options](/images/applications/placeholders.png)
+
+---
+
+## 1. Context: User vs. Author
+
+Before using variables, it is crucial to understand the difference between the **User** and the **Author** in TicketForge.
+
+* **The User (`{user_*}`)**: The person who *owns* the object. 
+    * In a Ticket, this is the person who opened the ticket. 
+    * In an Application, this is the applicant.
+* **The Author (`{author.*}`)**: The person who *triggered* the current action. 
+    * If the user clicks "Start Application", the user is the author. 
+    * If a Staff member clicks "Accept", the staff member is the author.
+
+---
+
+## 2. Application Placeholders
+
+These variables are specifically available within the **Application Editor > Messages** section (e.g., Application Received, Accepted/Denied notices).
+
+### Application Data
+| Placeholder | Description |
+| :--- | :--- |
+| `{application.name}` | The name of the application panel (e.g., "Staff App"). |
+| `{application.results}` | The fully formatted list of questions and answers submitted by the applicant. |
+| `{application.conclusion}` / `{conclusion}` | The final status (e.g., "Accepted" or "Denied"). |
+| `{application.reason}` / `{reason}` | The reason provided by staff when accepting/denying. |
+| `{deadline}` | The calculated deadline time (if a time limit was set). |
+
+### Review & Staff Actions
+Used in Review Results and DM Notifications.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{review_action}` | The action in lowercase (e.g., "accepted" or "denied"). |
+| `{review_action_title}` | The action in title case (e.g., "Accepted" or "Denied"). |
+| `{review_action_time}` | The Unix timestamp when the review was completed. |
+| `{review_reason}` | The sanitized reason shown on the staff review result. |
+| `{application.handled_by}` / `{handled_by}` | The staff member who reviewed the application. |
+| `{reviewer}` | Mentions the staff member who reviewed the application. |
+| `{reviewer.name}` | The reviewing staff member's username. |
+| `{reviewer.icon}` | URL of the reviewing staff member's profile picture. |
+
+---
+
+## 3. Ticket Placeholders
+
+These variables are available within the **Panel Editor > Messages** section for standard Tickets.
+
+### General Ticket Info
+| Placeholder | Description |
+| :--- | :--- |
+| `{ticket}` | Mentions the ticket channel (clickable link). |
+| `{ticket.name}` | The name of the ticket channel. |
+| `{ticket.id}` | The unique channel ID of the ticket. |
+| `{ticket_opener}` | Mentions the user who opened the ticket. |
+| `{ticket_closer}` | Mentions the user who closed the ticket. |
+| `{close_reason}` / `{ticket.close_reason}`| The reason provided when the ticket was closed. |
+| `{transcript.users}` / `{transcript_users}`| List of users involved in the ticket transcript. |
+
+### Claim Status
+| Placeholder | Description |
+| :--- | :--- |
+| `{claim.user}` | Mentions the last user who claimed the ticket. |
+| `{claim.user.name}` | The claimer's username. |
+| `{claim.user.icon}` | URL of the claimer's profile picture. |
+
+### Escalation Info
+| Placeholder | Description |
+| :--- | :--- |
+| `{escalate.reason}` | The reason provided for the escalation. |
+| `{escalate.panel}` | The name of the destination panel. |
+| `{escalate.staff}` | The staff member who escalated the ticket. |
+
+### Ticket Form Data (Pre-ticket Modals)
+Used to extract specific answers when creating a ticket via a form.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{create.form_0}` | The answer to the 1st question in the form. |
+| `{create.form_1}` | The answer to the 2nd question in the form. |
+| `{create.form_X}` | Replace `X` with the question index (starting at 0). |
+
+---
+
+## 3.5. Welcomer & Milestone Placeholders
+
+These variables are available within the **Welcomer** module across **Welcome (Channel)**, **Welcome (DM)**, **Leave Message**, **Milestones**, and the **Card Badge Banner**.
+
+### Member & Server Data
+| Placeholder | Description |
+| :--- | :--- |
+| `{user.mention}` / `{user_mention}` | Mentions the joining or leaving member (`@Username`). |
+| `{user.name}` / `{user_name}` | The member's Discord username. |
+| `{user.id}` / `{user_id}` | The member's Discord Snowflake ID. |
+| `{user.avatar}` / `{user_avatar}` | Direct URL to the member's profile avatar. |
+| `{guild.name}` / `{server.name}` | The name of the Discord server. |
+| `{guild.id}` / `{server.id}` | The Discord server's unique ID. |
+| `{guild.memberCount}` / `{server.members}` | Total live member count of the server. |
+| `{guild.icon}` / `{server.icon}` | Direct URL to the server's icon. |
+| `{guild.banner}` / `{server.banner}` | Direct URL to the server's banner. |
+
+### Milestone Variables
+Available inside **Milestone Announcement Messages** and the **Badge Banner Text** overlay.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{milestone.value}` | The member milestone threshold reached (e.g., `1000`). |
+| `{number}` | The milestone value reached (also supported in Badge Banner Text). |
+| `{count}` | Alias for `{number}`. |
+
+---
+
+## 4. Universal Placeholders
+
+These variables can be used globally across both Tickets and Applications.
+
+### User & Author Identities
+| Placeholder | Description |
+| :--- | :--- |
+| `{user_mention}` | Mentions the user/applicant (e.g. @Username). |
+| `{user_name}` | The user/applicant's username. |
+| `{user_nickname}` | The user/applicant's server nickname. |
+| `{user_id}` | The user/applicant's unique Discord ID. |
+| `{user_avatar}` | Direct URL to the user/applicant's avatar. |
+| `{author}` | Mentions the action author (staff or user). |
+| `{author.name}` | The author's username. |
+| `{author.id}` | The author's unique Discord ID. |
+| `{author.icon}` | URL of the author's profile picture. |
+
+### Server & Channel
+| Placeholder | Description |
+| :--- | :--- |
+| `{server.name}` / `{server_name}` | The name of the Discord server. |
+| `{server.id}` / `{server_id}` | The server's unique ID. |
+| `{server_members}` | Total member count of the server. |
+| `{server.icon}` | Direct URL to the server's icon. |
+| `{server.banner}` | Direct URL to the server's banner. |
+| `{channel_mention}` | Mentions the current channel. |
+| `{channel.name}` / `{channel_name}` | The name of the current channel. |
+| `{channel.id}` / `{channel_id}` | The ID of the current channel. |
+
+### Time & Dates
+| Placeholder | Description |
+| :--- | :--- |
+| `{time}` | Current Unix timestamp in seconds. |
+| `<t:{time}>` | Discord's dynamic timestamp (auto-adjusts to the viewing user's timezone). |
+| `{time.created}` | Unix timestamp for when the ticket/app was created. |
+| `{time.deleted}` | Unix timestamp for when the ticket/app was deleted. |
+| `{time.created.age}`| How long ago the ticket/app was created. |
+
+### Special Variables
+| Placeholder | Description |
+| :--- | :--- |
+| `{empty}` | Inserts an empty-like invisible character. Useful for required embed fields. |
+| `{random}` | Generates a random number (can be customized with `?rmin`/`?rmax` modifiers). |
+| `{Role ID}` | Pings a specific role. Replace `Role ID` with the actual ID (e.g., `{9876543210}`). |
+
+---
+
+## 5. Channel Naming Specifics
+
+These variables are strictly tailored for generating dynamic **Ticket Channel** and **Thread** names in the Panel settings.
+
+| Placeholder | Description |
+| :--- | :--- |
+| `{user}` | The ticket opener's username (alias for `{ticket.user.name}`). |
+| `{count}` | The unique, incrementing ticket number for this server. |
+| `{panel.name}` | The name of the panel used to create the ticket. |
+| `{panel.count}` | The sequential ticket number strictly for this specific panel. |
+
+---
+
+## 6. Advanced Logic (Modifiers)
+
+You can append modifiers to almost any variable to change how it is formatted or displayed. 
+**Syntax:** `{variable?modifier}`
+
+| Modifier | Alias | Example | Result / Description |
+| :--- | :--- | :--- | :--- |
+| **Uppercase** | `?uc` | `{user_name?uppercase}` | `JOHN` |
+| **Lowercase** | `?lc` | `{user_name?lowercase}` | `john` |
+| **Max Length** | `?ml=X` | `{ticket.id?maxLength=5}` | `12345` (truncates if exceeded) |
+| **Pad Left** | `?pl=X` | `{count?padLeft=4}` | `0005` (adds leading zeros) |
+| **Pad Right** | `?pr=X` | `{count?padRight=4}` | `5000` (adds trailing zeros) |
+| **Fallback** | `?fb=Text`| `{claim.user?fallback=Unclaimed}` | Displays "Unclaimed" if variable is empty. |
+| **Not Fallback** | `?nfb=Text`| `{claim.user?nfb=Claimed!}` | Displays "Claimed!" *only* if the variable contains data. |
+| **Math** | `?m=op` | `{count?math=+1}` | Performs algebraic operations (`+`, `-`, `*`, `/`). |
+| **Clean** | *(None)* | `{create.form_0?clean}` | Removes backticks to prevent markdown breaking. |
+| **Random Min** | `?rmin=X`| `{random?rmin=10}` | Sets the minimum bound for a random number. |
+| **Random Max** | `?rmax=X`| `{random?rmax=100}` | Sets the maximum bound for a random number. |
+
+---
+
+## 7. Image Placeholders Reference
+
+When setting up embeds requiring **Image URLs** (like Thumbnails, Author Icons, or Image properties), ensure you use variables that resolve to a valid direct image URL:
+
+* `{user_avatar}`
+* `{author.icon}`
+* `{reviewer.icon}`
+* `{ticket.user.icon}`
+* `{claim.user.icon}`
+* `{server.icon}`
+* `{server.banner}`
+</content>
+
+<content full_path="src\content\docs\guides\troubleshooting.md">
+---
+title: Troubleshooting & Common Issues
+description: Solutions for common permission errors, interaction failures, and visual bugs.
+---
+
+Common issues and remediation steps.
+
+## Interaction Failures ("Thinking..." / "Failed")
+
+If buttons or slash commands fail to respond:
+1. **Channel Permissions:** Confirm `TicketForge` has `View Channel`, `Send Messages`, and `Embed Links` in that channel.
+2. **Role Hierarchy:** Confirm the `TicketForge` bot role is **higher** in Server Settings than the roles it manages.
+3. **Outages:** Check the [TicketForge Status Page](https://ticketforge.statuspage.io/) to verify operational health.
+
+## User Cannot View Their Ticket
+
+1. **Category Overrides:** Confirm category permissions allow the bot to manage channel overrides.
+2. **Automated Roles:** Check **Ticket Management > Permissions** to ensure an unintended `@Closed` role override isn't hiding the channel from the user.
+
+## Custom Branding Assets Reverting
+
+If uploaded custom bot avatars or banners revert:
+* Verify images are under **8MB**.
+* Ensure images use supported file formats: **PNG**, **JPEG**, or **GIF**.
+</content>
+
+<content full_path="src\content\docs\panels\create.md">
+---
+title: Creating a Panel
+description: Step-by-step guide to deploying your first ticket interface in Discord.
+---
+
+A **Panel** is the interface your users interact with on Discord to open tickets. TicketForge allows you to create multiple panels for different purposes (e.g., "General Support", "Billing", "Reports").
+
+## 1. Login & Access
+
+To begin, visit the [TicketForge Website](https://ticketforge.xyz).
+
+1. Click the **Login with Discord** button in the top right corner.
+2. Authorize the TicketForge application to access your account information.
+
+![Dashboard Home](/images/creating-panel/login.png)
+
+## 2. Server Selection
+
+Once logged in, you will automatically navigate to the server selection page. Select the server where you want to create the panel.
+
+You can also navigate to this page by clicking on your profile and then "Servers".
+
+1. Click on your **Profile Picture** in the top right corner to open the menu.
+2. Select **Dashboard** from the dropdown menu.
+
+![Server List](/images/creating-panel/select_server.png)
+
+3. You will see a list of your Discord servers:
+    * **Manage:** The bot is already in this server. Click to enter the dashboard.
+    * **Invite:** The bot is not in this server. Click to invite it, then refresh the page.
+
+:::tip[Can't see your server?]
+If a server is missing from this list, ensure you have the **Manage Server** permission on that Discord server. If you just got permissions, try logging out and logging back in to refresh your token.
+:::
+
+## 3. Creating the Panel
+
+After selecting a server, navigate to the **Panels** tab in the sidebar and click the **Create New Panel** card.
+
+![Create Panel Card](/images/creating-panel/create_panel.png)
+
+### Step A: Selection Strategy
+
+You will be presented with three ways to start your configuration:
+
+1. **Official Templates:** Pre-configured templates designed by our team for common use cases like "General Support" or "Report Systems".
+2. **Community Templates:** User-generated templates. Always review roles/permissions before using these.
+3. **Import from Code:** If you have a share code (format: `XXXX-XXXX-XXXX`), paste it here to clone an exact configuration.
+
+![Template Selection](/images/creating-panel/select_template.png)
+
+#### Previewing Templates
+Before making a choice, you can hover over any template card and click the **Preview** button. This opens a detailed interactive preview showing exactly how the panel, forms, and messages will look in Discord.
+
+![Preview Template](/images/creating-panel/preview_template.png)
+
+### Step B: Configuration
+
+Once a template is selected, you can configure the core identity of the panel.
+
+#### Single Panel Configuration
+For standard templates, you only need to define:
+* **Panel Title:** Internal name (e.g., "Support-Main").
+* **Support Roles:** The Discord roles (e.g., `@Moderator`) that can view tickets.
+* **Ticket Category:** The Discord Category where new tickets will be created.
+
+![Single Panel Config](/images/creating-panel/select_template_config.png)
+
+#### Multi-Panel Configuration
+For complex templates (like a "Hub" system with multiple departments):
+1. Select the **Main (Root)** panel in the sidebar to configure the entry point.
+2. Select **Sub-Panels** to configure specific categories (e.g., "Billing").
+3. *Tip:* Use **Copy from Main** to quickly apply settings across all sub-panels.
+
+![Multi Panel Config](/images/creating-panel/select_template_config_multi.png)
+
+### Step C: Creation / Launching
+
+Click **Create Panel**. You will be redirected to the **Setup Wizard** to finalize your settings (Forms, Branding, Automation) and send the panel to Discord.
+
+![Setup Wizard](/images/creating-panel/preparetosend.png)
+</content>
+
+<content full_path="src\content\docs\panels\editor.md">
+---
+title: The Panel Editor
+description: The workspace for building support workflows with automated health checks and change protection.
+---
+
+The **Panel Editor** is your workspace for building support workflows. It features a real-time health check system, auto-save protection, and granular control over every aspect of your ticket system.
+
+![The Panel Editor](/images/dashboard/edit_panel.webp)
+
+## Editor Navigation
+
+The sidebar navigation is divided into three logical groups to help you find settings quickly:
+
+### 1. General Ticket Options
+Core settings that define how the ticket behaves once created.
+
+* **General** — Basic behavior like "Two-Step Close" and management roles.
+* **Messages** — The embed builder for Welcome messages, Panel messages, and DMs.
+* **Buttons** — Customize the color, label, and emoji of interaction buttons.
+* **Permissions** *(Premium)* — Configure channel visibility and role overrides.
+
+### 2. Panel Creation Settings
+Settings that affect how the user *starts* the interaction.
+
+* **Categories** — Define which Discord Category the ticket channel appears in.
+* **Layout** — Switch between Standard Buttons, Select Menus (Dropdowns), or Multi-Panel layouts.
+* **Forms** — Create modal questionnaires that users must fill out before a ticket opens.
+* **Threads** *(Premium)* — Toggle "Tickets as Threads" mode to keep your channel list clean.
+
+### 3. Advanced Settings & Automation
+Powerful tools for large communities and professional support teams.
+
+* **Transcripts** — Configure HTML log saving, Google Drive sync, and audit logging channels.
+* **Limits** — Set per-user ticket caps and operational hours (Schedules).
+* **Claiming** — Enable the "Claim Ticket" system for staff ownership.
+* **Escalation** — Configure rules for transferring tickets to other panels.
+* **Automation** — Auto-close on user leave and automated DM notifications.
+* **Ratings** — Enable the CSAT (5-star) feedback system.
+
+---
+
+## Editor Interface Features
+
+### Health Check (Status Badge)
+In the top right, you will see a live **Health Status** badge.
+* **🟢 Healthy:** The panel is ready to use.
+* **🟡 Warning:** Non-critical issues found (e.g., "No Transcript Channel selected").
+* **🔴 Critical:** Configuration errors that prevent the panel from working (e.g., "No Support Roles selected").
+
+**Click the badge** to see a detailed checklist and "Fix" shortcuts.
+
+![Panel Health Status](/images/dashboard/status_health.png)
+
+### Save System
+The editor tracks your changes locally. If you modify any setting, a **Save Bar** appears at the bottom of the screen.
+* **Discard:** Reverts all unsaved changes to the last stable version.
+* **Save Changes:** Pushes your configuration to the live bot.
+
+![The Savebar](/images/dashboard/savebar.png)
+
+:::note[Idle Protection]
+If you leave the editor open without saving, an "Idle" modal will appear to prevent data loss.
+:::
+
+---
+
+## Action Menu
+
+Located in the top toolbar (or under the "More" menu on mobile), these tools allow you to manage the panel itself.
+
+![Actionbar](/images/dashboard/unified_searchbar.png)
+
+| Action | Description |
+| :--- | :--- |
+| **Send to Discord** | Posts the configured Panel Message to a text channel of your choice. |
+| **Update in Discord** | Updates the content/embeds of an *existing* panel message without deleting/reposting it. Requires the Message Link. |
+| **Get Code** | Generates a shareable code (`XXXX-XXXX-XXXX`) to copy this configuration to another server. |
+| **Clone** | Creates an exact duplicate of this panel within the same server. Useful for A/B testing. |
+| **Template** | Saves this configuration as a Template (Public or Private) for future use. |
+| **Rename** | Change the internal name of the panel (e.g., "Support" -> "Billing"). |
+| **Delete** | Permanently removes the panel configuration. **This action cannot be undone.** |
+</content>
+
+<content full_path="src\content\docs\panels\management.md">
+---
+title: Ticket Settings
+description: Control ticket channel names, permissions, and thread routing.
+---
+
+Control the fundamental behavior of your tickets: names, permissions, and structure.
+
+![Ticket Settings](/images/edit_settings/ticket_settings.png)
+
+## Channel Naming
+You can define a naming pattern for your tickets.
+
+* **Sequential:** `ticket-001`, `ticket-002`
+* **Username:** `ticket-john`, `ticket-sarah`
+* **Custom:** `help-{user}-{count}` (Supports variables).
+
+## Automatic Thread Creation
+Instead of creating a text channel, you can configure the bot to create a **Private Thread** inside a specific parent channel.
+
+1. Go to **Panel Editor > Threads**.
+2. Enable **Tickets as Threads**.
+3. **Parent Channel:** Select the text channel where threads will spawn.
+
+### Thread Options
+* **Add Support Team:** Automatically adds all configured support roles to the thread so they can view it.
+* **Allow User Invites:** Allows the ticket creator to invite other users to the thread via `@mention`.
+* **Naming:** Uses the same variables as standard channels (e.g., `ticket-{count}`).
+
+:::caution[Permission Note]
+When using Threads, the "Category" settings are disabled because threads must live inside their parent channel.
+:::
+
+## Role Permissions
+TicketForge automatically manages channel permissions so you don't have to manually set overrides.
+
+### Opened Roles
+Select roles that should be **Added** or **Removed** from the user when a ticket is **Created**.
+* *Use Case:* Give the user a "Support Active" role so they show up higher in the member list.
+
+### Closed Roles
+Select roles to modify when a ticket is **Closed** (Archived).
+* *Use Case:* Remove the user's ability to send messages, effectively making the channel "Read Only" for them.
+</content>
+
+<content full_path="src\content\docs\panels\messages.md">
+---
+title: Messages & Component Builder
+description: Customize Discord messages using classic Embeds (V1) or modern Components (V2) with modular blocks, buttons, and layouts.
+---
+
+TicketForge features a dual-engine message visual builder. You can deliver messages using traditional Discord **Embeds (V1)** or build flexible layouts using modern **Components (V2)**.
+
+---
+
+## 1. Choosing Your Message Format
+
+At the top of the canvas editor, you can switch between the two formatting engines:
+
+<div class="not-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; align-items: start; margin: 1.5rem 0;">
+  <div style="margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+    <span style="font-weight: 600; font-size: 0.95rem; color: #f4f4f5;">
+      Classic Embeds (V1)
+    </span>
+    <img 
+      src="/images/edit_settings/v1-preview.png" 
+      alt="Classic Embeds (V1) Canvas Editor" 
+      style="width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); display: block; margin: 0;" 
+    />
+  </div>
+
+  <div style="margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+    <span style="font-weight: 600; font-size: 0.95rem; color: #f4f4f5; display: flex; align-items: center; gap: 0.5rem;">
+      Components (V2)
+      <span style="background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 9999px; text-transform: uppercase;">Premium</span>
+    </span>
+    <img 
+      src="/images/edit_settings/v2-preview.png" 
+      alt="Components (V2) Canvas Editor" 
+      style="width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); display: block; margin: 0;" 
+    />
+  </div>
+</div>
+
+| Feature | Embeds (V1) | Components (V2) <Badge text="Premium" variant="caution" /> |
+| :--- | :--- | :--- |
+| **Layout Style** | Rigid embed cards with side color bars | Freeform stack: text, images, containers, and buttons in any order |
+| **Max Capacity** | Up to 4 embeds per message | **Up to 9 root blocks** & **36 total nested components** |
+| **Character Limit** | 6,000 characters total across embeds | 4,000 characters total |
+| **Interactive Buttons** | Attached only at the bottom of the message | Can be placed inside containers, sections, or button groups |
+| **Transcript Support** | **Required** (V1 only) | ❌ *Unavailable for transcript logs* |
+
+:::note[Transcript Requirement]
+The **Transcript Log** (`transcript_message`) is strictly locked to **Embeds (V1)**. Discord requires static embed formatting for persistent HTML chat log archives.
+:::
+
+---
+
+## 2. Components (V2) Engine
+
+*(Premium Feature)*
+
+Components V2 allows you to construct Discord messages using modular UI blocks that can be nested, styled, and dragged into any order.
+
+![Components V2 Block Anatomy Breakdown](/images/edit_settings/v2-block-anatomy.png)
+
+### Component Block Types
+
+| Block Type | Description | Allowed Placement |
+| :--- | :--- | :--- |
+| **Container** | Groups elements inside a panel with an optional left accent color bar. | Root level only |
+| **Section** | Split-column layout: content on the left, an accessory (image or button) on the right. | Root or inside a Container |
+| **Text Display** | Markdown block. Supports `**bold**`, `*italics*`, `### headers`, code blocks, and links. | Root, Container, or Section |
+| **Image** | Full-width media banner (max display height: 300px). | Root or Container |
+| **Thumbnail** | Compact square graphic (56×56px / 64×64px) with rounded corners. | Root, Container, or Section accessory |
+| **Separator** | Visual horizontal divider line between components. | Root, Container, or Section |
+| **Link Button** | Clickable URL button pointing to an external website or dynamic `{placeholder}`. | Root, Container, or Section accessory |
+| **Action Button** | System-managed button executing ticket/application logic (e.g., Open Ticket, Claim). | Managed automatically |
+| **Select Menu** | Interactive dropdown anchor populated at runtime (e.g., department escalation). | Root or inside a Container |
+
+---
+
+### Structural Limits & Nesting Rules
+
+To ensure messages render reliably within Discord's gateway constraints, the editor enforces these rules:
+
+1. **Hierarchy Limits:**
+   * **Root Blocks:** Maximum of **9 top-level blocks**.
+   * **Total Components:** Maximum of **36 total components** (counting all nested children).
+   * **Text Budget:** Maximum of **4,000 characters** across all text fields, labels, and URLs.
+2. **Container Isolation:**
+   * A **Container** cannot be placed inside another Container.
+3. **Section Restrictions:**
+   * A **Section** can hold text and an accessory (image or button). It cannot contain another Section or a Container.
+4. **Mobile Responsive Stacking:**
+   * If a Section contains a button accessory, the live bot and preview will automatically stack the button below the text on mobile devices and narrow viewports.
+
+---
+
+### Smart Interaction & Action Safeguards
+
+When working with action buttons (such as *Close Ticket*, *Claim*, or *Escalate*):
+
+* **Automatic Action Syncing:** When you change your panel layout style (e.g., from *Single Button* to *Select Dropdown* or *Multi-Panel*), the builder automatically synchronizes required action buttons and select anchors into your V2 layout.
+* **Orphan Protection:** If you delete a Container that held action buttons, the builder **salvages the action buttons** and moves them into another container so you never break ticket functionality by accident.
+* **One-Click Embed $\rightarrow$ V2 Conversion:** Switching an existing Embed (V1) message to Components (V2) automatically converts your titles, fields, descriptions, and thumbnails into styled V2 text blocks and containers.
+
+---
+
+## 3. Classic Embeds (V1) Engine
+
+If you prefer classic Discord embeds, the V1 engine provides full control over embed styling and field layouts.
+
+![Classic Embed Structure and Inline Fields Grid](/images/edit_settings/v1-embed-fields-grid.png)
+
+### Embed Structure & Limits
+
+* **Multi-Embed Support:** Add up to **10 embeds** per message.
+* **Character Budget:** Up to **6,000 characters** total across all embeds in a single message.
+* **Color Customization:** Set custom hex colors per embed using the native color picker.
+
+### Embed Component Hierarchy
+
+1. **Author:** Small icon, author name, and clickable author link URL.
+2. **Title:** Large bold header with optional hyperlink URL.
+3. **Description:** Main text body with Markdown support (max 4,096 characters).
+4. **Fields:** Key-value pairs displayed in a stacked or multi-column grid:
+   * **Inline Fields:** Displays fields side-by-side (2 or 3 per row depending on screen width).
+   * **Standard Fields:** Spans the full width of the embed card.
+5. **Media:**
+   * **Thumbnail:** Small image placed in the top-right corner.
+   * **Main Image:** Large full-width banner placed below the fields.
+6. **Footer:** Small bottom text, optional footer icon, and dynamic timestamp toggle.
+
+---
+
+## 4. Reordering & Drag-and-Drop
+
+Both the V1 Embed builder and the V2 Component builder feature a custom drag-and-drop system:
+
+![Drag and Drop Insertion vs Nesting Visual Indicators](/images/edit_settings/drag-drop-indicators.png)
+
+* **Pointer Grab:** Grab the grip icon (`⋮⋮`) on any embed card or component block.
+* **Drop Highlighting:**
+  * **Blue top/bottom bar:** Drops the item before or after the targeted block.
+  * **Blue inner box:** Drops the item *inside* a container or section.
+* **Arrow Controls (V1):** Use the Up and Down arrow buttons on embed headers to move embeds without dragging.
+
+---
+
+## 5. Dynamic Placeholders & Image Resolvers
+
+You can insert dynamic placeholders anywhere in your text, links, or image URLs:
+
+* **User Data:** `{user_mention}`, `{user_name}`, `{user_id}`, `{user_avatar}`
+* **Server Data:** `{server.name}`, `{server.id}`, `{server.icon}`, `{server.banner}`
+* **Ticket Data:** `{ticket}`, `{ticket.name}`, `{ticket.id}`, `{claim.user}`
+
+:::tip[Direct Media URL Requirement]
+All custom image and thumbnail fields must be direct media links ending in `.png`, `.jpg`, `.webp`, or `.gif`, or use a supported image variable like `{server.icon}`.
+:::
+
+---
+
+## 6. Available Message Lifecycle Triggers
+
+Customize messages for every phase of the ticket workflow under **Panel Editor > Messages**:
+
+| Trigger Name | System ID | Format Options | Default Destination | When It Fires |
+| :--- | :--- | :--- | :--- | :--- |
+| **Panel Message** | `panel_message` | V1 Embed or V2 Components | Public Channel | Displayed in your support hub; contains the ticket creation trigger. |
+| **Welcome Message** | `opened_message` | V1 Embed or V2 Components | Ticket Channel | First message sent inside a newly created ticket channel. |
+| **Ticket Controls** | `ticket_controls` | V1 Embed or V2 Components | Ticket Channel | Houses the active management buttons (*Close*, *Claim*, *Escalate*). |
+| **Inactivity Notice** | `inactivity_message` | V1 Embed or V2 Components | Inside Ticket or Staff Channel | Sent when a ticket sits inactive without responses past the configured delay. |
+| **Ticket Claimed** | `claimed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when an agent takes ownership of a ticket. |
+| **Ticket Unclaimed** | `unclaimed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when a ticket is released back to the general pool. |
+| **Close Confirmation** | `close_question` | V1 Embed or V2 Components | Ticket Channel | Prompts the user with "Are you sure?" when two-step close is active. |
+| **Ticket Closed** | `closed_message` | V1 Embed or V2 Components | Ticket Channel | Posted when a ticket is archived or closed (replaces controls). |
+| **Delete Warning** | `delete_warning` | V1 Embed or V2 Components | Ticket Channel | Final 5-second countdown alert before channel deletion. |
+| **Transcript Log** | `transcript_message` | **V1 Embed Only** | Log Channel | Posted in your private transcript channel with the attached HTML archive. |
+| **Creation DM** | `created_dm` | V1 Embed or V2 Components | User DMs | Direct message sent to the ticket creator immediately after opening. |
+| **Closing DM** | `closed_dm` | V1 Embed or V2 Components | User DMs | Direct message sent to the ticket creator upon closing. |
+</content>
+
+<content full_path="src\content\docs\panels\templates.md">
+---
+title: Templates & Configuration Sharing
+description: Export, clone, and share production panel setups using share codes.
+---
+
+The templating engine allows you to replicate configurations across staging and production environments without rebuilding forms manually.
+
+![Template Options](/images/applications/select_template.png)
+
+---
+
+## Creating Templates
+
+1. Open the target panel in the **Panel Editor**.
+2. Click **Template** in the action toolbar.
+3. Configure naming, metadata tags, and visibility (Public or Private).
+4. Save to your organization's template inventory.
+
+:::caution[Data Sanitization]
+Templates automatically strip sensitive server IDs (channel IDs, role IDs, and user snowflakes). You must remap these references when applying the template to a new server.
+:::
+
+## Exporting Share Codes
+
+For direct, private migration between servers:
+1. Open the Panel Editor and select the **Code** icon.
+2. Copy the generated `XXXX-XXXX-XXXX` token.
+3. On the destination server, select **Create Panel > Import from Code** and paste the token.
+
+:::note[Token Lifetime]
+Generated share tokens expire after **72 hours**.
+:::
+</content>
+
+<content full_path="src\content\docs\reference\example.md">
+---
+title: Example Reference
+description: A reference page in my new Starlight docs site.
+---
+
+Reference pages are ideal for outlining how things work in terse and clear terms.
+Less concerned with telling a story or addressing a specific use case, they should give a comprehensive outline of what you're documenting.
+
+## Further reading
+
+- Read [about reference](https://diataxis.fr/reference/) in the Diátaxis framework
+
+</content>
+
+<content full_path="src\content\docs\settings\commands.md">
+---
+title: Command Management
+description: Granular control over Slash Commands, channel scopes, and role permissions.
+---
+
+TicketForge offers granular control over Slash Commands. You can disable specific commands entirely or restrict them to specific channels and roles.
+
+![Template Options](/images/dashboard/commands.png)
+
+---
+
+## Configuration
+
+Navigate to the **Commands** tab in the sidebar. You will see a list of all available bot commands.
+
+### Command Settings
+
+Click on any command to edit its permissions:
+
+1. **Enable Command:** Master toggle. If OFF, the command acts as if it doesn't exist.
+2. **Support Team Only:** Restricts usage to users who have a role designated as "Support" in any of your panels.
+    * _Admin Commands (e.g., `/setup`, `/purge-tickets`) are restricted to Administrators automatically._
+
+### Scope Restrictions
+
+You can fine-tune where commands work:
+
+* **Allowed Channels:** The command will *only* work in these channels.
+* **Blocked Channels:** The command will work everywhere *except* these channels.
+* **Allowed Roles:** Only these roles can use the command.
+* **Blocked Roles:** These roles are specifically prevented from using the command.
+
+---
+
+# Available Commands
+
+> **Syntax Legend:** `<required option>` | `[optional option]`
+
+| Command | Description |
+| :--- | :--- |
+| **Tickets** | |
+| `/add [user] [role]` | Adds a user or role to the current ticket channel. |
+| `/remove [user] [role]` | Removes a user or role from the current ticket channel. |
+| `/rename <name>` | Renames the current ticket channel. |
+| `/close [reason]` | Closes the current ticket with an optional reason *(max 256 chars)*. |
+| `/reopen` | Re-opens the current closed ticket channel. |
+| `/delete` | Permanently deletes the current ticket channel. |
+| `/claim` | Claims the current ticket for the executing staff member. |
+| `/unclaim` | Unclaims the current ticket, releasing it back to the general staff pool. |
+| `/archive` | Generates a standalone HTML transcript of the current ticket. |
+| `/priority <level>` | Sets the priority level. **Choices:** `low`, `medium`, `high`, `urgent`. |
+| `/thread` | Creates a private staff discussion thread inside the current ticket. |
+| `/escalate [reason]` | Moves the current ticket to another panel/department. |
+| **Applications** | |
+| `/apply` | Opens an interactive form to start a new application in the server. |
+| `/apply-request <user> <application> [reason]` | Sends an application prompt directly to a specific user's DMs. |
+| `/application-info <application>` | View detailed applicant answers, status, and metadata for a submission. |
+| `/application-accept <application> [reason]` | Accepts a user's pending application and runs assigned role automations. |
+| `/application-deny <application> [reason]` | Denies a user's pending application and notifies the applicant. |
+| **Configuration** | |
+| `/setup` | Configure and manage global settings, ticket panels, applications, verification, and welcomer settings for this server directly in Discord. |
+| `/premium` | Check the server's subscription status, active plan, and benefits. |
+| **Moderation** | |
+| `/blacklist <user> [reason]` | Blacklists a user. If used inside a ticket, it automatically transcribes and deletes it. |
+| `/purge-tickets [age]` | Bulk deletes tickets by age. **Choices:** `all` (Everything), `1` (24h), `3` (3d), `7` (1w), `30` (1mo). |
+| **General** | |
+| `/help` | Provides information about the bot and its commands. |
+| `/ping` | Checks bot latency and replies with Pong! |
+| `/invite` | Get links to invite the bot or join the support server. |
+| `/vote` | Vote for TicketForge on bot lists to support us and earn rewards. |
+</content>
+
+<content full_path="src\content\docs\settings\server-config.mdx">
+---
+title: Server Configuration
+description: Manage global settings, custom bot identity, Google Drive transcript sync, and server limits.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Manage global settings that apply to the entire bot within your server.
+
+![Server Config Settings](/images/edit_settings/serverconfig_settings.png)
+
+## Bot Persona
+
+The **Bot Persona** section lets you customize how TicketForge appears in your server. There are two modes depending on your subscription plan.
+
+### Standard Identity
+*Premium Feature*
+
+Included with the **Premium Plan**. Customize the bot's appearance within your server without replacing the bot application itself.
+
+* **Nickname:** Set a custom display name for the bot in your server's member list and messages.
+* **Avatar:** Upload a custom profile picture (PNG, JPG, or GIF, max 8MB) shown only in your server.
+* **Banner:** Upload a banner image displayed on the bot's profile card.
+* **Bio:** Set a custom "About Me" text visible when users click the bot's profile.
+
+Leaving any of these fields blank reverts the bot to its global defaults.
+
+---
+
+### Custom Bot (Whitelabel)
+*Support Plan Exclusive*
+
+:::caution[Support Plan Required]
+Running a full Custom Bot instance requires an active **Support Plan** subscription. It is not available on the Free or Premium plans.
+:::
+
+Take branding to the next level by running TicketForge under **your own bot application**. This fully replaces the "TicketForge" bot user with your own, giving you complete control over the username, avatar, and presence — the bot will appear as an entirely separate application in Discord.
+
+<CardGrid>
+  <Card title="Standard Identity (Premium)" icon="setting">
+    Customizes the bot's **Nickname**, **Avatar**, **Banner**, and **Bio** inside your server. The bot tag still shows the original TicketForge application name when clicked.
+  </Card>
+
+  <Card title="Full Custom Bot (Support Plan)" icon="discord">
+    Runs a dedicated instance using your own **Bot Token**. Completely replaces the bot identity — your own application name, profile picture, and presence.
+  </Card>
+</CardGrid>
+
+### Configuration
+1. Create a new application in the [Discord Developer Portal](https://discord.com/developers/applications).
+2. Enable all **Privileged Gateway Intents** (Presence, Server Members, Message Content) under the Bot tab.
+3. Copy your **Bot Token** and paste it into the **Server Config > Custom Bot** section.
+4. TicketForge will spin up a dedicated instance for your server.
+
+<div class="video-container">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/OE5uTWO018o"
+    title="Custom Bot Whitelabel Setup Tutorial"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen>
+  </iframe>
+</div>
+
+---
+
+## Google Drive Integration
+*Premium Feature*
+
+Securely backup your transcripts to the cloud. By connecting your Google Drive, TicketForge will automatically upload HTML transcripts to a folder in your personal Drive whenever a ticket is saved.
+
+1. Go to **Server Config > Google Drive Transcripts**.
+2. Click **Connect Drive**.
+3. Authorize TicketForge to access your Drive files.
+
+* **Email:** Displays the connected Google account email.
+* **Security:** We use an encrypted Refresh Token system. We do not store your password.
+
+---
+
+## Dashboard Access
+Control who can log in to the web dashboard to manage settings.
+
+* **Administrator:** Has full access by default.
+* **Custom Roles:** Select specific roles (e.g., "Head Mod") to grant them editor access.
+    * *Note:* Dashboard users can see all tickets and settings but cannot manage billing.
+
+---
+
+## Server Ticket Limit
+Cap the total number of open tickets allowed across the entire server simultaneously.
+
+* **Enable Limit:** Toggles the restriction on or off.
+* **Max Open Tickets:** Set the numeric maximum (e.g., 50). Once this limit is reached, users attempting to open new tickets will receive an error message until a current ticket is closed.
+
+---
+
+## Language & Localization
+Set the default language for bot system messages.
+
+* **Bot Language:** Select your preferred language from the dropdown (e.g., English, Deutsch, Français, Español, Nederlands). This affects error messages and system prompts sent by the bot.
+
+---
+
+## Interaction Blacklist
+Prevent abuse by blocking specific roles from interacting with the bot entirely.
+
+* **Effect:** Users with a blacklisted role cannot click buttons, use dropdowns, or run slash commands.
+* **Usage:** Useful for "Muted" roles or punishing users who spam tickets.
+</content>
+
+<content full_path="src\content\docs\verification\messages-logging.md">
+---
+title: Verification Messages & Audit Logging
+description: Customize in-Discord verification embeds, verify buttons, and stream threat events to audit channels.
+---
+
+![Web Verification Portal](/images/verification/messages.png)
+
+Customize public Discord verification prompts and stream detailed security audit logs to private staff channels.
+
+---
+
+## 1. Customizing Messages & Buttons
+
+Navigate to **Verification > Discord Message** to visually customize how verification appears in your server using the Canvas Editor.
+
+### Available Message Views
+* **Channel Panel Embed (`verificationEmbed`):** The public message posted in your `#verification` channel. Houses the **Verify** action button.
+* **Success Notice DM (`successEmbed`):** Direct message sent to the user upon passing verification, confirming unlocked access.
+
+### Verify Button Customization
+* **Label:** Change button text (e.g., `Verify Identity`, `Unlock Server`).
+* **Color Styles:** Select from Blurple (`PRIMARY`), Grey (`SECONDARY`), Green (`SUCCESS`), or Red (`DANGER`).
+* **Emoji:** Attach standard Unicode emojis (e.g., `🔒`, `✅`) or custom server emoji tags (`<:badge:123456789>`).
+
+---
+
+## 2. Dynamic Verification Placeholders
+
+Use dynamic placeholders in your verification embed titles, descriptions, and footers:
+
+| Placeholder | Replaced Value |
+| :--- | :--- |
+| `{server.name}` | Current Discord server name. |
+| `{server.id}` | Discord server Snowflake ID. |
+| `{server_members}` | Total member count in the server. |
+| `{server.icon}` | Direct URL to your server's icon. |
+| `{server.banner}` | Direct URL to your server's banner. |
+| `{user_mention}` | Mentions the verifying user (`@Member`). |
+| `{user_name}` | Verifying user's Discord username. |
+| `{user_id}` | Discord Snowflake ID of the user. |
+| `{user_avatar}` | Direct URL to the verifying member's avatar. |
+
+---
+
+## 3. Audit Logging & Security Streams
+
+Keep a tamper-proof paper trail of every verification event under **Verification > Audit Logs**.
+
+![Web Verification Portal](/images/verification/audit_logging.png)
+
+### 1. Setup
+Select your private staff log channel (e.g., `#verification-logs`) from the **Audit Log Channel** dropdown.
+
+### 2. Loggable Events
+
+| Event | Log Content & Data |
+| :--- | :--- |
+| **User Passed** | Timestamp, user tag, Discord ID, time elapsed, and granted roles. |
+| **User Failed** | Timestamp, user tag, failure reason, and attempt count. |
+| **Threat Signals Detected** | Full breakdown of detected telemetry (VPN ASN, Alt account match score, DevTools flag). |
+| **Punishment Executed** | Action taken (`KICK`, `BAN`, `QUARANTINE`, or `ROLE_ACTIONS`), staff reason, and appeal link status. |
+</content>
+
+<content full_path="src\content\docs\verification\roles-punishments.md">
+---
+title: Roles, Punishments & Appeals
+description: Configure role transition lifecycles, automated punishment triggers, and appeal pipelines.
+---
+
+![Web Verification Portal](/images/verification/punishments.png)
+
+Control what roles members receive when they join, what happens if they fail verification, and how blocked users can submit appeals.
+
+---
+
+## 1. Role Lifecycle Pipeline
+
+The verification module manages two opposite role stages:
+
+| Role Category | When Applied | When Revoked | Operational Purpose |
+| :--- | :--- | :--- | :--- |
+| **Unverified Roles** | Automatically applied when a user joins the Discord server. | Revoked immediately upon passing verification. | Restricts member visibility to your `#rules` and `#verification` channels only. |
+| **Verified Roles** | Granted immediately upon passing verification. | Never revoked by the verification system. | Unlocks access to general chat channels, voice, and community perks. |
+
+:::caution[Permission Check]
+Ensure your Unverified role does not have the `Send Messages` or `View Channel` permissions in your main community channels. The bot role must sit higher in your role list than all assigned roles.
+:::
+
+---
+
+## 2. Failure Punishments & Quarantine
+
+Protect your staff queue by automatically taking action against users who fail verification or fail to verify within a specified timeframe.
+
+Navigate to **Verification > General & Access > Punishments & Quarantine**:
+
+### Grace Period Duration
+Define the maximum duration (in minutes, hours, or days) a new user is allowed to spend in the unverified state before punishment automatically triggers.
+
+### Max Failed Attempts
+Set the maximum number of failed captcha attempts (0–10) permitted before the user is penalized.
+
+---
+
+## 3. Punishment Actions
+
+| Action | Execution Behavior | Permissions Required | Appeal Integration |
+| :--- | :--- | :--- | :--- |
+| **Kick** | Immediately kicks the user from the guild. | `Kick Members` | ❌ None |
+| **Ban** | Permanently bans the user from the guild. | `Ban Members` | **External Application Appeal** *(Web Portal)* |
+| **Role Actions** | Strips access roles or assigns custom penalty roles. | `Manage Roles` | ❌ None |
+| **Quarantine** | Strips standard roles and assigns a restricted `@Quarantined` role. | `Manage Roles` | **Internal Ticket Appeal** *(Discord Channel)* |
+
+---
+
+## 4. Native Appeal Integrations
+
+TicketForge seamlessly bridges verification punishments with the **Applications** and **Tickets** modules:
+
+### Ban Appeals $\rightarrow$ Web Application Form
+If a user is banned for verification failure, they receive a direct message with an external link to fill out a designated **Application Form** (e.g., *Ban Appeal Form*) via the web portal, allowing them to explain the failure to staff.
+
+### Quarantine Appeals $\rightarrow$ Private Support Ticket
+If a user is quarantined, they are restricted to a private channel where clicking appeal automatically generates an **Appeal Ticket**, routing them directly into a private thread with your moderation staff.
+</content>
+
+<content full_path="src\content\docs\verification\security.md">
+---
+title: Security & Anti-Alt Threat Engine
+description: Deep browser telemetry, threat scoring, VPN/Tor blocking, and alt-account detection.
+---
+
+![Web Verification Portal](/images/verification/security.png)
+
+The **Web Security Engine** operates as an intelligent risk-scoring firewall. When members verify via browser, TicketForge analyzes network reputation, browser authenticity, and device telemetry to prevent raids before they happen.
+
+---
+
+## 1. Core Security Policy
+
+Navigate to **Verification > Security & Anti-Alt**:
+
+### Enforcement Modes
+* **Enforce (Block):** Actively blocks users whose cumulative risk score exceeds your configured threat threshold, presenting an **Access Denied** notice.
+* **Monitor Only:** Allows all users through while silently flagging suspicious telemetry and recording incident reports into your **Audit Log Channel**.
+
+### Threat Threshold (1–100)
+The cutoff score required to trigger enforcement. If a user's combined risk signals exceed this number, their session is blocked.
+
+| Preset Profile | Threshold | Intended Environment |
+| :--- | :--- | :--- |
+| **Relaxed** | `85` | Large public gaming servers; only catches script-driven headless bots and obvious alts. |
+| **Recommended** | `70` | Default balanced defense; blocks throwaway alts, devtool tampering, and suspicious sessions. |
+| **Protective** | `55` | High-security or sensitive communities; strictly penalizes private browsing, Brave shields, and multi-accounts. |
+
+---
+
+## 2. Immediate Pre-Score Blocks
+
+You can configure immediate, zero-tolerance denials that block users before threat scores are even calculated:
+
+| Guard | What It Detects | Why It Protects |
+| :--- | :--- | :--- |
+| **Block VPN / Proxy / Tor** | Datacenter IP addresses, public proxies, and Tor exit nodes. | Stops ban evaders and coordinated raid bots operating through masked IPs. |
+| **Block Identity-Hiding Browsers** | Browsers configured to randomize fingerprints, spoof headers, or strip WebRTC. | Prevents automated spoofing software from forging fresh browser sessions. |
+| **Block Developer Tools** | Browser DevTools console actively open during verification. | Blocks attackers attempting to reverse-engineer verification network payloads. |
+| **Block Incognito / Private Mode** | Private browsing sessions across Chrome, Safari, Firefox, Edge, and mobile WebViews. | Ensures device storage can reliably detect duplicate alt accounts. |
+
+---
+
+## 3. Blocked Countries (Geofencing)
+
+*(Premium Feature)*
+
+Block incoming connections from specific geographic regions:
+1. Select countries from the searchable country picker (e.g., `Netherlands (NL)`, `Russia (RU)`, `China (CN)`).
+2. Users originating from blocked country IP ranges are denied immediate access prior to scoring.
+
+---
+
+## 4. Threat Score Builder
+
+Customize the exact point weight contributed by each detected signal:
+
+| Risk Signal | Default Points | Detection Method |
+| :--- | :--- | :--- |
+| **VPN / Proxy / Tor Node** | `+40` | Real-time ASN and datacenter IP threat intelligence. |
+| **Likely Alt Account** | `+40` | Device fingerprint strongly matches a previously verified Discord account on the server. |
+| **Possible Alt Account** | `+20` | Secondary hardware/network parameters overlap with an existing account. |
+| **Bot-Like Behavior** | `+40` | `navigator.webdriver` flags, synthetic mouse movements, or programmatic DOM injection. |
+| **Unusual Behavior** | `+30` | Form submitted faster than human thresholds (<1.2 seconds) or without input events. |
+| **Identity-Hiding Browser** | `+30` | Browser masking headers or spoofing canvas/WebGL signatures. |
+| **Incognito Mode** | `+15` | Browser storage quota and filesystem API restrictions. |
+| **Developer Tools Open** | `+15` | Viewport dimension variance analysis. |
+| **Suspicious Session (High)** | `+40` | Multiple conflicting hardware/timezone/locale indicators. |
+| **Suspicious Session (Moderate)** | `+20` | Minor telemetry divergence from standard operating systems. |
+</content>
+
+<content full_path="src\content\docs\verification\setup.mdx">
+---
+title: Verification Overview & Setup
+description: Protect your Discord server against raids, bots, and alts with automated member verification.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+TicketForge includes an enterprise-grade member verification suite designed to gate server access, detect alt accounts, block proxies, and stop automated raid attacks.
+
+New members are assigned an unverified role upon joining and must complete a verification check before unlocking your community.
+
+![Verification Control Deck](/images/verification/verification_overview.png)
+
+---
+
+## Verification Methods
+
+TicketForge supports three verification methods to match your server's security posture:
+
+| Method | Environment | Threat & Telemetry Engine | Challenge Type | Tier |
+| :--- | :--- | :--- | :--- | :--- |
+| **Web Verification** | Web Browser (`ticketforge.xyz/verify`) | **Full Suite** (VPN, Tor, DevTools, Alts) | hCaptcha or Top.gg Vote | **Free** |
+| **Discord Captcha** | Native in Discord | Gateway signals | Visual image puzzle | <Badge text="Premium" variant="caution" /> |
+| **Click to Pass** | Native in Discord | Account age filters | Single button confirmation | <Badge text="Premium" variant="caution" /> |
+
+---
+
+## 1. Quickstart Deployment Guide
+
+### Step 1: Configure Role Hierarchy
+In Discord, open **Server Settings > Roles** and make sure the **TicketForge** bot role is higher in the list than your Unverified role, your Verified member role, and any Quarantine roles.
+
+:::caution[Permission Hierarchy]
+Discord strictly blocks bots from assigning, revoking, or managing any role that is positioned equal to or higher than the bot's own highest role.
+:::
+
+### Step 2: Configure Roles in the Dashboard
+1. Open the [TicketForge Dashboard](https://ticketforge.xyz).
+2. Go to **Verification > General & Access**.
+3. Under **Role Management**, configure your roles:
+   * **Unverified Roles:** Assigned automatically when someone joins your server.
+   * **Verified Roles:** Granted immediately once a user passes verification.
+
+![Role Configuration](/images/verification/roles_setup.png)
+
+### Step 3: Dispatch the Verification Panel
+1. Click **Send to Discord** in the top action toolbar.
+2. Select your designated `#verification` or `#welcome` channel.
+3. The bot posts the interactive verification embed equipped with the **Verify** action button.
+
+:::tip[Updating Existing Panels]
+If you modify embed styling or button labels later, click **Update Message** in the action bar and enter the existing Discord message link to push changes without reposting.
+:::
+
+---
+
+## 2. Core Gatekeeper Policies
+
+Under **Verification > General & Access**, you can apply entry conditions before a user can even initiate verification:
+
+* **Minimum Account Age:** Reject brand-new throwaway Discord accounts by setting a minimum account age requirement (configurable from minutes up to days or months). Accounts created more recently than the threshold are blocked.
+* **Avatar Requirement:** Require users to have a custom Discord profile avatar. Users using default blank Discord avatars will be prevented from verifying until they set a profile picture.
+
+---
+
+## 3. The Public Verification Experience
+
+When a user clicks the **Verify** button inside Discord using **Web Verification**:
+
+![Web Verification Portal](/images/verification/verify_portal.png)
+
+1. **Private Ephemeral Link:** The bot replies with a private, signed one-time link (`ticketforge.xyz/verify/:guildId?t=:token`).
+2. **Device & Network Inspection:** The browser loads the verification portal and silently evaluates browser telemetry, network nodes, and headless automation drivers.
+3. **Challenge Resolution:**
+   * **hCaptcha Challenge:** The member solves a fast image puzzle.
+   * **Verify by Voting:** Members can alternatively verify instantly by casting a vote for TicketForge on Top.gg.
+4. **Instant Role Grant:** Once passed, the bot revokes their Unverified role and adds their Verified role in Discord in milliseconds.
+</content>
+
+<content full_path="src\content\docs\welcomer\cards.mdx">
+---
+title: Welcome Card Designer
+description: Design custom 1024×450 welcome and milestone cards with preset layouts, themes, or the drag-and-drop canvas builder.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+TicketForge generates high-resolution **`1024×450` PNG** welcome cards rendered live with each member's Discord avatar, display name, and live member number.
+
+Navigate to **Welcomer > General & Card > Welcome Card Configuration** to customize your card.
+
+![Welcome Card Configuration](/images/welcomer/card_designer.png)
+
+---
+
+## 1. Card Layouts
+
+Choose between two built-in preset layouts or build your own from scratch:
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "1.25rem",
+    alignItems: "start",
+    margin: "1.5rem 0",
+  }}
+>
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Centered
+    </span>
+    <img
+      src="/images/welcomer/layout_centered.png"
+      alt="Centered Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Horizontal (Sidebar)
+    </span>
+    <img
+      src="/images/welcomer/layout_sidebar.png"
+      alt="Horizontal Sidebar Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize: "0.95rem",
+        color: "#f4f4f5",
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+      }}
+    >
+      Custom
+      <span
+        style={{
+          background: "rgba(234, 179, 8, 0.15)",
+          color: "#eab308",
+          border: "1px solid rgba(234, 179, 8, 0.3)",
+          fontSize: "0.7rem",
+          fontWeight: 700,
+          padding: "1px 6px",
+          borderRadius: "9999px",
+          textTransform: "uppercase",
+        }}
+      >
+        Premium
+      </span>
+    </span>
+    <img
+      src="/images/welcomer/layout_custom.png"
+      alt="Custom Welcome Card Layout"
+      style={{
+        width: "100%",
+        borderRadius: "10px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+</div>
+
+| Layout | Visual Style | Tier |
+| :--- | :--- | :--- |
+| **Centered** | Circular avatar centered at the top with username and member subtitle centered below. | **Free** |
+| **Horizontal (Sidebar)** | Large circular avatar on the left with a localized header kicker, username, and subtitle aligned on the right. | **Free** |
+| **Custom** | Full interactive drag-and-drop canvas allowing free placement, sizing, visibility toggles, and custom colors for every element. | <Badge text="Premium" variant="caution" /> |
+
+---
+
+## 2. Custom Drag & Drop Canvas
+
+<Badge text="Premium" variant="caution" />
+
+When **Custom** layout is selected, an interactive canvas appears directly in the dashboard:
+
+![Custom Layout Drag & Drop Canvas](/images/welcomer/layout_custom.png)
+
+* **Bounded Drag & Drop:** Click and drag any element directly on the card preview. Coordinates are automatically bounded to prevent avatars or text from clipping off the edges.
+* **Reset Layout:** One-click reset restores default coordinates, sizes, and `#FFFFFF` text colors.
+
+### Customizable Elements
+
+Each element can be individually **toggled ON/OFF**, resized, recolored (hex picker), and repositioned:
+
+| Element | Controls Available | Notes |
+| :--- | :--- | :--- |
+| **Avatar** | Toggle, Size (`40px` – `140px`), X/Y Position | Rendered as a circle with an outer border matching the Name color. |
+| **Header Text** | Toggle, Font Size (`8px` – `24px`), Color, X/Y Position | Automatically localized to your server's **Bot Language** (e.g., *"Welcome to the server"*). |
+| **Name (Title)** | Toggle, Font Size (`12px` – `40px`), Color, X/Y Position | Displays the joining member's display name / username. |
+| **Subtitle** | Toggle, Font Size (`9px` – `26px`), Color, X/Y Position | Displays `Member #<count>`. |
+| **Milestone Badge** | X/Y Position | Appears on the canvas when customizing an independent Milestone Card. |
+
+---
+
+## 3. Background Themes & Dimming
+
+![Background Theme Gallery & Dim Opacity](/images/welcomer/card_themes.png)
+
+### Built-In Presets (Free)
+Select from **7 curated themes** loaded locally for instant rendering (**Transparent** + 6 illustrated presets):
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+    gap: "1rem",
+    margin: "1.25rem 0 1.75rem 0",
+  }}
+>
+  {[
+    { name: "Midnight (Default)", file: "midnight.png" },
+    { name: "Cozy", file: "cozy.png" },
+    { name: "Forest", file: "forest.png" },
+    { name: "Mint", file: "mint.png" },
+    { name: "Ocean", file: "ocean.png" },
+    { name: "Sunrise", file: "sunrise.png" },
+  ].map((theme) => (
+    <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+      <img
+        src={`/images/backgrounds/${theme.file}`}
+        alt={`${theme.name} Card Background`}
+        style={{
+          width: "100%",
+          aspectRatio: "1024 / 450",
+          objectFit: "cover",
+          borderRadius: "8px",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          display: "block",
+          margin: 0,
+        }}
+      />
+      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#dbdee1" }}>
+        {theme.name}
+      </span>
+    </div>
+  ))}
+</div>
+
+* **Transparent:** Outputs a clean transparent PNG background (ideal for minimalist overlays).
+
+### Custom Background Uploads <Badge text="Premium" variant="caution" />
+Select **Upload your own** and paste a direct `http://` or `https://` image URL (PNG or JPG—supports Discord CDN, Imgur, and S3 URLs).
+* **Recommended Resolution:** `1024×450px` (automatically center-cropped to cover if aspect ratio differs).
+
+### Background Dim Opacity
+Use the **Background Dim Opacity** slider (`0%` to `100%`, default `10%`) to add a dark overlay behind your text and avatar, ensuring high contrast on bright or detailed backgrounds.
+
+:::note[Automatic Emoji & Unicode Support]
+Welcome cards bundle **Inter** and **Noto Color Emoji** fonts natively, ensuring Unicode usernames and milestone badge emojis render accurately.
+:::
+</content>
+
+<content full_path="src\content\docs\welcomer\messages.mdx">
+---
+title: Welcome & Leave Messages
+description: Configure channel welcomes, auto-delete timers, card placement, private DMs, and leave notices using classic Embeds (V1) or modern Components (V2).
+---
+
+import { Badge } from "@astrojs/starlight/components";
+
+Navigate to **Welcomer > Messages & DMs** to configure how and where TicketForge delivers welcome and departure notifications.
+
+![Welcome & Leave Messages Settings](/images/welcomer/messages_settings.png)
+
+---
+
+## 1. Message Channels & Delivery Modes
+
+Use the top tab switcher to configure each of the three lifecycle messages independently:
+
+### Welcome (Channel)
+
+Posts a greeting in a public or onboarding text channel when a member joins (or passes verification).
+
+- **Welcome Channel:** Select any text or announcement channel where greetings should be posted.
+- **Auto-Delete Message After** <Badge text="Premium" variant="caution" />: Automatically deletes the welcome message after a set delay—from **1 minute up to 24 hours** (`1440` minutes)—to keep busy chat channels tidy. Set to `0` to keep messages permanently.
+- **Welcome Card Image:** Toggle ON to generate and send the member's Welcome Card alongside the message.
+- **Image Placement:**
+  - **Attachment:** Sends `welcome.png` as a standard Discord file attachment below your message or embed.
+  - **Embed image:** Embeds `welcome.png` directly inside your primary embed's main image slot (`attachment://welcome.png`). _(Automatically enables and initializes Embed 0 if none exists)._
+
+### Welcome (DM) <Badge text="Premium" variant="caution" />
+
+Sends a private Direct Message to new members upon joining (or passing verification).
+
+- Ideal for delivering server rules, onboarding links, or private welcome guides without cluttering public channels.
+- **Privacy & Anti-Spam:** If a user has server DMs disabled, or if their Discord account is less than **60 minutes old**, the DM is safely skipped.
+
+### Leave Message
+
+Posts a departure notice when a member leaves or is removed from your server.
+
+- **Leave Message Channel:** Select the channel where leave notices should be posted.
+- **Verified Members Only:** When enabled, leave messages are only sent if the departing user held verified server role(s)—preventing unverified bot joins/leaves from flooding your logs.
+
+---
+
+## 2. Choosing Your Message Format
+
+At the top of the canvas editor in **Welcomer > Messages & DMs**, you can toggle between both formatting engines with a live Discord preview:
+
+<div
+  class="not-content"
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gap: "1.25rem",
+    alignItems: "start",
+    margin: "1.5rem 0",
+  }}
+>
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span style={{ fontWeight: 600, fontSize: "0.95rem", color: "#f4f4f5" }}>
+      Classic Embeds (V1)
+    </span>
+    <img
+      src="/images/edit_settings/v1-preview.png"
+      alt="Classic Embeds (V1) Canvas Editor"
+      style={{
+        width: "100%",
+        borderRadius: "8px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+
+  <div style={{ margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize: "0.95rem",
+        color: "#f4f4f5",
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+      }}
+    >
+      Components (V2)
+      <span
+        style={{
+          background: "rgba(234, 179, 8, 0.15)",
+          color: "#eab308",
+          border: "1px solid rgba(234, 179, 8, 0.3)",
+          fontSize: "0.7rem",
+          fontWeight: 700,
+          padding: "1px 6px",
+          borderRadius: "9999px",
+          textTransform: "uppercase",
+        }}
+      >
+        Premium
+      </span>
+    </span>
+    <img
+      src="/images/edit_settings/v2-preview.png"
+      alt="Components (V2) Canvas Editor"
+      style={{
+        width: "100%",
+        borderRadius: "8px",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        display: "block",
+        margin: 0,
+      }}
+    />
+  </div>
+</div>
+
+| Feature                    | Embeds (V1)                                                                    | Components (V2) <Badge text="Premium" variant="caution" />                  |
+| :------------------------- | :----------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| **Layout Style**           | Plain text or classic embed cards with accent color bars                       | Modular layout: containers, text blocks, images, dividers, and link buttons |
+| **Max Capacity**           | Up to 4 embeds per message                                                     | **Up to 9 root blocks** & **36 total nested components**                    |
+| **Character Limit**        | 6,000 characters total across embeds                                           | 4,000 characters total                                                      |
+| **Welcome Card Placement** | Sent as a file attachment or bound inside Embed 0 (`attachment://welcome.png`) | Rendered directly inside the dedicated Welcome Card container slot          |
+
+For a full walkthrough of block types, drag-and-drop nesting, and embed fields, see the [Messages & Component Builder Guide](/panels/messages/). For supported variables like `{user.mention}`, `{guild.name}`, and `{guild.memberCount}`, see the [Variable Placeholders Reference](/guides/placeholders/).
+
+</content>
+
+<content full_path="src\content\docs\welcomer\milestones.mdx">
+---
+title: Member Milestones
+description: Celebrate server growth automatically with interval or exact member count announcements and custom milestone badges.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+Celebrate your community's growth automatically whenever your server hits major member count targets.
+
+Navigate to **Welcomer > Milestones** and toggle **Milestone Celebrations** ON to configure your triggers and design.
+
+![Member Milestones Trigger & Delivery](/images/welcomer/milestones_settings.png)
+
+---
+
+## 1. Trigger & Delivery
+
+* **Announcement Channel:** Select the Discord text or announcement channel where milestone celebrations will be posted.
+* **Trigger Thresholds:** Configure one or more member count targets (all thresholds must be at least **10 members**):
+
+| Mode | Behavior | Examples | Tier |
+| :--- | :--- | :--- | :--- |
+| **Every X Members (Interval)** | Triggers automatically on every multiple of the configured number (up to 5 interval rules). | `100` fires at `100`, `200`, `300`, `400`... | <Badge text="Premium" variant="caution" /> |
+| **Specific Numbers** | Triggers once when the server reaches the exact member count configured. | `50`, `250`, `1000`, `5000` | **Free** *(Expanded limit on Premium)* |
+
+:::note[Milestone Evaluation Order]
+If **Wait for Server Verification** is enabled on your server, welcome messages wait until verification passes—but **Member Milestones** are evaluated immediately when the member joins so your live member count matches the exact milestone trigger.
+:::
+
+---
+
+## 2. Card Badge & Overlay
+
+Milestone cards automatically feature a celebratory diamond-divider badge (in **Centered** and **Custom** layouts) or a frosted capsule pill (in **Horizontal** layout):
+
+![Milestone Card Badge & Overlay](/images/welcomer/milestones_badge.png)
+
+* **Badge Banner Text:** Customize the badge text (up to **32 characters**, default: `🎉 {number} MEMBERS`). Supports `{number}` and `{count}` placeholders.
+* **Badge Accent Color:** Set a custom hex color (`#FBBF24` by default) applied to the badge text, diamond decorators, and gradient divider lines.
+
+### Independent Milestone Card Design
+* **Use Welcome Card Background (Enabled by default):** Inherits the exact layout, background theme, and dim opacity of your primary Welcome Card.
+* **Independent Design (Disabled):** Reveals an embedded **Milestone Card Customizer** allowing you to design a completely separate layout, background theme, dim opacity, and drag-and-drop badge position (`milestoneBadgeX` / `milestoneBadgeY`) exclusively for milestone announcements.
+
+---
+
+## 3. Announcement Message
+
+Customize the celebration message using the **Canvas Editor** at the bottom of the page:
+
+![Milestone Announcement Preview](/images/welcomer/milestones_preview.png)
+
+* **Embed / V2 Integration:** When using V1 embeds, `attachment://milestone.png` is automatically bound into the embed image slot. When using **Components (V2)** <Badge text="Premium" variant="caution" />, the milestone card renders directly inside the card block slot.
+* **Supported Variables:** Use `{milestone.value}`, `{number}`, or `{count}` alongside `{user.mention}` and `{guild.name}` to shout out the member who pushed your server over the milestone.
+</content>
+
+<content full_path="src\content\docs\welcomer\setup.mdx">
+---
+title: Welcomer Overview & General Settings
+description: Greet new members automatically with custom welcome cards, auto-assigned roles, verification interlocks, and raid protection.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+The **Server Welcomer** module automates your community's onboarding experience. Greet newcomers with dynamically rendered welcome cards, assign starter roles, send welcome DMs, track departing members, and celebrate member milestones.
+
+![Welcomer Control Deck](/images/welcomer/welcomer_overview.png)
+
+---
+
+## 1. Control Deck & Quick Actions
+
+At the top of the **Welcomer** editor, the Control Deck provides instant diagnostics and testing tools:
+
+### Welcomer Health Badge
+The live **Health Status** indicator continuously validates your configuration against your Discord server:
+* **🟢 Healthy:** All enabled outputs, channels, and roles are properly configured.
+* **🟡 Warnings:** Non-critical configuration gaps (e.g., system is disabled, system is active with no enabled outputs, or milestones are enabled without any threshold rules).
+* **🔴 Critical:** Blocking issues such as a deleted destination channel, missing `View Channel` / `Send Messages` bot permissions, or an auto-assign role positioned higher than the bot's role.
+
+Click any item inside the Health dropdown to jump directly to the setting that needs fixing.
+
+### Test Welcome
+Click **Test Welcome** to dispatch a live mock welcome message—complete with your rendered welcome card—to any channel in your server.
+
+![Send Test Welcome Modal](/images/welcomer/test_welcome.png)
+
+* You can target a private staff channel to preview layout and copy changes without pinging members.
+* If you have unsaved edits in the editor, **Test Welcome** saves them automatically before dispatching.
+* Protected by a **30-second cooldown** per server to prevent channel spam.
+
+### Reset Defaults
+Restores all welcome cards, auto-assigned roles, message embeds, and milestone rules back to factory defaults.
+
+---
+
+## 2. General Settings
+
+Navigate to **Welcomer > General & Card** to configure core module behavior:
+
+![Welcomer General Settings](/images/welcomer/general_settings.png)
+
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| **Enable Welcomer System** | Master switch for the entire welcomer module (channel welcomes, DMs, auto-roles, leave notices, and milestones). | `Disabled` |
+| **Wait for Server Verification** | Delays channel welcomes, DM welcomes, and join role assignments until the user passes TicketForge's **Verification** check. | `Disabled` |
+| **Ignore Bot Accounts** | Prevents sending welcome messages or assigning roles when a Discord bot is added to the server. | `Enabled` |
+
+:::tip[Verification Interlock]
+If you use TicketForge's [Verification System](/verification/setup/), enable **Wait for Server Verification**. New members won't be welcomed in general chat until they prove they are human—keeping your welcome channel free of unverified bots and raid accounts.
+:::
+
+---
+
+## 3. Auto-Assign Roles
+
+Automatically grant starter roles (such as `@Member` or `@Community`) when a user joins your server—or immediately after they pass verification if **Wait for Server Verification** is enabled.
+
+### Security & Role Hierarchy Safeguards
+To protect your server against privilege escalation:
+* **Hierarchy Check:** The **TicketForge** bot role must sit **higher** in **Server Settings > Roles** than every role selected in **Roles to Assign**.
+* **Dangerous Permissions Blocked:** TicketForge automatically blocks assigning `@everyone` or roles with dangerous administrative permissions (`Administrator`, `Manage Server`, `Manage Roles`, `Manage Channels`, `Ban Members`, or `Kick Members`).
+
+---
+
+## 4. Built-In Raid & Anti-Spam Protections
+
+The Welcomer service includes automatic safeguards to keep your server and bot performance protected during raids:
+
+* **Raid Surge Shield:** If a server experiences a sudden join surge (**8 or more joins within 5 seconds**), the Welcomer automatically engages a **90-second lockdown**, suppressing high-cost card rendering and welcome dispatches until traffic stabilizes.
+* **New-Account DM Protection:** To comply with Discord anti-spam rules, **Welcome DMs** are automatically skipped for newly created Discord accounts younger than **60 minutes**.
+* **In-Discord Setup (`/setup`):** You can also toggle welcomer modules, select channels, assign roles, and edit basic messages directly inside Discord by running `/setup`.
+</content>
+
+<content full_path="src\styles\custom.css">
+/* ==========================================================================
+   1. DASHBOARD PALETTE & LAYOUT PROPORTIONS
+   ========================================================================== */
+:root {
+  /* Match your Vue Dashboard exact colors */
+  --tf-bg-deep: #111114;
+  --tf-surface: #141417;
+  --tf-border: rgba(255, 255, 255, 0.08);
+  --tf-primary: #4f46e5;       /* indigo-600 */
+  --tf-primary-hover: #4338ca; /* indigo-700 */
+  --tf-primary-border: #6366f1;/* indigo-500 */
+
+  /* Map to Starlight core tokens */
+  --sl-color-bg: var(--tf-bg-deep);
+  --sl-color-bg-sidebar: var(--tf-bg-deep);
+  --sl-color-hairline: var(--tf-border);
+
+  /* Fix spacing proportions (prevents massive empty void on widescreen) */
+  --sl-sidebar-width: 17rem;
+  --sl-toc-width: 14rem;       /* Clamps right sidebar width */
+  --sl-content-width: 64rem;   /* Gives content room to breathe */
+}
+
+/* ==========================================================================
+   2. LEFT SIDEBAR: CRISP VIBRANT ACTIVE STATE
+   ========================================================================== */
+
+/* Active link: Solid Indigo, White Text, Glow Shadow (Matches Sidebar.vue) */
+.sidebar-content a[aria-current="page"] {
+  background-color: var(--tf-primary) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: 1px solid var(--tf-primary-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px -2px rgba(99, 102, 241, 0.4) !important;
+  padding: 8px 12px !important;
+}
+
+/* Inactive links: Clean subtle text */
+.sidebar-content a:not([aria-current="page"]) {
+  color: #949ba4 !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Inactive hover: Dark surface pill like your dashboard */
+.sidebar-content a:not([aria-current="page"]):hover {
+  color: #ffffff !important;
+  background-color: #1e1f22 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Sidebar Section Headers (TICKETS, APPLICATIONS, etc.) */
+.sidebar-content .top-level > li > details > summary,
+.sidebar-content .top-level > li > .group-label {
+  color: #64748b !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* ==========================================================================
+   3. RIGHT SIDEBAR (TABLE OF CONTENTS) PROPORTIONS & BORDER
+   ========================================================================== */
+
+/* Add a subtle dividing border to anchor the right sidebar */
+@media (min-width: 72rem) {
+  .right-sidebar {
+    border-left: 1px solid var(--tf-border) !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
+/* "On this page" Title */
+.right-sidebar h2 {
+  color: #64748b !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Right sidebar TOC links */
+.right-sidebar a {
+  color: #949ba4 !important;
+  font-size: 0.82rem !important;
+  transition: color 0.15s ease !important;
+}
+
+.right-sidebar a:hover {
+  color: #ffffff !important;
+}
+
+.right-sidebar a[aria-current="true"] {
+  color: var(--tf-primary-border) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY & READABILITY (Fix cramped text)
+   ========================================================================== */
+.sl-markdown-content {
+  font-size: 0.95rem;
+  line-height: 1.75;          /* Relaxed line height for reading */
+  color: #dbdee1;             /* Discord main text color */
+}
+
+.sl-markdown-content p {
+  margin-bottom: 1.35rem;     /* Clean paragraph spacing */
+}
+
+.sl-markdown-content h1 {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1.5rem !important;
+  color: #ffffff !important;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  color: #ffffff !important;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   5. FRAMED & ROUNDED IMAGES
+   ========================================================================== */
+.sl-markdown-content img {
+  display: block;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background-color: #0d0d0f;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6) !important;
+  margin: 1.75rem 0 !important;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   6. POLISHED LISTS
+   ========================================================================== */
+.sl-markdown-content ul,
+.sl-markdown-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sl-markdown-content li {
+  margin-bottom: 0.6rem;      /* Give bullet points room to breathe */
+  line-height: 1.7;
+}
+
+.sl-markdown-content li::marker {
+  color: #6366f1;             /* Indigo colored bullets/numbers */
+}
+
+/* ==========================================================================
+   7. INTERACTIVE MODULE CARDS (CardGrid & Cards)
+   ========================================================================== */
+.sl-markdown-content .card {
+  background-color: #141417 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.sl-markdown-content .card:hover {
+  background-color: #1a1a1f !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px -5px rgba(99, 102, 241, 0.12);
+}
+
+.sl-markdown-content .card .title {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sl-markdown-content .card .body {
+  color: #949ba4 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+.sl-markdown-content .card a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #818cf8 !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.sl-markdown-content .card a:hover {
+  color: #a5b4fc !important;
+  text-decoration: underline !important;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE 16:9 VIDEO CONTAINER
+   ========================================================================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65);
+  margin: 1.5rem 0 2.5rem 0;
+  background-color: #0d0d0f;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   9. DISCORD BLUE INVITE CARD WITH ROUNDED LOGO
+   ========================================================================== */
+.discord-invite-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0 2rem 0;
+  background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 25px -4px rgba(88, 101, 242, 0.35);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.discord-invite-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -4px rgba(88, 101, 242, 0.55);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Rounded Logo inside the card */
+.discord-invite-card img {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background-color: #111114 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.discord-invite-card .invite-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.discord-invite-card .invite-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.discord-invite-card .invite-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.discord-invite-card .invite-arrow {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.discord-invite-card:hover .invite-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   POLISHED CARD-STYLE TABLES (Matches Image 2)
+   ========================================================================== */
+
+/* 1. Outer Container: Rounded Card with Subtle Border */
+.sl-markdown-content table {
+  width: 100% !important;
+  display: table !important;
+  border-collapse: separate !important; /* Required for border-radius to work */
+  border-spacing: 0 !important;
+  
+  background-color: #121316 !important; /* Soft dark surface, not pure black */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  
+  margin: 2rem 0 !important;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2. Table Headers (Setting, Applicable To, Description) */
+.sl-markdown-content th {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: -0.01em !important;
+  
+  padding: 16px 20px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  text-align: left !important;
+}
+
+/* 3. Table Rows & Cells */
+.sl-markdown-content td {
+  padding: 16px 20px !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+  color: #949ba4 !important; /* Soft gray for readability */
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; /* Soft row divider */
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  vertical-align: middle !important;
+  transition: background-color 0.15s ease !important;
+}
+
+/* 4. First Column (Bold White Target Text) */
+.sl-markdown-content td:first-child {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important; /* Keeps names like "Question Label" on one line */
+}
+
+/* 5. Clean Bottom: Remove Border on Last Row */
+.sl-markdown-content tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* 6. Subtle Row Hover Effect */
+.sl-markdown-content tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* 1. Remove the theme switcher dropdown from the header */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* 2. Lock CSS to dark mode even if browser requests light mode */
+:root,
+:root[data-theme='light'] {
+  color-scheme: dark !important;
+  --sl-color-bg: var(--tf-bg-deep) !important;
+  --sl-color-bg-sidebar: var(--tf-bg-deep) !important;
+  --sl-color-bg-nav: rgba(17, 18, 20, 0.85) !important;
+  --sl-color-gray-1: #ffffff !important;
+  --sl-color-gray-2: #dbdee1 !important;
+  --sl-color-gray-3: #949ba4 !important;
+  --sl-color-gray-5: var(--tf-surface) !important;
+  --sl-color-gray-6: var(--tf-bg-deep) !important;
+}
+
+/* TicketForge Docs Navbar Title Color */
+.site-title {
+  color: #ffffff !important;
+  font-weight: 700; /* optional: makes the branding stand out */
+}
+
+.site-title:hover {
+  color: #6366f1 !important; /* smooth hover state */
+}
+</content>
+
+</repo-to-text>

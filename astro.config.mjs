@@ -127,6 +127,15 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Giveaways',
+          items: [
+            { label: 'Overview & Luck Modifiers', link: '/giveaways/setup/' },
+            { label: 'Creating & Managing Giveaways', link: '/giveaways/create-manage/' },
+            { label: 'Requirements, Captcha & Claiming', link: '/giveaways/requirements-claiming/' },
+            { label: 'Messages & Audit Logging', link: '/giveaways/messages-logging/' },
+          ],
+        },
+        {
           label: 'Templates',
           items: [
             { label: 'Using Templates', link: '/panels/templates/' },

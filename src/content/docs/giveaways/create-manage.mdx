@@ -1,0 +1,70 @@
+---
+title: Creating & Managing Giveaways
+description: Launch giveaways using the 5-step wizard and manage active or ended giveaways from the Manage Giveaways dashboard.
+---
+
+TicketForge separates your **default giveaway configuration** from **individual giveaways**, allowing you to reuse your server defaults while customizing each giveaway's prize, schedule, and overrides.
+
+---
+
+## 1. Creating a Giveaway (5-Step Wizard)
+
+Click **Create Giveaway** from either **Giveaways > Configuration** or **Giveaways > Manage Giveaways** to launch the wizard.
+
+![Create Giveaway Wizard](/images/giveaways/create_wizard.png)
+
+### Step 1: Prize & Basics
+* **Prize** *(Required)*: The reward title shown in the giveaway header (max **256 characters**).
+* **Description** *(Optional)*: Additional details, rules, or instructions displayed below the prize (max **2,000 characters**).
+* **Announcement Ping** *(Create only)*: Optionally select Discord roles to ping when the giveaway is first published (**up to 3 roles** on Free, **up to 10 roles** on Premium).
+
+### Step 2: Schedule (End Condition)
+Choose how the giveaway concludes:
+
+| End Condition | Behavior | Limits |
+| :--- | :--- | :--- |
+| **Duration** | Ends automatically after a set duration from publish time (or from now when editing). | `1 minute` – `365 days` (`525,600` mins) |
+| **Specific Date** | Ends at an exact calendar date and time in your local timezone. | Must be at least 1 minute in the future |
+| **Participant Goal** | Ends immediately once a target number of entries is reached. | `1` – `1,000,000` entries |
+| **Server Member Goal** | Ends automatically when your Discord server reaches the target member count. | `2` – `10,000,000` members |
+
+### Step 3: Winners
+* **Number of Winners:** Set how many winners to draw (`1` – `50`).
+* **Winner Reward Roles (Optional):** Pre-filled from your default configuration; override per giveaway if needed.
+
+### Step 4: Access Overrides
+Pre-filled from your default **Entry Requirements**, you can customize **Allowed Entry Roles**, **Blocked Entry Roles**, **Requirement Bypass Roles**, **Minimum Account Age**, **Minimum Time in Server**, and whether **Boosted Roles Extra Entries** apply to this giveaway.
+
+### Step 5: Review & Publish
+Review the full summary alongside a live Discord message preview, select your **Target Channel** (text or announcement channels where the bot has view & send permissions), and click **Publish Giveaway**.
+
+---
+
+## 2. Managing Giveaways
+
+Navigate to **Giveaways > Manage Giveaways** to view, filter, and control all active, ended, and cancelled giveaways in your server.
+
+![Manage Giveaways Inbox](/images/giveaways/manage_list.png)
+
+### Search & Filtering
+* **Search Bar:** Search by **prize name**, **giveaway ID**, or **host username**.
+* **Channel Filter:** Filter giveaways by their Discord channel.
+* **Status Pills:** Filter by `All Statuses`, `Active`, `Drawing`, `Ended`, or `Cancelled`.
+* **Date Range:** Filter by preset windows or custom date ranges *(Custom ranges require Premium)*.
+
+---
+
+## 3. Giveaway Details & Lifecycle Actions
+
+Click any giveaway card (or use its `⋮` action menu) to inspect live entries, host info, drawn winners, claim statuses, and access rules.
+
+![Giveaway Details Modal](/images/giveaways/details_modal.png)
+
+| Action | Available When | Behavior |
+| :--- | :--- | :--- |
+| **Edit Giveaway** | `ACTIVE` | Reopens the 5-step wizard to update prize, description, schedule, winner count, or access overrides and updates the live Discord message. *(Channel cannot be changed while editing.)* |
+| **Repost to Discord** | `ACTIVE` | Posts a fresh giveaway message to the current or a new target channel without re-pinging roles, and removes the previous message if it still exists. Subject to a **30-second cooldown**. |
+| **End Early & Draw** | `ACTIVE` | Immediately closes entries, draws eligible winners, assigns Winner Roles, and dispatches winner notifications. |
+| **Cancel Giveaway** | `ACTIVE` | Cancels the giveaway without drawing winners and disables the Participate button in Discord. |
+| **Reroll Winners** | `ENDED` | Draws `1` up to `winnerCount` new replacement winners. **Previous winners are automatically excluded** from being drawn again. |
+| **Delete** | Any status | Permanently deletes the giveaway record and all participant entries. **Cannot be undone.** |

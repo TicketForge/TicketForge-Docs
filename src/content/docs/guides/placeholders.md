@@ -119,6 +119,37 @@ Available inside **Milestone Announcement Messages** and the **Badge Banner Text
 
 ---
 
+---
+
+## 3.6. Giveaway Placeholders
+
+These variables are available within **Giveaways > Configuration > Discord Messages** (**Giveaway Message** and **Winner DM**), as well as the **Participate** button label.
+
+### Winner & Participant Info
+| Placeholder | Description |
+| :--- | :--- |
+| `{user.mention}` | Mentions the winner (`@Username`). |
+| `{user.name}` | The winner's Discord username. |
+| `{user.id}` | The winner's unique Discord ID. |
+| `{user.avatar}` | Direct URL to the winner's avatar image. |
+
+### Giveaway Data
+| Placeholder | Description |
+| :--- | :--- |
+| `{giveaway.prize}` | The giveaway prize title. |
+| `{giveaway.description}` | The optional description set for the giveaway. |
+| `{giveaway.winners}` | Formatted list of drawn giveaway winners. |
+| `{giveaway.winnerCount}` | Total number of winners to be drawn. |
+| `{giveaway.entries}` | Total number of entries in the giveaway. |
+| `{giveaway.host}` | Mentions the staff member hosting the giveaway. |
+| `{giveaway.url}` | Direct link to the giveaway message or web page. |
+| `{giveaway.endsAt}` | Discord dynamic timestamp / target for when the giveaway ends. |
+
+### Participate Button
+| Placeholder | Description |
+| :--- | :--- |
+| `{count}` | Live entry count displayed inside the **Participate** button label (e.g., `Participate {count}`). |
+
 ## 4. Universal Placeholders
 
 These variables can be used globally across both Tickets and Applications.

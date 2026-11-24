@@ -1,0 +1,61 @@
+---
+title: Giveaway Messages & Audit Logging
+description: Customize the giveaway embed, Participate button, Winner DM notifications, and audit log streams.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+Customize how your giveaways look in Discord, personalize private winner notifications, and stream every giveaway lifecycle event to a staff audit channel.
+
+---
+
+## 1. Customizing Messages & the Participate Button
+
+Navigate to **Giveaways > Configuration > Discord Messages**.
+
+![Giveaway Messages Canvas Editor](/images/giveaways/messages_settings.png)
+
+Use the top switcher to edit either message independently with the Canvas Editor:
+
+* **Giveaway Message (`giveawayEmbed`):** The public giveaway post containing the prize, description, schedule, host, and interaction buttons. Supports **Classic Embeds (V1)** on all plans and **Components (V2)** on <Badge text="Premium" variant="caution" />.
+* **Winner DM (`winnerDm`):** Direct message sent automatically to winners when a giveaway finishes drawing.
+
+:::note[Link the Prize Title Lock]
+When **Giveaway Page** is set to **Link the Prize**, the title URL of the Giveaway Message is automatically bound to the giveaway's web page URL.
+:::
+
+### Winner DM Notifications <Badge text="Premium" variant="caution" />
+Under the **Winner DM** tab, toggle **Send DM to Giveaway Winners** ON to automatically message winners with your customized embed or V2 message when they are drawn.
+
+### Participate Button Customization <Badge text="Premium" variant="caution" />
+While editing **Giveaway Message**, you can customize the **Participate** button:
+* **Label:** Button text up to **48 characters** (defaults to `Participate {count}`). Use `{count}` to display the live entry total directly on the button.
+* **Emoji:** Any standard Unicode or custom server emoji (defaults to `🎉`).
+* **Color:** Choose from `Blurple`, `Grey`, `Green`, or `Red`.
+
+:::caution[Non-Empty Button Rule]
+At least a **Label** or an **Emoji** must be set on the Participate button. Leaving both blank triggers a Critical health warning.
+:::
+
+For details on V1 Embeds vs. Components V2 blocks, see the [Messages & Component Builder Guide](/panels/messages/). For supported variables like `{giveaway.prize}`, `{giveaway.endsAt}`, and `{giveaway.host}`, see the [Variable Placeholders Reference](/guides/placeholders/).
+
+---
+
+## 2. Audit Logging
+
+Navigate to **Giveaways > Configuration > Audit Logs** to track giveaway activity in a private staff channel.
+
+![Giveaway Audit Logging](/images/giveaways/logging_settings.png)
+
+### Setup
+Select any text or announcement channel from the **Log Channel** dropdown. Clearing the channel disables all log toggles automatically.
+
+### Loggable Events
+
+| Event | Description |
+| :--- | :--- |
+| **Giveaway Created** | Logs when a new giveaway is published to Discord. |
+| **Giveaway Ended** | Logs when a giveaway finishes (naturally or ended early) and winners are drawn. |
+| **Winner Rerolled** | Logs when staff reroll replacement winners for an ended giveaway. |
+| **Prize Claimed** | Logs when a winner clicks Claim and opens a prize-claiming ticket. |
+| **Blocked Entry Attempts** | Logs when a user fails role restrictions, account age/tenure checks, or captcha verification. |

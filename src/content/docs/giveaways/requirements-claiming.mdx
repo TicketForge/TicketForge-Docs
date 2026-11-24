@@ -1,0 +1,76 @@
+---
+title: Requirements, Captcha & Prize Claiming
+description: Gate giveaway participation with role rules, account age checks, CAPTCHAs, ticket-based prize claiming, and the public giveaway portal.
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+Protect your giveaways against alts, bots, and drive-by accounts while giving winners a seamless way to claim their rewards.
+
+Navigate to **Giveaways > Configuration > Requirements & Claiming** to configure your global defaults.
+
+![Requirements & Claiming Settings](/images/giveaways/requirements_claiming.png)
+
+---
+
+## 1. Role Eligibility & Winner Rewards
+
+| Role Group | Purpose | Free Limit | Premium Limit |
+| :--- | :--- | :--- | :--- |
+| **Required Roles** | Members must have at least one of these roles to enter. | Up to `5` | Up to `25` |
+| **Blocked Roles** | Members with any of these roles are barred from entering. | Up to `5` | Up to `25` |
+| **Bypass Roles** | Members with any of these roles bypass role, account age, and server tenure requirements. | Up to `5` | Up to `25` |
+| **Winner Roles** | Automatically assigned to members when they win a giveaway. | Up to `3` | Up to `15` |
+
+:::caution[Role Hierarchy Check]
+Because the bot assigns **Winner Roles** automatically when drawing winners, the **TicketForge** bot role must sit **higher** in your Discord Server Settings than any selected Winner Role.
+:::
+
+---
+
+## 2. Account & Membership Checks
+
+* **Remove Entry When Leaving Server:** Automatically disqualifies participants who leave your Discord server before winners are drawn.
+* **Minimum Account Age:** Require Discord accounts to be older than a configured duration (`0` = disabled, up to `10 years`).
+* **Minimum Time in Server:** Require members to have been in your server for a minimum duration (`0` = disabled, up to `10 years`).
+
+---
+
+## 3. Captcha Verification Modes
+
+Choose how participants verify they are human when clicking **Participate**:
+
+| Mode | Behavior | Tier |
+| :--- | :--- | :--- |
+| **Disabled** | Members enter immediately upon passing role and account checks. | **Free** |
+| **Web Verification** | Sends the user to the browser portal to solve an **hCaptcha** challenge with network reputation and device fingerprint checks. | **Free** |
+| **Discord Captcha** | Presents an interactive visual image captcha solved directly inside Discord. | <Badge text="Premium" variant="caution" /> |
+
+---
+
+## 4. Prize Claiming
+
+Link your giveaway system directly to **TicketForge Tickets** so winners can claim rewards cleanly:
+
+* **Ticket Panel:** Select any ticket panel on your server. When a giveaway ends, winners receive a **Claim** button that opens a ticket under the selected panel.
+* **Claim Time Limit** <Badge text="Premium" variant="caution" />: Set a deadline window (`0` = no limit, up to `365 days`) for winners to click Claim after the giveaway ends.
+
+---
+
+## 5. Giveaway Page & Public Web Portal
+
+Every giveaway has a dedicated web page featuring live countdowns, goal progress bars, prize details, and winner announcements.
+
+![Public Giveaway Portal](/images/giveaways/public_portal.png)
+
+Control how your Discord giveaway message links to this page under **Giveaway Page**:
+
+| Mode | Behavior |
+| :--- | :--- |
+| **Link the Prize** *(Default)* | Turns the prize title in your Discord embed or V2 block into a clickable hyperlink to the giveaway page. |
+| **Link Button** | Attaches a **View Giveaway** URL button next to the Participate button. |
+| **Disabled** | Hides all links and keeps the public giveaway page private (`403 Private Giveaway`). |
+
+:::note[Web Captcha Portal Access]
+Even if **Giveaway Page** is set to **Disabled**, members entering a giveaway that uses **Web Verification** still receive a private signed session link (`?t=`) so they can complete the hCaptcha and confirm their entry.
+:::
